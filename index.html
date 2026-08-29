@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#101418">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
-<title>FlightFolio Tour Player v4 — Leg 40</title>
+<title>FlightFolio Tour Player v5 — Leg 40</title>
 <style>
 :root{
   color-scheme:dark;
@@ -52,7 +52,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
 </head>
 <body>
 <main>
-  <h1>FlightFolio Tour Player <span class="small">v4 · speech fix</span></h1>
+  <h1>FlightFolio Tour Player <span class="small">v5 · flight-ready</span></h1>
   <p class="sub" id="tourTitle"></p>
   <div class="card" id="httpsNotice" style="display:none;border-color:var(--warn)"><b>Secure web address required.</b> Microphone and wake-lock tests should be run from the hosted HTTPS version of this page, not from a downloaded file.</div>
 
@@ -385,17 +385,36 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       clearSchedule(); save(); updateUI();
     }
   }
+  function reconcilePlayedForSync(segmentIndex, remainingNm){
+    const seg=tour.segments[segmentIndex];
+    // Any narration whose trigger point is farther from the waypoint than our
+    // newly reported remaining distance is already behind the aircraft.
+    // Mark those blocks played/skipped so a resync never dumps stale stories.
+    seg.blocks.forEach(b=>{
+      if(b.triggerRemainingNm > remainingNm + 0.15 && !app.played[b.id]){
+        app.played[b.id]=true;
+        log(`Sync skipped passed narration: ${b.title}`);
+      }
+    });
+  }
+
   function setSync(segmentIndex, remainingNm, announce=true){
     segmentIndex=Math.max(0,Math.min(tour.segments.length-1,segmentIndex));
     const seg=tour.segments[segmentIndex];
     remainingNm=Math.max(0,Math.min(seg.distanceNm,Number(remainingNm)));
     clearSchedule();
+    reconcilePlayedForSync(segmentIndex, remainingNm);
     app.segmentIndex=segmentIndex; app.anchorRemainingNm=remainingNm; app.anchorMs=Date.now();
     app.pausedRemainingNm=remainingNm; app.boundaryPrompted=false;
     app.running=false; app.paused=true;
     save(); updateUI();
     log(`Synced: ${remainingNm.toFixed(1)} NM to ${waypointLabel(seg.to)}`);
-    if(announce) speak(`Synced. ${remainingNm.toFixed(0)} miles to ${waypointLabel(seg.to)}.`);
+    if(announce){
+      const next=seg.blocks.filter(b=>!app.played[b.id] && b.triggerRemainingNm < remainingNm + 0.15)
+        .sort((a,b)=>b.triggerRemainingNm-a.triggerRemainingNm)[0];
+      const tail=next ? ` Next scheduled story is ${next.title}.` : '';
+      speak(`Synced. ${remainingNm.toFixed(0)} miles to ${waypointLabel(seg.to)}.${tail}`);
+    }
   }
   function atWaypoint(n, announce=true){
     if(n <= 0){ setSync(0,tour.segments[0].distanceNm,false); }
@@ -406,9 +425,13 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     }
     app.running=true; app.paused=false; app.anchorMs=Date.now(); app.pausedRemainingNm=null; app.boundaryPrompted=false;
     save(); updateUI();
-    if(announce) speak(n<=4 ? `Waypoint ${n} confirmed. Tour timing is synchronized.` : `Destination confirmed. Leg Forty complete.`);
     log(`Waypoint ${n} confirmed`);
-    setTimeout(()=>{flushDue().then(()=>scheduleNext())}, announce ? 2200 : 0);
+    if(announce){
+      speak(n<=4 ? `Waypoint ${n} confirmed. Tour timing is synchronized.` : `Destination confirmed. Leg Forty complete.`)
+        .then(()=>{ if(n<=4) flushDue().then(()=>scheduleNext()); });
+    } else if(n<=4) {
+      flushDue().then(()=>scheduleNext());
+    }
   }
 
   async function status(){
@@ -756,7 +779,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       .then(()=>log('Offline cache service worker registered'))
       .catch(e=>log('Service worker failed: '+e.message));
   }
-  log('Leg 40 player v4 loaded');
+  log('Leg 40 player v5 loaded');
 })();
 </script>
 </body>

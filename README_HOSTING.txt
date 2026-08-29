@@ -1,27 +1,26 @@
-FLIGHTFOLIO TOUR PLAYER v4 — SPEECH RECOGNITION FIX
+FLIGHTFOLIO TOUR PLAYER v5 — FLIGHT-READY TEST BUILD
 
-The raw microphone test passed on the hosted v3 site, so microphone permission and HTTPS are working.
+V5 changes:
+- Keeps the working v4 HTTPS microphone + speech-recognition system.
+- Fixes manual resynchronization so narration you have already flown past is SKIPPED
+  instead of being read back-to-back after a sync.
+- Sync confirmation now tells you the next scheduled story when there is one.
+- Waypoint confirmation waits for its spoken confirmation to finish before scheduling
+  the next narration, avoiding speech clips cutting one another off.
+- Service worker cache bumped to v5.
 
-V4 changes:
-- Adds a separate Test speech recognition button with NO narration beforehand.
-- Changes preflight sequencing so TTS finishes first, then waits 1.5 seconds, then starts the speech listener.
-- Shows detailed speech-recognition API/start/error status.
-- Updates the service-worker cache from v3 to v4.
+UPDATE EXISTING GITHUB PAGES SITE
+Upload/replace all files at the existing repository root and Commit changes.
+Wait for Pages to redeploy, then confirm the page header says "v5 · flight-ready".
 
-UPDATE THE EXISTING GITHUB PAGES REPOSITORY
-Upload/replace ALL files from this package at the repository root and commit.
-At minimum index.html and sw.js must be replaced.
+SHORT DRY RUN BEFORE A REAL FLIGHT
+1. Run Preflight setup. Say "Tour status."
+2. Say "Tour start." From about 4 NM to WP1, the Lake Mendocino opening should begin
+   as the estimate reaches about 3.6 NM.
+3. Say "Tour waypoint one." It should confirm WP1 and begin timing toward WP2.
+4. Say "Tour sync 16 miles to waypoint two."
+   It should NOT replay Willits/Laytonville material that is now behind you.
+   It should identify the next still-relevant story near Leggett/redwood country.
+5. Say "Tour pause", "Tour resume", and "Tour repeat" once each.
 
-PHONE TEST
-1. Reopen the existing GitHub Pages URL.
-2. Confirm the header says: v4 · speech fix
-3. Press Test speech recognition FIRST.
-4. Wait for Hands-free to say LISTENING FOR COMMAND.
-5. Say: Tour status.
-6. Note what happens to:
-   - Hands-free
-   - Last heard
-   - the main message
-7. If that works, run Preflight setup and test Tour status again after its sentence.
-
-If you still see v3 after GitHub deploys, close/reopen the page or clear site data because the old service worker may still be cached.
+If those work, this build is ready for an actual MSFS Leg 40 flight test.
