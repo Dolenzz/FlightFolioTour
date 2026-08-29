@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#101418">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
-<title>FlightFolio Tour Player v6 — Leg 40</title>
+<title>FlightFolio Tour Player v7 — Leg 40</title>
 <style>
 :root{
   color-scheme:dark;
@@ -52,7 +52,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
 </head>
 <body>
 <main>
-  <h1>FlightFolio Tour Player <span class="small">v6 · tolerant commands</span></h1>
+  <h1>FlightFolio Tour Player <span class="small">v7 · smarter command matching</span></h1>
   <p class="sub" id="tourTitle"></p>
   <div class="card" id="httpsNotice" style="display:none;border-color:var(--warn)"><b>Secure web address required.</b> Microphone and wake-lock tests should be run from the hosted HTTPS version of this page, not from a downloaded file.</div>
 
@@ -141,8 +141,9 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       <li>“Tour status” / “Tour update”</li>
       <li>“Tour continue”</li>
       <li>“Tour waypoint two”</li>
-      <li>“Tour sync 16 miles to waypoint two”</li>
+      <li>“Tour sync 16 miles to waypoint two” <span class="small">(“Turn sync…” is also accepted)</span></li>
     </ul>
+    <p class="small">Don't over-enunciate. Common Chrome substitutions such as <b>Turn</b> for <b>Tour</b> are accepted when followed by a recognized command.</p>
     <hr>
     <div><b>Last heard:</b> <span id="heard">—</span></div>
   </section>
@@ -486,6 +487,13 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       .replace(/[,.!?;:]/g,' ')
       .replace(/\s+/g,' ')
       .trim();
+
+    // Chrome frequently hears the wake word "Tour" as "Turn".
+    // Correct it only when followed by one of our known command words.
+    t=t.replace(
+      /\bturn\s+(?=(?:sync|sink|sinc|since|status|update|pause|paws|pores|pours|hold|stop|wait|resume|go|proceed|start|begin|repeat|again|continue|way\s*point|waypoint)\b)/g,
+      'tour '
+    );
 
     const replacements = [
       [/\btour paws\b/g, 'tour pause'],
@@ -840,7 +848,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       .then(()=>log('Offline cache service worker registered'))
       .catch(e=>log('Service worker failed: '+e.message));
   }
-  log('Leg 40 player v6 loaded');
+  log('Leg 40 player v7 loaded');
 })();
 </script>
 </body>
