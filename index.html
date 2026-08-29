@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#101418">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
-<title>FlightFolio Tour Player v5 — Leg 40</title>
+<title>FlightFolio Tour Player v6 — Leg 40</title>
 <style>
 :root{
   color-scheme:dark;
@@ -52,7 +52,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
 </head>
 <body>
 <main>
-  <h1>FlightFolio Tour Player <span class="small">v5 · flight-ready</span></h1>
+  <h1>FlightFolio Tour Player <span class="small">v6 · tolerant commands</span></h1>
   <p class="sub" id="tourTitle"></p>
   <div class="card" id="httpsNotice" style="display:none;border-color:var(--warn)"><b>Secure web address required.</b> Microphone and wake-lock tests should be run from the hosted HTTPS version of this page, not from a downloaded file.</div>
 
@@ -134,9 +134,14 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
   <section class="card">
     <div class="kicker">Voice commands</div>
     <ul class="cmds">
-      <li>“Tour start”</li><li>“Tour pause”</li><li>“Tour resume”</li>
-      <li>“Tour repeat”</li><li>“Tour status”</li><li>“Tour continue”</li>
-      <li>“Tour waypoint two”</li><li>“Tour sync 16 miles to waypoint two”</li>
+      <li>“Tour start” / “Tour begin”</li>
+      <li>“Tour pause” / <b>“Tour hold”</b></li>
+      <li>“Tour resume” / <b>“Tour go”</b></li>
+      <li>“Tour repeat” / “Tour again”</li>
+      <li>“Tour status” / “Tour update”</li>
+      <li>“Tour continue”</li>
+      <li>“Tour waypoint two”</li>
+      <li>“Tour sync 16 miles to waypoint two”</li>
     </ul>
     <hr>
     <div><b>Last heard:</b> <span id="heard">—</span></div>
@@ -476,19 +481,70 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     if(!m) return null;
     return /^\d$/.test(m[1])?Number(m[1]):map[m[1].toLowerCase()];
   }
+  function normalizeCommandText(raw){
+    let t=raw.toLowerCase()
+      .replace(/[,.!?;:]/g,' ')
+      .replace(/\s+/g,' ')
+      .trim();
+
+    const replacements = [
+      [/\btour paws\b/g, 'tour pause'],
+      [/\btour pours\b/g, 'tour pause'],
+      [/\btour pores\b/g, 'tour pause'],
+      [/\btour paul'?s\b/g, 'tour pause'],
+      [/\btour resumed\b/g, 'tour resume'],
+      [/\btour zoom\b/g, 'tour resume'],
+      [/\btour sink\b/g, 'tour sync'],
+      [/\btour sinc\b/g, 'tour sync'],
+      [/\btour since\b/g, 'tour sync'],
+      [/\bway point\b/g, 'waypoint'],
+      [/\bwaypoints\b/g, 'waypoint'],
+      [/\bwaypoint won\b/g, 'waypoint one'],
+      [/\bwaypoint too\b/g, 'waypoint two'],
+      [/\bwaypoint tree\b/g, 'waypoint three'],
+      [/\bwaypoint for\b/g, 'waypoint four']
+    ];
+    for(const [a,b] of replacements) t=t.replace(a,b);
+    return t;
+  }
+
   async function handleCommand(raw){
-    const t=raw.toLowerCase().replace(/[,.!?]/g,' ').replace(/\s+/g,' ').trim();
-    els.heard.textContent=raw; log(`Heard: ${raw}`);
+    const t=normalizeCommandText(raw);
+    els.heard.textContent=raw;
+    log(`Heard: ${raw}`);
+    if(t !== raw.toLowerCase().trim()) log(`Normalized command: ${t}`);
     if(speaking) return;
+
     if(!t.includes('tour') && !t.startsWith('waypoint')) return;
-    if(/tour\s+(start|resume)/.test(t)){ setRunning(true); return; }
-    if(/tour\s+pause/.test(t)){ setRunning(false); els.message.textContent='Tour paused'; await speak('Tour paused.'); return; }
-    if(/tour\s+status/.test(t)){ await status(); return; }
-    if(/tour\s+repeat/.test(t)){ await repeatLast(); return; }
-    if(/tour\s+continue/.test(t)){ await manualContinue(); return; }
+
+    if(/\btour\s+(start|begin)\b/.test(t)){ setRunning(true); return; }
+
+    if(/\btour\s+(pause|hold|stop|wait)\b/.test(t)){
+      setRunning(false);
+      els.message.textContent='Tour paused';
+      await speak('Tour paused.');
+      return;
+    }
+
+    if(/\btour\s+(resume|go|proceed)\b/.test(t)){
+      setRunning(true);
+      await speak('Tour resumed.');
+      return;
+    }
+
+    if(/\btour\s+(status|update)\b/.test(t)){ await status(); return; }
+
+    if(/\btour\s+(repeat|again)\b/.test(t)){ await repeatLast(); return; }
+
+    if(/\btour\s+continue\b/.test(t)){ await manualContinue(); return; }
+
     const wn=waypointNumberFromText(t);
-    if((/tour\s+waypoint/.test(t)||t.startsWith('waypoint')) && wn){ atWaypoint(wn); return; }
-    if(/tour\s+sync/.test(t) && wn){
+    if((/\btour\s+waypoint\b/.test(t)||t.startsWith('waypoint')) && wn){
+      atWaypoint(wn);
+      return;
+    }
+
+    if(/\btour\s+sync\b/.test(t) && wn){
       const beforeWp=t.split(/waypoint/i)[0];
       const m=beforeWp.match(/sync\s+(.+?)\s+miles?/i);
       if(m){
@@ -500,6 +556,11 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
           return;
         }
       }
+    }
+
+    if(/\btour\b/.test(t)){
+      els.message.textContent=`Command not matched: “${raw}”`;
+      log(`Unmatched normalized command: ${t}`);
     }
   }
 
@@ -523,7 +584,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     recognition.onstart=()=>{
       els.mic.textContent='LISTENING FOR COMMAND';
       els.mic.className='goodtxt';
-      els.message.textContent='Listening now — say “Tour status.”';
+      els.message.textContent='Listening now — say “Tour status.” For pause and resume, “Tour hold” and “Tour go” are the most reliable.';
       log('Speech recognition started');
       if(recognitionStartResolver){ recognitionStartResolver(true); recognitionStartResolver=null; }
     };
@@ -779,7 +840,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       .then(()=>log('Offline cache service worker registered'))
       .catch(e=>log('Service worker failed: '+e.message));
   }
-  log('Leg 40 player v5 loaded');
+  log('Leg 40 player v6 loaded');
 })();
 </script>
 </body>

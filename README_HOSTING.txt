@@ -1,26 +1,33 @@
-FLIGHTFOLIO TOUR PLAYER v5 — FLIGHT-READY TEST BUILD
+FLIGHTFOLIO TOUR PLAYER v6 — TOLERANT VOICE COMMANDS
 
-V5 changes:
-- Keeps the working v4 HTTPS microphone + speech-recognition system.
-- Fixes manual resynchronization so narration you have already flown past is SKIPPED
-  instead of being read back-to-back after a sync.
-- Sync confirmation now tells you the next scheduled story when there is one.
-- Waypoint confirmation waits for its spoken confirmation to finish before scheduling
-  the next narration, avoiding speech clips cutting one another off.
-- Service worker cache bumped to v5.
+Chrome speech recognition may transcribe sound-alike words, for example "Tour Paws"
+instead of "Tour Pause". V6 normalizes common mishearings and adds speech-friendly aliases.
 
-UPDATE EXISTING GITHUB PAGES SITE
-Upload/replace all files at the existing repository root and Commit changes.
-Wait for Pages to redeploy, then confirm the page header says "v5 · flight-ready".
+RECOMMENDED IN-FLIGHT COMMANDS
+Tour start / Tour begin
+Tour hold        (recommended pause command)
+Tour go          (recommended resume command)
+Tour status / Tour update
+Tour repeat / Tour again
+Tour continue
+Tour waypoint one/two/three/four
+Tour sync 16 miles to waypoint two
 
-SHORT DRY RUN BEFORE A REAL FLIGHT
-1. Run Preflight setup. Say "Tour status."
-2. Say "Tour start." From about 4 NM to WP1, the Lake Mendocino opening should begin
-   as the estimate reaches about 3.6 NM.
-3. Say "Tour waypoint one." It should confirm WP1 and begin timing toward WP2.
-4. Say "Tour sync 16 miles to waypoint two."
-   It should NOT replay Willits/Laytonville material that is now behind you.
-   It should identify the next still-relevant story near Leggett/redwood country.
-5. Say "Tour pause", "Tour resume", and "Tour repeat" once each.
+V6 ALSO ACCEPTS
+Tour Paws / Pores / Pours as Tour Pause
+Tour Sink / Sinc / Since as Tour Sync
+"way point" as "waypoint"
+common waypoint-number homophones such as won/too/tree/for
 
-If those work, this build is ready for an actual MSFS Leg 40 flight test.
+UPDATE
+Replace the files in your existing GitHub Pages repository and commit them.
+Confirm the header says "v6 · tolerant commands".
+
+QUICK TEST
+1. Say "Tour hold".
+2. Say "Tour go".
+3. Intentionally say "Tour paws".
+4. Say "Tour update".
+5. Say "Tour sink 16 miles to waypoint two".
+
+The diagnostic log records both the raw Chrome transcript and any normalized command.
