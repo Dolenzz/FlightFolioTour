@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 2,
+  "id": "leg41-kacv-kcec",
+  "title": "Leg 41 — Arcata/Eureka to Crescent City",
+  "subtitle": "Redwood Coast guided flight",
+  "departure": {
+    "id": "KACV",
+    "name": "California Redwood Coast–Humboldt County Airport"
+  },
+  "destination": {
+    "id": "KCEC",
+    "name": "Jack McNamara Field"
+  },
+  "cruiseAltitudeFt": 4500,
+  "defaultGroundSpeedKt": 110,
+  "routeDistanceNm": 51.53,
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "name": "Trinidad Head and Trinidad Bay",
+      "lat": 41.058999,
+      "lon": -124.151
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "name": "Sue-meg State Park Coastline",
+      "lat": 41.136,
+      "lon": -124.157
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "name": "Klamath River Mouth",
+      "lat": 41.531,
+      "lon": -124.04
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "name": "Battery Point Lighthouse",
+      "lat": 41.755,
+      "lon": -124.21
+    }
+  ],
+  "segments": [
+    {
+      "from": "KACV",
+      "to": "WP01",
+      "distanceNm": 5.22,
+      "blocks": [
+        {
+          "id": "depart-coast",
+          "triggerRemainingNm": 5.0,
+          "title": "Leaving McKinleyville for the North Coast",
+          "text": "Welcome to Leg Forty One. We are leaving the Arcata-Eureka airport area and turning north along one of California's most dramatic coastlines. This flight is much more tightly tied to the shoreline than the previous leg. Forested headlands, small coastal communities, lagoons, river mouths and offshore rocks will give us frequent visual reference points. Our first waypoint is Trinidad Head. Rather than assuming every landmark is directly beneath us, I will tell you when something is off one side of the route. For now, settle onto the course and enjoy the short run toward Trinidad."
+        },
+        {
+          "id": "trinidad-preview",
+          "triggerRemainingNm": 2.5,
+          "title": "Trinidad ahead",
+          "text": "Trinidad is coming up quickly. The small city is tucked beside Trinidad Bay, with Trinidad Head projecting into the Pacific. The lighthouse on the head was first lit in 1871 and still serves as an aid to navigation. Offshore, the rocks and small islands are part of the California Coastal National Monument. The town itself should be very close to our route rather than several miles away, so this is one of the places where the scenery below should line up well with the narration. When you cross Waypoint One at Trinidad Head, say Tour waypoint one."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 4.63,
+      "blocks": [
+        {
+          "id": "trinidad-yurok",
+          "triggerRemainingNm": 4.2,
+          "title": "Trinidad Bay and a much older landscape",
+          "text": "Leaving Trinidad Head, remember that the modern town occupies a landscape with a far older human history. Yurok people lived along this coast long before European arrival, traveling between coastal and river villages by trails and by redwood dugout canoe. California State Parks records the first documented European contact in this immediate area in 1775, near the Yurok settlement at present-day Trinidad. The coastline ahead remains closely connected to living Yurok culture, not simply to archaeological history."
+        },
+        {
+          "id": "suemeg",
+          "triggerRemainingNm": 1.8,
+          "title": "Sue-meg State Park",
+          "text": "Waypoint Two is near Sue-meg State Park. Until 2021 many maps called this Patrick's Point State Park. California officially restored the name Sue-meg after a request from the Yurok Tribe. Sue-meg is an ancient Yurok place name for this area. The park also contains a reconstructed traditional Yurok village used for cultural education and ceremonies. From the air, the feature to notice is the compact forested headland and rugged rocky shoreline rather than a large town. When you cross Waypoint Two, say Tour waypoint two."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 24.3,
+      "blocks": [
+        {
+          "id": "big-lagoon",
+          "triggerRemainingNm": 21.5,
+          "title": "Big Lagoon",
+          "text": "A few miles beyond Sue-meg, look roughly a mile to the right of our course for Big Lagoon. This begins the Humboldt Lagoons landscape, where long sand spits separate coastal water from the open Pacific. Big Lagoon frequently breaches its sand barrier after heavy winter rains, temporarily reconnecting more directly with the ocean. California State Parks describes the lagoon system here as a product of the active tectonic margin where oceanic crust is being driven beneath North America. It is a good example of why this coast is both beautiful and geologically restless."
+        },
+        {
+          "id": "stone-lagoon",
+          "triggerRemainingNm": 17.8,
+          "title": "Stone Lagoon and the string of coastal waters",
+          "text": "Next comes Stone Lagoon, again about a mile to the right of our route. Its barrier beach is more persistent than Big Lagoon's and may remain closed for years between breaches. Between the lagoons are marshes, dunes, forest and coastal scrub, creating an unusually dense mix of habitats in a very narrow strip. The old visitor-center building beside Stone Lagoon also has an unexpected past: it began life in the 1920s as a roadside motel and restaurant called the Little Red Hen before eventually becoming a park facility."
+        },
+        {
+          "id": "orick",
+          "triggerRemainingNm": 14.2,
+          "title": "Orick and Redwood Creek",
+          "text": "We are approaching the Orick area. The town is about two miles to the right of our course, near the broad lower valley of Redwood Creek. Orick became closely associated with both logging and the creation of Redwood National Park. When the national park was established in 1968, it protected important redwood stands and a narrow corridor along Redwood Creek, but logging continued around the new boundaries. That became one of the reasons Congress expanded the park in 1978 to protect more of the watershed. So the mixture of old forest, younger forest and open land visible from the air is partly a record of that history."
+        },
+        {
+          "id": "lady-bird",
+          "triggerRemainingNm": 11.2,
+          "title": "Lady Bird Johnson Grove off the right",
+          "text": "About four miles to the right, inland from our coastal track, is the Lady Bird Johnson Grove. The grove is tied directly to the political history of Redwood National Park. The park was established in 1968, and the grove was dedicated to former First Lady Lady Bird Johnson the following year in recognition of her conservation work. This is an intentionally off-route callout: you may not be able to identify the grove itself from the airplane, but the forested uplands to the right are part of the landscape the preservation fight was trying to save."
+        },
+        {
+          "id": "elk-prairie",
+          "triggerRemainingNm": 8.3,
+          "title": "Prairie Creek and Roosevelt elk country",
+          "text": "The country to the right now includes Prairie Creek Redwoods State Park and several places where Roosevelt elk are regularly seen. The National Park Service tracks herds around Prairie Creek, Gold Bluffs Beach, the Orick Valley and lower Redwood Creek. The open prairies matter because this coast is not simply wall-to-wall redwoods. Patches of grassland create feeding areas for elk and break the forest into a much more varied landscape than the tree canopy alone suggests."
+        },
+        {
+          "id": "gold-bluffs",
+          "triggerRemainingNm": 5.4,
+          "title": "Gold Bluffs Beach and Fern Canyon",
+          "text": "Gold Bluffs Beach should be very close to the right side of our route now, roughly half a mile away at the nearest point. Behind the beach lies Prairie Creek Redwoods State Park, and nearby Fern Canyon cuts a narrow, steep-walled passage through the coastal terrain. This area also preserves traces of a much less gentle past: nineteenth-century placer miners worked parts of the Gold Bluffs shoreline. The striking thing from the air is the compression of beach, bluffs, forest and river country into only a few miles."
+        },
+        {
+          "id": "radar-b71",
+          "triggerRemainingNm": 2.3,
+          "title": "A World War Two radar station disguised as a farm",
+          "text": "Just before the Klamath River mouth is one of the stranger stories on this coast. During World War Two, the Army Air Corps operated radar station B seventy-one on a bluff roughly two miles south of the river mouth. The buildings were disguised to resemble an ordinary farmhouse and barn while early-warning radar watched the Pacific. It was the northernmost station in California's wartime coastal radar network, and surviving structures remain in Redwood National and State Parks today. Waypoint Three, the mouth of the Klamath, is just ahead."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 15.46,
+      "blocks": [
+        {
+          "id": "klamath-yurok",
+          "triggerRemainingNm": 14.3,
+          "title": "Klamath River and Yurok country",
+          "text": "Crossing the Klamath River mouth, we are entering a landscape central to Yurok life. The Yurok Tribe describes the Klamath-Trinity river system as the lifeline of its people, supporting salmon and other traditional foods as well as travel, ceremony and community life. The federal government established the Yurok Reservation here in 1855, although it represented only a fraction of the Tribe's ancestral territory. The community of Klamath lies almost directly along our route just inland from the mouth, so this is one place where the town and narration should coincide closely."
+        },
+        {
+          "id": "trees-mystery",
+          "triggerRemainingNm": 11.2,
+          "title": "Klamath and the Trees of Mystery",
+          "text": "Still near Klamath, watch the inland side of the route for the Highway 101 corridor. Very close to our track is the Trees of Mystery attraction, famous for its enormous roadside figures of Paul Bunyan and Babe the Blue Ox. They are a bit of mid-century roadside Americana planted in the middle of serious redwood country. Whether or not the statues themselves resolve from forty-five hundred feet, the attraction is a useful marker for where the highway squeezes between forested slopes and the coast."
+        },
+        {
+          "id": "delnorte-geology",
+          "triggerRemainingNm": 7.8,
+          "title": "The rugged Del Norte coast",
+          "text": "North of Klamath, the coast becomes increasingly rugged as we enter Del Norte County. Much of the rock exposed along this part of Redwood National and State Parks belongs to the Franciscan assemblage: sandstone, mudstone and other material that was scraped, sheared and lifted from the ocean floor by plate tectonics. That helps explain the unstable slopes, steep coastal bluffs and twisting transportation corridor below. Here the geology is not background scenery; it actively controls where roads can go and where communities can fit."
+        },
+        {
+          "id": "crescent-tsunami",
+          "triggerRemainingNm": 4.4,
+          "title": "Crescent City and the 1964 tsunami",
+          "text": "Crescent City is coming into view ahead and slightly to the right of our track. Its broad bay made it a useful nineteenth-century shipping center, but the shape of the coast and offshore seafloor also make the city unusually vulnerable to tsunamis. After the magnitude nine-point-two Alaska earthquake in March 1964, a series of waves struck Crescent City. Twelve people were killed and hundreds of buildings were destroyed or damaged. The disaster remains one of the defining events in the city's modern history, and tsunami awareness is still a visible part of life along this coast."
+        },
+        {
+          "id": "battery",
+          "triggerRemainingNm": 1.5,
+          "title": "Battery Point Lighthouse",
+          "text": "Waypoint Four is Battery Point Lighthouse, just offshore at Crescent City. Its first oil lamps were lit in December 1856, making it considerably older than the lighthouse we passed at Trinidad. The light was automated in the 1950s, but keepers still live at the station and the lighthouse operates as a private aid to navigation. At high tide the rocky point becomes an island; visitors on foot can reach it only when the tide allows. When you cross the lighthouse waypoint, say Tour waypoint four."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "KCEC",
+      "distanceNm": 1.92,
+      "blocks": [
+        {
+          "id": "final-kcec",
+          "triggerRemainingNm": 1.7,
+          "title": "Final hop to Jack McNamara Field",
+          "text": "Battery Point is behind us and the final hop is very short. Jack McNamara Field is less than two nautical miles beyond this waypoint, just north of Crescent City. There is no need for another long story here; concentrate on the arrival. If you need to correct the player on this final leg, you can now say Tour sync one mile to destination, Tour sync one mile to airport, or Tour sync one mile to K C E C. At the end, say Tour destination."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Flight plan — Leg 41",
+      "url": "local:Leg 41 - Landmark Tour.pln"
+    },
+    {
+      "name": "BLM — Trinidad Head Lighthouse",
+      "url": "https://www.blm.gov/visit/trinidad-head-lighthouse"
+    },
+    {
+      "name": "California State Parks — Sue-meg State Park",
+      "url": "https://parks.ca.gov/?page_id=30927"
+    },
+    {
+      "name": "California State Parks — Humboldt Lagoons State Park",
+      "url": "https://www.parks.ca.gov/?page_id=416"
+    },
+    {
+      "name": "NPS — Redwood Area History",
+      "url": "https://www.nps.gov/redw/learn/historyculture/area-history.htm"
+    },
+    {
+      "name": "NPS — Lady Bird Johnson Grove",
+      "url": "https://www.nps.gov/places/lbjtrailhead.htm"
+    },
+    {
+      "name": "NPS — Roosevelt Elk",
+      "url": "https://home.nps.gov/redw/learn/nature/roosevelt-elk.htm"
+    },
+    {
+      "name": "NPS — World War II Radar Station B-71",
+      "url": "https://home.nps.gov/places/redwoodradarstation.htm"
+    },
+    {
+      "name": "Yurok Tribe — Our History",
+      "url": "https://www.yuroktribe.org/our-history"
+    },
+    {
+      "name": "Yurok Tribe — Formation of Reservations",
+      "url": "https://www.yuroktribe.org/formation-of-reservations"
+    },
+    {
+      "name": "NPS — Natural Features and Ecosystems",
+      "url": "https://www.nps.gov/redw/learn/nature/naturalfeaturesandecosystems.htm"
+    },
+    {
+      "name": "NPS — Power of the Earth / Crescent City",
+      "url": "https://www.nps.gov/redw/learn/historyculture/thenandnow7.htm"
+    },
+    {
+      "name": "Del Norte County Historical Society — Battery Point Lighthouse",
+      "url": "https://delnortehistory.org/battery-point-lighthouse/"
+    }
+  ]
+}

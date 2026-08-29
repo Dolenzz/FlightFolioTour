@@ -1,49 +1,55 @@
-FLIGHTFOLIO TOUR PLAYER v9 — REAL-FLIGHT BUILD
+FLIGHTFOLIO TOUR PLAYER v10 — LEG 41 FIELD TEST
 
-V9 keeps the working v8 listener/scheduler and adds two real-flight housekeeping fixes.
+ROUTE
+KACV -> WP1 Trinidad Head -> WP2 Sue-meg State Park -> WP3 Klamath River Mouth
+-> WP4 Battery Point Lighthouse -> KCEC Jack McNamara Field
 
-1. RESET TOUR
-Dry-run tests leave saved position and "played narration" state behind.
-Before an actual flight, press RESET TOUR and confirm.
-This returns the player to KUKI -> WP1, clears all narration history, and pauses at departure.
+IMPORTANT DISTANCE NOTE
+The source PLN description says approximately 78 NM / 43 minutes at 110 KT.
+The actual waypoint-coordinate route is approximately 51.5 NM / 28.1 minutes at 110 KT.
+This player uses the waypoint-coordinate distances because those are the route geometry MSFS follows.
 
-2. DESTINATION COMMAND
-The final prompt can now be completed with:
-  Tour destination
-or:
-  Tour airport
+SEGMENT DISTANCES
+KACV -> WP1: 5.22 NM
+WP1 -> WP2: 4.63 NM
+WP2 -> WP3: 24.30 NM
+WP3 -> WP4: 15.46 NM
+WP4 -> KCEC: 1.92 NM
 
-The app then says "Destination confirmed. Leg Forty complete." and stops the tour clock.
+WHAT CHANGED FROM THE LEG 40 TEST
+- 17 prepared narration blocks over the shorter route.
+- More nearby towns/landmarks and fewer artificial quiet gaps.
+- Wording distinguishes close-to-route features from off-route sights.
+- Final-leg syncing now accepts:
+    Tour sync 1 mile to destination
+    Tour sync 1 mile to airport
+    Tour sync 1 mile to K C E C
+- In-flight speed can be changed hands-free:
+    Tour speed 115
+- Tour status now reports the configured tour speed.
+- Keeps tolerant recognition and stable listener from the tested v8/v9 builds.
 
-UPDATE
-Replace all files in your existing GitHub Pages repository with v9 and commit them.
-Confirm the header says:
-  v9 · real-flight build
+REAL-FLIGHT PROCEDURE
+1. Upload/replace all files in the existing GitHub Pages repository.
+2. Confirm the header says "v10 · Leg 41 field test".
+3. Press RESET TOUR before flying.
+4. Run Preflight.
+5. Take off and establish yourself on/near the GPS route with autopilot.
+6. Sync to the actual MSFS distance to WP1:
+     Tour sync 3 miles to waypoint one
+7. Leave the app alone and let narration advance automatically.
+8. At each waypoint:
+     Tour waypoint one
+     Tour waypoint two
+     Tour waypoint three
+     Tour waypoint four
+9. Do not resync for tiny differences. About 1-2 NM can be tolerated; sync if it
+   becomes clearly distracting or exceeds roughly 2 NM.
+10. If your sustained GPS groundspeed is materially different:
+     Tour speed 115
+11. On the final leg you may sync with:
+     Tour sync 1 mile to destination
+12. At KCEC:
+     Tour destination
 
-REAL FLIGHT START
-1. Open the site.
-2. Select/preview your preferred voice.
-3. Press RESET TOUR and confirm.
-4. Set estimated groundspeed (110 kt unless you plan to use another speed).
-5. Run Preflight setup.
-6. Say "Tour status" once.
-7. When ready to take off, say "Tour start".
-8. Leave the player alone between narration blocks.
-9. At each actual flight-plan waypoint say:
-   Tour waypoint one
-   Tour waypoint two
-   Tour waypoint three
-   Tour waypoint four
-10. If timing drifts, say:
-   Tour sync 12 miles to waypoint three
-   (using the distance MSFS shows)
-11. Use:
-   Tour hold = pause
-   Tour go = resume
-   Tour again = repeat last narration
-   Tour update = status
-12. At KACV say:
-   Tour destination
-
-During the real flight, note timing, narration density, long-silence recognition,
-false triggers from simulator audio, and whether narration feels tied to what you see.
+This is intended to test CONTENT and geographic feel more than basic browser mechanics.
