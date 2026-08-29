@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "id": "leg40-kuki-kacv",
+  "title": "Leg 40 — Ukiah to Arcata/Eureka",
+  "subtitle": "California North Coast guided flight",
+  "departure": {
+    "id": "KUKI",
+    "name": "Ukiah Municipal Airport"
+  },
+  "destination": {
+    "id": "KACV",
+    "name": "California Redwood Coast–Humboldt County Airport"
+  },
+  "cruiseAltitudeFt": 6200,
+  "defaultGroundSpeedKt": 110,
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "name": "Lake Mendocino",
+      "lat": 39.185,
+      "lon": -123.18
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "name": "Eel River / Garberville",
+      "lat": 40.1,
+      "lon": -123.8
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "name": "Avenue of the Giants / Humboldt Redwoods",
+      "lat": 40.35,
+      "lon": -124.02
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "name": "Humboldt Bay / Eureka",
+      "lat": 40.77,
+      "lon": -124.21
+    }
+  ],
+  "segments": [
+    {
+      "from": "KUKI",
+      "to": "WP01",
+      "distanceNm": 3.68,
+      "blocks": [
+        {
+          "id": "opening",
+          "triggerRemainingNm": 3.6,
+          "title": "Ukiah Valley and Lake Mendocino",
+          "text": "Welcome aboard. This time we are firmly in Northern California, in the Coast Ranges rather than the Sierra Nevada. We are leaving Ukiah and the broad Russian River valley, with Lake Mendocino just ahead at Waypoint One. The lake is not natural. It was created by Coyote Valley Dam on the East Fork of the Russian River. The Army Corps of Engineers completed the earth-filled dam in 1957; it rises about 160 feet and was built for flood control as well as domestic and agricultural water supply. From the air, notice how abruptly the reservoir fingers into the surrounding hills. Those folded ridges are a good preview of the country we will follow north. Waypoint One is only a few miles ahead. When you cross it, say, Tour waypoint one."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 61.97,
+      "blocks": [
+        {
+          "id": "lake-after",
+          "triggerRemainingNm": 59.0,
+          "title": "Leaving Lake Mendocino",
+          "text": "With Lake Mendocino slipping behind us, the flight now settles into the long northbound run toward Garberville. For much of this segment we are following the grain of California's North Coast ranges: long ridges separated by narrow valleys and river corridors. Highway 101 uses many of the same natural passages below us. The landscape can look isolated from six thousand feet, yet these valleys have long been the practical route connecting the small communities of Mendocino and Humboldt counties. I will leave you some quiet flying time. Our next story comes as we approach Willits."
+        },
+        {
+          "id": "willits",
+          "triggerRemainingNm": 47.0,
+          "title": "Willits and the Skunk Train",
+          "text": "We should now be near Willits, roughly beneath the route and just slightly left of our course. Willits is the inland end of one of Northern California's most distinctive railroads: the California Western, better known as the Skunk Train. The line began in 1885 as a logging railroad from Fort Bragg on the Pacific coast, carrying timber out of the forests to the mill. Passenger service began in the early twentieth century, but the railroad did not finally reach Willits until 1911. That connection mattered because passengers and freight could then transfer to the north-south rail network rather than finishing the trip by stagecoach. The nickname 'Skunk Train' came later, associated with the smell of the gasoline-powered railcars. Today it survives mainly as an excursion railroad through redwood country."
+        },
+        {
+          "id": "laytonville",
+          "triggerRemainingNm": 29.0,
+          "title": "Laytonville and the inland corridor",
+          "text": "Approaching the Laytonville area, the country below becomes a useful lesson in why roads, railways and towns cluster where they do. The Coast Ranges are not one continuous wall; they are a maze of ridges, faults, valleys and river cuts. Communities such as Laytonville occupy the more forgiving pieces of ground between them. Our route is gradually bending toward the South Fork of the Eel River. From here northward, the climate also starts changing. Pacific moisture and summer fog become increasingly important, and that is one of the reasons the famous coast-redwood belt begins to dominate the story ahead. Enjoy the ridges for a few minutes. The next section comes as we approach Leggett, the traditional southern gateway to the North Coast redwoods."
+        },
+        {
+          "id": "leggett",
+          "triggerRemainingNm": 14.5,
+          "title": "Leggett — gateway to redwood country",
+          "text": "We are coming up on the Leggett area. This is where the route joins the South Fork of the Eel River and where the scenery begins to feel unmistakably like redwood country. Nearby Standish-Hickey State Recreation Area is often described as the southern gateway to the North Coast redwoods. Its trails pass through second-growth forest as well as pockets of old-growth redwood and Douglas fir. A little farther north, Richardson Grove State Park protects coast redwoods rising more than three hundred feet beside the South Fork Eel River. From our altitude the individual giants disappear into a dark-green carpet, but that carpet contains some of the tallest living organisms on Earth. As the river valley opens ahead, we are also getting close to Waypoint Two near Garberville."
+        },
+        {
+          "id": "redwood-science",
+          "triggerRemainingNm": 8.0,
+          "title": "Why redwoods thrive here",
+          "text": "A quick bit of redwood science while this landscape is beneath us. Coast redwoods survive in a remarkably narrow strip along the Pacific because they depend on a cool, moist maritime climate. Summer fog is not just scenery to them. Redwoods can absorb moisture directly through their foliage, and fog drip also feeds the forest floor during California's dry season. Their root system is equally surprising. A giant redwood has no deep taproot. The roots stay comparatively shallow, then spread outward for many tens of feet and intertwine with neighboring trees. So the forest functions almost like a community of enormous trees bracing one another against wind and saturated soil. That combination of fog, mild temperatures and shared shallow roots helps explain why this particular strip of Northern California can support trees of such extraordinary height."
+        },
+        {
+          "id": "garberville",
+          "triggerRemainingNm": 3.0,
+          "title": "Garberville and the Eel River",
+          "text": "Waypoint Two is just ahead near Garberville and the South Fork of the Eel River. The Eel forms California's third-largest watershed, draining rugged interior mountains before reaching the Pacific. It also carries both state and federal Wild and Scenic River designations. The watershed supports steelhead and several salmon runs, while its South Fork threads directly through some of the great redwood forests we are about to see. Garberville itself grew as a service center along this north-south corridor, but from the air the river is the feature to watch: bends, gravel bars and forested slopes defining the valley. When you cross Waypoint Two, say, Tour waypoint two. I will use that to lock our timing to the next section."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 18.08,
+      "blocks": [
+        {
+          "id": "eel-wild",
+          "triggerRemainingNm": 16.0,
+          "title": "The Wild and Scenic Eel",
+          "text": "We are now following the Eel River country north from Garberville. The federal Wild and Scenic designation protects free-flowing river values rather than turning the river into a reservoir system. This watershed is biologically important as well as scenic: Chinook salmon, coho salmon, steelhead and sea-run cutthroat trout all occur in the Eel system. Below us, the river and Highway 101 repeatedly trade sides as they negotiate the valley. That makes this stretch especially satisfying from the air: the natural corridor and the human transportation corridor are visible together."
+        },
+        {
+          "id": "humboldt-preview",
+          "triggerRemainingNm": 7.5,
+          "title": "Entering Humboldt Redwoods",
+          "text": "We are entering the heart of Humboldt redwood country now. What looks like an unbroken forest canopy conceals an enormous range of ages and histories. Some stands were logged and later regrew; others survived as old growth. The preservation movement here accelerated in the early twentieth century as motorists and conservationists realized how quickly the remaining giant groves were disappearing. Our next waypoint is positioned near the Avenue of the Giants and Humboldt Redwoods State Park. As you approach, the river, road and forest become tightly woven together. When you cross Waypoint Three, say, Tour waypoint three."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 26.66,
+      "blocks": [
+        {
+          "id": "avenue",
+          "triggerRemainingNm": 25.0,
+          "title": "Avenue of the Giants and Rockefeller Forest",
+          "text": "Waypoint Three puts us beside one of the signature landscapes of the entire flight: Humboldt Redwoods State Park and the Avenue of the Giants. The Avenue is a roughly thirty-two-mile scenic road running through the redwood corridor, but the more important fact from the air is the scale of the protected forest around it. Humboldt Redwoods State Park includes Rockefeller Forest, described by California State Parks as the largest remaining contiguous old-growth coast-redwood forest in the world. Some of these groves have never been logged. From our altitude you cannot appreciate a single trunk the way you can from the ground, but you can appreciate something ground visitors cannot: just how broad and continuous the forest ecosystem is."
+        },
+        {
+          "id": "scotia",
+          "triggerRemainingNm": 18.0,
+          "title": "Scotia — a timber company town",
+          "text": "We should now be passing almost directly over Scotia, one of the best human-history stories on this leg. Scotia grew around the Pacific Lumber Company in the late nineteenth century. A sawmill was operating by 1887, and the company built not only industrial facilities but homes, stores and other services for its workforce. For much of its life Scotia was a true company town, and it survived in that form far longer than most American examples. The old corporate structure finally began breaking apart after Pacific Lumber's bankruptcy in the 2000s, with houses gradually moving into private ownership. A sawmill still operates here, so this is not simply a preserved museum town. It is a living link between the historic redwood timber economy and the modern North Coast."
+        },
+        {
+          "id": "ferndale",
+          "triggerRemainingNm": 10.0,
+          "title": "Ferndale off the left side",
+          "text": "If visibility is good, look about six miles off the left side for the lower, flatter country around Ferndale. That town offers a very different North Coast story from Scotia. Ferndale was an agricultural community settled in the nineteenth century and became known as 'Cream City' because of its dairy industry. Prosperity from dairying, creameries, shipping and trade helped produce the elaborate Victorian and Gothic houses and commercial buildings for which Ferndale is famous today. The contrast from the air is striking: forested ridges give way to the broad Eel River lowlands and agricultural fields as we move toward the coast."
+        },
+        {
+          "id": "bay-approach",
+          "triggerRemainingNm": 3.5,
+          "title": "Approaching Humboldt Bay",
+          "text": "Waypoint Four is just ahead at Humboldt Bay. Watch for the landscape to open dramatically toward water, tidal flats and the long shape of the bay behind its barrier spits. This is the major protected harbor on this portion of the Northern California coast and it became the economic focus of the Eureka area. When you cross Waypoint Four, say, Tour waypoint four. That will start our final short segment toward Arcata-Eureka Airport."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "KACV",
+      "distanceNm": 13.32,
+      "blocks": [
+        {
+          "id": "bay-history",
+          "triggerRemainingNm": 12.0,
+          "title": "Humboldt Bay — the harbor that was lost",
+          "text": "Humboldt Bay has a wonderfully odd exploration history. An outside expedition entered the bay in 1806, but the location was not properly charted before the ship departed. Because the entrance is hard to pick out from offshore among dunes, surf and coastal landforms, later mariners effectively lost the bay again. It was rediscovered during the California Gold Rush, when merchants urgently needed a coastal supply route to the mining country inland. In 1850 the bay was named for the celebrated naturalist Alexander von Humboldt. Lumber, shipping and shipbuilding later made the harbor central to the region's economy. Below and around us now, Eureka, Arcata and the bay are all part of that maritime landscape."
+        },
+        {
+          "id": "airport-history",
+          "triggerRemainingNm": 5.5,
+          "title": "KACV — an airport built for bad weather",
+          "text": "As we close on the destination, the airport itself deserves the final story. Arcata-Eureka Airport was developed by the federal government during World War Two as a place to train and test operations in poor weather. That choice was hardly accidental. The Humboldt coast is famous for fog and low cloud, exactly the conditions that make visual flying difficult. The field became associated with early instrument-landing work before being transferred to Humboldt County for civilian use after the war. So if the coast looks gray or misty on your approach, that is not an inconvenience to the history of this airport; it is part of the reason the airport was built here in the first place. You are nearing the end of Leg Forty. Enjoy the approach, and use Tour status at any time if you want your remaining distance estimate."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "U.S. Army Corps of Engineers — Coyote Valley Dam",
+      "url": "https://www.spn.usace.army.mil/Missions/Projects-and-Programs/Current-Projects/Coyote-Valley-Dam-I/"
+    },
+    {
+      "name": "Skunk Train — Willits history",
+      "url": "https://www.skunktrain.com/willits-history/"
+    },
+    {
+      "name": "California State Parks — Standish-Hickey / Richardson Grove",
+      "url": "https://www.parks.ca.gov/"
+    },
+    {
+      "name": "Bureau of Land Management — Eel Wild and Scenic River",
+      "url": "https://www.blm.gov/programs/national-conservation-lands/california/eel-wsr"
+    },
+    {
+      "name": "California State Parks — Humboldt Redwoods State Park",
+      "url": "https://www.parks.ca.gov/?page_id=425"
+    },
+    {
+      "name": "National Park Service — Coast Redwood",
+      "url": "https://home.nps.gov/articles/000/coast-redwood.htm"
+    },
+    {
+      "name": "Town of Scotia — history",
+      "url": "https://scotialiving.com/history/our-town-history/"
+    },
+    {
+      "name": "California Office of Historic Preservation — Ferndale",
+      "url": "https://ohp.parks.ca.gov/ListedResources/Detail/883"
+    },
+    {
+      "name": "Humboldt Bay Harbor District — Historic Humboldt Bay",
+      "url": "https://humboldtbay.org/historic-humboldt-bay"
+    },
+    {
+      "name": "Humboldt County — Arcata/Eureka Airport history",
+      "url": "https://humboldtgov.org/"
+    }
+  ]
+}

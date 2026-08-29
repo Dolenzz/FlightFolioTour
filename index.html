@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101418">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<title>FlightFolio Tour Player v3 — Leg 40</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#101418;--panel:#171d22;--panel2:#1e262d;--text:#eef3f6;--muted:#aebbc5;
+  --line:#33404a;--accent:#8fc5e8;--good:#9bd5ad;--warn:#f0cd84;--bad:#ee9a9a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.45}
+main{max-width:760px;margin:0 auto;padding:14px 14px 44px}
+h1{font-size:1.45rem;margin:.2rem 0}.sub{color:var(--muted);margin:0 0 14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.grow{flex:1;min-width:160px}
+label{display:block;color:var(--muted);font-size:.9rem;margin-bottom:5px}
+select,input,button{font:inherit}
+select,input[type=number]{width:100%;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px;font-size:16px}
+button{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:12px;min-height:48px;padding:10px 14px;font-weight:650}
+button.primary{background:var(--accent);color:#0b1115;border-color:transparent}
+button.good{background:var(--good);color:#0b1115;border-color:transparent}
+button:disabled{opacity:.5}
+.big{font-size:1.04rem;min-width:112px;flex:1}
+.statusgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pill{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:9px;text-align:center}
+.pill b{display:block;font-size:.85rem}.pill span{font-size:.78rem;color:var(--muted)}
+.goodtxt{color:var(--good)!important}.warntxt{color:var(--warn)!important}.badtxt{color:var(--bad)!important}
+.hero{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start}
+.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.position{font-size:1.35rem;font-weight:750}.distance{font-size:2rem;font-variant-numeric:tabular-nums;font-weight:800;text-align:right}
+.next{color:var(--muted);margin-top:7px}
+#message{min-height:2.8em;margin-top:8px;color:var(--muted)}
+#heard{font-size:.9rem;color:var(--muted);word-break:break-word}
+.cmds{columns:2;column-gap:20px;padding-left:20px;margin-bottom:0}.cmds li{margin-bottom:5px;break-inside:avoid}
+.log{max-height:180px;overflow:auto;background:#0c1013;border:1px solid var(--line);border-radius:10px;padding:9px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.78rem;color:#c9d4db}
+details summary{cursor:pointer;font-weight:700}
+.small{font-size:.88rem;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:14px 0}
+@media(max-width:520px){
+  .statusgrid{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
+  .distance{text-align:left;font-size:1.7rem}
+  .cmds{columns:1}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>FlightFolio Tour Player <span class="small">v3 · HTTPS edition</span></h1>
+  <p class="sub" id="tourTitle"></p>
+  <div class="card" id="httpsNotice" style="display:none;border-color:var(--warn)"><b>Secure web address required.</b> Microphone and wake-lock tests should be run from the hosted HTTPS version of this page, not from a downloaded file.</div>
+
+  <section class="card">
+    <div class="statusgrid">
+      <div class="pill"><b>Narrator</b><span id="ttsStatus">checking…</span></div>
+      <div class="pill"><b>Hands-free</b><span id="micStatus">not enabled</span></div>
+      <div class="pill"><b>Screen awake</b><span id="wakeStatus">not requested</span></div>
+      <div class="pill"><b>Page context</b><span id="contextStatus">checking…</span></div>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <div class="grow">
+        <label for="voiceSelect">Phone narrator voice</label>
+        <select id="voiceSelect"></select>
+      </div>
+      <div style="align-self:end"><button type="button" id="previewVoice">Preview voice</button></div>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <div class="grow">
+        <label for="speed">Estimated groundspeed (knots)</label>
+        <input id="speed" type="number" min="60" max="250" step="1" value="110">
+      </div>
+      <div style="align-self:end"><button type="button" id="micTest">Test microphone</button></div>
+      <div style="align-self:end"><button type="button" class="good" id="preflight">Run preflight setup</button></div>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <div class="grow">
+        <label>Microphone level test</label>
+        <div style="height:14px;background:#0c1013;border:1px solid var(--line);border-radius:8px;overflow:hidden">
+          <div id="micMeter" style="height:100%;width:0%;background:var(--good);transition:width .08s linear"></div>
+        </div>
+      </div>
+      <div class="grow small" id="voiceDetail">Selected voice: —</div>
+    </div>
+    <p class="small">The player will try to keep the screen awake and listen for a small command vocabulary. It does not call ChatGPT or any paid API.</p>
+  </section>
+
+  <section class="card">
+    <div class="hero">
+      <div>
+        <div class="kicker">Current leg position</div>
+        <div class="position" id="position">Departure → Waypoint 1</div>
+        <div class="next" id="nextStory">Next narration: ready</div>
+      </div>
+      <div class="distance"><span id="remaining">3.7</span> NM</div>
+    </div>
+    <div id="message" aria-live="polite">Ready. Run preflight setup, then start or sync the tour.</div>
+    <div class="row">
+      <button type="button" class="primary big" id="startBtn">START / RESUME</button>
+      <button type="button" class="big" id="pauseBtn">PAUSE</button>
+      <button type="button" class="big" id="repeatBtn">REPEAT</button>
+      <button type="button" class="big" id="continueBtn">CONTINUE</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="kicker">Quick manual synchronization</div>
+    <p class="small">These are backups if speech recognition misses a command.</p>
+    <div class="row" id="wpButtons"></div>
+    <div class="row" style="margin-top:10px">
+      <div class="grow">
+        <label for="syncMiles">Miles remaining to selected waypoint</label>
+        <input id="syncMiles" type="number" min="0" max="100" step=".5" placeholder="e.g. 16">
+      </div>
+      <div class="grow">
+        <label for="syncWp">Next waypoint</label>
+        <select id="syncWp">
+          <option value="1">Waypoint 1</option><option value="2">Waypoint 2</option>
+          <option value="3">Waypoint 3</option><option value="4">Waypoint 4</option>
+          <option value="5">Destination</option>
+        </select>
+      </div>
+      <div style="align-self:end"><button type="button" id="syncBtn">SYNC</button></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="kicker">Voice commands</div>
+    <ul class="cmds">
+      <li>“Tour start”</li><li>“Tour pause”</li><li>“Tour resume”</li>
+      <li>“Tour repeat”</li><li>“Tour status”</li><li>“Tour continue”</li>
+      <li>“Tour waypoint two”</li><li>“Tour sync 16 miles to waypoint two”</li>
+    </ul>
+    <hr>
+    <div><b>Last heard:</b> <span id="heard">—</span></div>
+  </section>
+
+  <details class="card">
+    <summary>Tour narration & sources</summary>
+    <div id="tourNotes" class="small" style="margin-top:10px"></div>
+  </details>
+
+  <details class="card">
+    <summary>Diagnostic log</summary>
+    <div class="log" id="log"></div>
+  </details>
+</main>
+
+<script id="tourData" type="application/json">{"schemaVersion": 1, "id": "leg40-kuki-kacv", "title": "Leg 40 — Ukiah to Arcata/Eureka", "subtitle": "California North Coast guided flight", "departure": {"id": "KUKI", "name": "Ukiah Municipal Airport"}, "destination": {"id": "KACV", "name": "California Redwood Coast–Humboldt County Airport"}, "cruiseAltitudeFt": 6200, "defaultGroundSpeedKt": 110, "waypoints": [{"number": 1, "id": "WP01", "name": "Lake Mendocino", "lat": 39.185, "lon": -123.18}, {"number": 2, "id": "WP02", "name": "Eel River / Garberville", "lat": 40.1, "lon": -123.8}, {"number": 3, "id": "WP03", "name": "Avenue of the Giants / Humboldt Redwoods", "lat": 40.35, "lon": -124.02}, {"number": 4, "id": "WP04", "name": "Humboldt Bay / Eureka", "lat": 40.77, "lon": -124.21}], "segments": [{"from": "KUKI", "to": "WP01", "distanceNm": 3.68, "blocks": [{"id": "opening", "triggerRemainingNm": 3.6, "title": "Ukiah Valley and Lake Mendocino", "text": "Welcome aboard. This time we are firmly in Northern California, in the Coast Ranges rather than the Sierra Nevada. We are leaving Ukiah and the broad Russian River valley, with Lake Mendocino just ahead at Waypoint One. The lake is not natural. It was created by Coyote Valley Dam on the East Fork of the Russian River. The Army Corps of Engineers completed the earth-filled dam in 1957; it rises about 160 feet and was built for flood control as well as domestic and agricultural water supply. From the air, notice how abruptly the reservoir fingers into the surrounding hills. Those folded ridges are a good preview of the country we will follow north. Waypoint One is only a few miles ahead. When you cross it, say, Tour waypoint one."}]}, {"from": "WP01", "to": "WP02", "distanceNm": 61.97, "blocks": [{"id": "lake-after", "triggerRemainingNm": 59.0, "title": "Leaving Lake Mendocino", "text": "With Lake Mendocino slipping behind us, the flight now settles into the long northbound run toward Garberville. For much of this segment we are following the grain of California's North Coast ranges: long ridges separated by narrow valleys and river corridors. Highway 101 uses many of the same natural passages below us. The landscape can look isolated from six thousand feet, yet these valleys have long been the practical route connecting the small communities of Mendocino and Humboldt counties. I will leave you some quiet flying time. Our next story comes as we approach Willits."}, {"id": "willits", "triggerRemainingNm": 47.0, "title": "Willits and the Skunk Train", "text": "We should now be near Willits, roughly beneath the route and just slightly left of our course. Willits is the inland end of one of Northern California's most distinctive railroads: the California Western, better known as the Skunk Train. The line began in 1885 as a logging railroad from Fort Bragg on the Pacific coast, carrying timber out of the forests to the mill. Passenger service began in the early twentieth century, but the railroad did not finally reach Willits until 1911. That connection mattered because passengers and freight could then transfer to the north-south rail network rather than finishing the trip by stagecoach. The nickname 'Skunk Train' came later, associated with the smell of the gasoline-powered railcars. Today it survives mainly as an excursion railroad through redwood country."}, {"id": "laytonville", "triggerRemainingNm": 29.0, "title": "Laytonville and the inland corridor", "text": "Approaching the Laytonville area, the country below becomes a useful lesson in why roads, railways and towns cluster where they do. The Coast Ranges are not one continuous wall; they are a maze of ridges, faults, valleys and river cuts. Communities such as Laytonville occupy the more forgiving pieces of ground between them. Our route is gradually bending toward the South Fork of the Eel River. From here northward, the climate also starts changing. Pacific moisture and summer fog become increasingly important, and that is one of the reasons the famous coast-redwood belt begins to dominate the story ahead. Enjoy the ridges for a few minutes. The next section comes as we approach Leggett, the traditional southern gateway to the North Coast redwoods."}, {"id": "leggett", "triggerRemainingNm": 14.5, "title": "Leggett — gateway to redwood country", "text": "We are coming up on the Leggett area. This is where the route joins the South Fork of the Eel River and where the scenery begins to feel unmistakably like redwood country. Nearby Standish-Hickey State Recreation Area is often described as the southern gateway to the North Coast redwoods. Its trails pass through second-growth forest as well as pockets of old-growth redwood and Douglas fir. A little farther north, Richardson Grove State Park protects coast redwoods rising more than three hundred feet beside the South Fork Eel River. From our altitude the individual giants disappear into a dark-green carpet, but that carpet contains some of the tallest living organisms on Earth. As the river valley opens ahead, we are also getting close to Waypoint Two near Garberville."}, {"id": "redwood-science", "triggerRemainingNm": 8.0, "title": "Why redwoods thrive here", "text": "A quick bit of redwood science while this landscape is beneath us. Coast redwoods survive in a remarkably narrow strip along the Pacific because they depend on a cool, moist maritime climate. Summer fog is not just scenery to them. Redwoods can absorb moisture directly through their foliage, and fog drip also feeds the forest floor during California's dry season. Their root system is equally surprising. A giant redwood has no deep taproot. The roots stay comparatively shallow, then spread outward for many tens of feet and intertwine with neighboring trees. So the forest functions almost like a community of enormous trees bracing one another against wind and saturated soil. That combination of fog, mild temperatures and shared shallow roots helps explain why this particular strip of Northern California can support trees of such extraordinary height."}, {"id": "garberville", "triggerRemainingNm": 3.0, "title": "Garberville and the Eel River", "text": "Waypoint Two is just ahead near Garberville and the South Fork of the Eel River. The Eel forms California's third-largest watershed, draining rugged interior mountains before reaching the Pacific. It also carries both state and federal Wild and Scenic River designations. The watershed supports steelhead and several salmon runs, while its South Fork threads directly through some of the great redwood forests we are about to see. Garberville itself grew as a service center along this north-south corridor, but from the air the river is the feature to watch: bends, gravel bars and forested slopes defining the valley. When you cross Waypoint Two, say, Tour waypoint two. I will use that to lock our timing to the next section."}]}, {"from": "WP02", "to": "WP03", "distanceNm": 18.08, "blocks": [{"id": "eel-wild", "triggerRemainingNm": 16.0, "title": "The Wild and Scenic Eel", "text": "We are now following the Eel River country north from Garberville. The federal Wild and Scenic designation protects free-flowing river values rather than turning the river into a reservoir system. This watershed is biologically important as well as scenic: Chinook salmon, coho salmon, steelhead and sea-run cutthroat trout all occur in the Eel system. Below us, the river and Highway 101 repeatedly trade sides as they negotiate the valley. That makes this stretch especially satisfying from the air: the natural corridor and the human transportation corridor are visible together."}, {"id": "humboldt-preview", "triggerRemainingNm": 7.5, "title": "Entering Humboldt Redwoods", "text": "We are entering the heart of Humboldt redwood country now. What looks like an unbroken forest canopy conceals an enormous range of ages and histories. Some stands were logged and later regrew; others survived as old growth. The preservation movement here accelerated in the early twentieth century as motorists and conservationists realized how quickly the remaining giant groves were disappearing. Our next waypoint is positioned near the Avenue of the Giants and Humboldt Redwoods State Park. As you approach, the river, road and forest become tightly woven together. When you cross Waypoint Three, say, Tour waypoint three."}]}, {"from": "WP03", "to": "WP04", "distanceNm": 26.66, "blocks": [{"id": "avenue", "triggerRemainingNm": 25.0, "title": "Avenue of the Giants and Rockefeller Forest", "text": "Waypoint Three puts us beside one of the signature landscapes of the entire flight: Humboldt Redwoods State Park and the Avenue of the Giants. The Avenue is a roughly thirty-two-mile scenic road running through the redwood corridor, but the more important fact from the air is the scale of the protected forest around it. Humboldt Redwoods State Park includes Rockefeller Forest, described by California State Parks as the largest remaining contiguous old-growth coast-redwood forest in the world. Some of these groves have never been logged. From our altitude you cannot appreciate a single trunk the way you can from the ground, but you can appreciate something ground visitors cannot: just how broad and continuous the forest ecosystem is."}, {"id": "scotia", "triggerRemainingNm": 18.0, "title": "Scotia — a timber company town", "text": "We should now be passing almost directly over Scotia, one of the best human-history stories on this leg. Scotia grew around the Pacific Lumber Company in the late nineteenth century. A sawmill was operating by 1887, and the company built not only industrial facilities but homes, stores and other services for its workforce. For much of its life Scotia was a true company town, and it survived in that form far longer than most American examples. The old corporate structure finally began breaking apart after Pacific Lumber's bankruptcy in the 2000s, with houses gradually moving into private ownership. A sawmill still operates here, so this is not simply a preserved museum town. It is a living link between the historic redwood timber economy and the modern North Coast."}, {"id": "ferndale", "triggerRemainingNm": 10.0, "title": "Ferndale off the left side", "text": "If visibility is good, look about six miles off the left side for the lower, flatter country around Ferndale. That town offers a very different North Coast story from Scotia. Ferndale was an agricultural community settled in the nineteenth century and became known as 'Cream City' because of its dairy industry. Prosperity from dairying, creameries, shipping and trade helped produce the elaborate Victorian and Gothic houses and commercial buildings for which Ferndale is famous today. The contrast from the air is striking: forested ridges give way to the broad Eel River lowlands and agricultural fields as we move toward the coast."}, {"id": "bay-approach", "triggerRemainingNm": 3.5, "title": "Approaching Humboldt Bay", "text": "Waypoint Four is just ahead at Humboldt Bay. Watch for the landscape to open dramatically toward water, tidal flats and the long shape of the bay behind its barrier spits. This is the major protected harbor on this portion of the Northern California coast and it became the economic focus of the Eureka area. When you cross Waypoint Four, say, Tour waypoint four. That will start our final short segment toward Arcata-Eureka Airport."}]}, {"from": "WP04", "to": "KACV", "distanceNm": 13.32, "blocks": [{"id": "bay-history", "triggerRemainingNm": 12.0, "title": "Humboldt Bay — the harbor that was lost", "text": "Humboldt Bay has a wonderfully odd exploration history. An outside expedition entered the bay in 1806, but the location was not properly charted before the ship departed. Because the entrance is hard to pick out from offshore among dunes, surf and coastal landforms, later mariners effectively lost the bay again. It was rediscovered during the California Gold Rush, when merchants urgently needed a coastal supply route to the mining country inland. In 1850 the bay was named for the celebrated naturalist Alexander von Humboldt. Lumber, shipping and shipbuilding later made the harbor central to the region's economy. Below and around us now, Eureka, Arcata and the bay are all part of that maritime landscape."}, {"id": "airport-history", "triggerRemainingNm": 5.5, "title": "KACV — an airport built for bad weather", "text": "As we close on the destination, the airport itself deserves the final story. Arcata-Eureka Airport was developed by the federal government during World War Two as a place to train and test operations in poor weather. That choice was hardly accidental. The Humboldt coast is famous for fog and low cloud, exactly the conditions that make visual flying difficult. The field became associated with early instrument-landing work before being transferred to Humboldt County for civilian use after the war. So if the coast looks gray or misty on your approach, that is not an inconvenience to the history of this airport; it is part of the reason the airport was built here in the first place. You are nearing the end of Leg Forty. Enjoy the approach, and use Tour status at any time if you want your remaining distance estimate."}]}], "sources": [{"name": "U.S. Army Corps of Engineers — Coyote Valley Dam", "url": "https://www.spn.usace.army.mil/Missions/Projects-and-Programs/Current-Projects/Coyote-Valley-Dam-I/"}, {"name": "Skunk Train — Willits history", "url": "https://www.skunktrain.com/willits-history/"}, {"name": "California State Parks — Standish-Hickey / Richardson Grove", "url": "https://www.parks.ca.gov/"}, {"name": "Bureau of Land Management — Eel Wild and Scenic River", "url": "https://www.blm.gov/programs/national-conservation-lands/california/eel-wsr"}, {"name": "California State Parks — Humboldt Redwoods State Park", "url": "https://www.parks.ca.gov/?page_id=425"}, {"name": "National Park Service — Coast Redwood", "url": "https://home.nps.gov/articles/000/coast-redwood.htm"}, {"name": "Town of Scotia — history", "url": "https://scotialiving.com/history/our-town-history/"}, {"name": "California Office of Historic Preservation — Ferndale", "url": "https://ohp.parks.ca.gov/ListedResources/Detail/883"}, {"name": "Humboldt Bay Harbor District — Historic Humboldt Bay", "url": "https://humboldtbay.org/historic-humboldt-bay"}, {"name": "Humboldt County — Arcata/Eureka Airport history", "url": "https://humboldtgov.org/"}]}</script>
+<script>
+(() => {
+  'use strict';
+  const tour = JSON.parse(document.getElementById('tourData').textContent);
+  const $ = id => document.getElementById(id);
+  const stateKey = 'flightfolio-tour-' + tour.id;
+  const els = {
+    title:$('tourTitle'), voice:$('voiceSelect'), speed:$('speed'), tts:$('ttsStatus'),
+    mic:$('micStatus'), wake:$('wakeStatus'), context:$('contextStatus'), position:$('position'), remaining:$('remaining'),
+    next:$('nextStory'), message:$('message'), heard:$('heard'), log:$('log')
+  };
+  els.title.textContent = `${tour.title} · ${tour.cruiseAltitudeFt.toLocaleString()} ft planned`;
+  els.speed.value = tour.defaultGroundSpeedKt;
+
+  let voices = [];
+  let recognition = null;
+  let recognitionWanted = false;
+  let speaking = false;
+  let wakeLock = null;
+  let nextTimer = null;
+  let boundaryTimer = null;
+  let lastUtteranceText = '';
+  let lastNarrationId = null;
+  let queue = [];
+  let app = {
+    segmentIndex: 0,
+    anchorRemainingNm: tour.segments[0].distanceNm,
+    anchorMs: Date.now(),
+    running: false,
+    paused: false,
+    pausedRemainingNm: null,
+    played: {},
+    boundaryPrompted: false
+  };
+
+  function log(msg){
+    const stamp = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    els.log.textContent = `[${stamp}] ${msg}\n` + els.log.textContent;
+  }
+  function save(){
+    try { localStorage.setItem(stateKey, JSON.stringify(app)); } catch(e) {}
+  }
+  function load(){
+    try{
+      const s = JSON.parse(localStorage.getItem(stateKey) || 'null');
+      if(s && Number.isInteger(s.segmentIndex) && s.segmentIndex >= 0 && s.segmentIndex < tour.segments.length){
+        app = Object.assign(app, s);
+        app.running = false;
+        app.paused = true;
+        app.pausedRemainingNm = Number.isFinite(s.pausedRemainingNm) ? s.pausedRemainingNm :
+          (Number.isFinite(s.anchorRemainingNm) ? s.anchorRemainingNm : tour.segments[s.segmentIndex].distanceNm);
+        app.anchorRemainingNm = app.pausedRemainingNm;
+        app.anchorMs = Date.now();
+      }
+    }catch(e){}
+  }
+  load();
+
+  function segment(){ return tour.segments[app.segmentIndex]; }
+  function speedKt(){
+    const n = Number(els.speed.value);
+    return Number.isFinite(n) ? Math.max(60, Math.min(250, n)) : tour.defaultGroundSpeedKt;
+  }
+  function currentRemaining(){
+    if(app.paused || !app.running) return Math.max(0, app.pausedRemainingNm ?? app.anchorRemainingNm);
+    const hours = (Date.now() - app.anchorMs) / 3600000;
+    return Math.max(0, app.anchorRemainingNm - hours * speedKt());
+  }
+  function waypointLabel(ref){
+    if(ref === tour.departure.id) return 'Departure';
+    if(ref === tour.destination.id) return 'Destination';
+    const m = /^WP0?(\d+)$/.exec(ref);
+    return m ? `Waypoint ${Number(m[1])}` : ref;
+  }
+  function updateUI(){
+    const seg = segment();
+    const rem = currentRemaining();
+    els.position.textContent = `${waypointLabel(seg.from)} → ${waypointLabel(seg.to)}`;
+    els.remaining.textContent = rem.toFixed(1);
+    const nextBlock = seg.blocks
+      .filter(b => !app.played[b.id])
+      .sort((a,b)=>b.triggerRemainingNm-a.triggerRemainingNm)
+      .find(b => rem > b.triggerRemainingNm) ||
+      seg.blocks.filter(b => !app.played[b.id]).sort((a,b)=>b.triggerRemainingNm-a.triggerRemainingNm)[0];
+    els.next.textContent = nextBlock ? `Next narration: ${nextBlock.title}` : `Next: confirm ${waypointLabel(seg.to)}`;
+  }
+  setInterval(updateUI, 1000);
+
+  function voiceKey(v, idx){
+    return `${idx}::${v.voiceURI || ''}::${v.lang || ''}::${v.name || ''}`;
+  }
+  function populateVoices(){
+    voices = speechSynthesis.getVoices();
+    els.voice.innerHTML = '';
+    const ranked = voices.map((v,idx)=>({v,idx})).sort((a,b)=>{
+      const score = x => /^en-GB/i.test(x.v.lang) ? 0 : /^en/i.test(x.v.lang) ? 1 : 2;
+      return score(a)-score(b);
+    });
+    ranked.forEach(({v,idx})=>{
+      const o=document.createElement('option');
+      o.value = voiceKey(v, idx);
+      o.dataset.index = String(idx);
+      o.textContent = `${v.name} — ${v.lang}${v.localService ? ' (device)' : ' (network)'}`;
+      els.voice.appendChild(o);
+    });
+    const saved = localStorage.getItem(stateKey+'-voicekey');
+    if(saved && [...els.voice.options].some(o=>o.value===saved)) els.voice.value=saved;
+    else {
+      const preferred=[...els.voice.options].find(o=>/^en-GB/i.test(voices[Number(o.dataset.index)]?.lang||''));
+      if(preferred) els.voice.value=preferred.value;
+    }
+    els.tts.textContent = voices.length ? `${voices.length} voices available` : 'no voices found';
+    els.tts.className = voices.length ? 'goodtxt' : 'badtxt';
+    updateVoiceDetail();
+  }
+  populateVoices();
+  speechSynthesis.addEventListener?.('voiceschanged', populateVoices);
+  els.voice.addEventListener('change',()=>{
+    try{localStorage.setItem(stateKey+'-voicekey',els.voice.value)}catch(e){}
+    updateVoiceDetail();
+    warmSelectedVoice().catch(()=>{});
+  });
+
+  function chosenVoice(){
+    const opt=els.voice.selectedOptions[0];
+    const idx=opt ? Number(opt.dataset.index) : 0;
+    return Number.isInteger(idx) && voices[idx] ? voices[idx] : voices[0] || null;
+  }
+  function updateVoiceDetail(){
+    const v=chosenVoice();
+    const d=document.getElementById('voiceDetail');
+    if(!v){d.textContent='Selected voice: none';return}
+    d.textContent=`Selected: ${v.name} · ${v.lang} · ${v.localService?'device':'network'} · ${v.voiceURI || 'no URI'}`;
+  }
+
+  function speak(text, opts={}){
+    return new Promise(resolve=>{
+      speechSynthesis.cancel();
+      speaking = true;
+      lastUtteranceText = text;
+      if(opts.narrationId) lastNarrationId = opts.narrationId;
+      if(recognition){ try{ recognition.abort(); }catch(e){} }
+      const u = new SpeechSynthesisUtterance(text);
+      const v = chosenVoice();
+      if(v){ u.voice=v; u.lang=v.lang; }
+      u.rate = 0.96; u.pitch = 1.0; u.volume = 1.0;
+      if(v) log(`Speaking with: ${v.name} / ${v.lang} / ${v.voiceURI || 'no URI'}`);
+      u.onend = ()=>{ speaking=false; restartRecognitionSoon(); resolve(); };
+      u.onerror = ()=>{ speaking=false; restartRecognitionSoon(); resolve(); };
+      speechSynthesis.speak(u);
+    });
+  }
+
+  function dueBlocks(){
+    const rem = currentRemaining();
+    return segment().blocks
+      .filter(b => !app.played[b.id] && rem <= b.triggerRemainingNm + 0.15)
+      .sort((a,b)=>b.triggerRemainingNm-a.triggerRemainingNm);
+  }
+  async function playBlock(block){
+    if(!block || app.played[block.id]) return;
+    clearSchedule();
+    app.played[block.id]=true; save(); updateUI();
+    els.message.textContent = block.title;
+    log(`Narration: ${block.title}`);
+    await speak(block.text,{narrationId:block.id});
+    if(app.running && !app.paused) scheduleNext();
+  }
+  async function flushDue(){
+    const due = dueBlocks();
+    if(due.length) {
+      await playBlock(due[0]);
+      return true;
+    }
+    return false;
+  }
+  function clearSchedule(){
+    if(nextTimer){clearTimeout(nextTimer);nextTimer=null}
+    if(boundaryTimer){clearTimeout(boundaryTimer);boundaryTimer=null}
+  }
+  function scheduleNext(){
+    clearSchedule();
+    if(!app.running || app.paused || speaking) return;
+    const rem=currentRemaining();
+    if(rem <= 0.05){
+      app.running=false; app.paused=true; app.pausedRemainingNm=0; save(); updateUI();
+      if(!app.boundaryPrompted) promptBoundary();
+      return;
+    }
+    const pending = segment().blocks
+      .filter(b=>!app.played[b.id] && b.triggerRemainingNm < rem)
+      .sort((a,b)=>b.triggerRemainingNm-a.triggerRemainingNm);
+    if(pending.length){
+      const next=pending[0];
+      const hours=(rem-next.triggerRemainingNm)/speedKt();
+      nextTimer=setTimeout(()=>flushDue(), Math.max(500, hours*3600000));
+    } else {
+      flushDue();
+    }
+    if(!app.boundaryPrompted){
+      const promptAt=Math.min(1.0, segment().distanceNm * 0.08);
+      if(rem > promptAt){
+        const ms=(rem-promptAt)/speedKt()*3600000;
+        boundaryTimer=setTimeout(promptBoundary, Math.max(1000, ms));
+      } else {
+        boundaryTimer=setTimeout(promptBoundary,1000);
+      }
+    }
+  }
+  async function promptBoundary(){
+    if(app.boundaryPrompted || speaking) return;
+    app.boundaryPrompted=true; save();
+    const target=waypointLabel(segment().to);
+    els.message.textContent=`Approaching ${target}; awaiting confirmation`;
+    await speak(`You should be approaching ${target}. When you cross it, say Tour ${target.toLowerCase()}.`);
+  }
+
+  function setRunning(on){
+    if(on){
+      const rem=currentRemaining();
+      app.anchorRemainingNm=rem; app.anchorMs=Date.now();
+      app.pausedRemainingNm=null; app.running=true; app.paused=false;
+      els.message.textContent='Tour running';
+      log(`Tour running at ${rem.toFixed(1)} NM remaining`);
+      save(); updateUI(); flushDue().then(()=>scheduleNext());
+    }else{
+      const rem=currentRemaining();
+      app.running=false; app.paused=true; app.pausedRemainingNm=rem;
+      clearSchedule(); save(); updateUI();
+    }
+  }
+  function setSync(segmentIndex, remainingNm, announce=true){
+    segmentIndex=Math.max(0,Math.min(tour.segments.length-1,segmentIndex));
+    const seg=tour.segments[segmentIndex];
+    remainingNm=Math.max(0,Math.min(seg.distanceNm,Number(remainingNm)));
+    clearSchedule();
+    app.segmentIndex=segmentIndex; app.anchorRemainingNm=remainingNm; app.anchorMs=Date.now();
+    app.pausedRemainingNm=remainingNm; app.boundaryPrompted=false;
+    app.running=false; app.paused=true;
+    save(); updateUI();
+    log(`Synced: ${remainingNm.toFixed(1)} NM to ${waypointLabel(seg.to)}`);
+    if(announce) speak(`Synced. ${remainingNm.toFixed(0)} miles to ${waypointLabel(seg.to)}.`);
+  }
+  function atWaypoint(n, announce=true){
+    if(n <= 0){ setSync(0,tour.segments[0].distanceNm,false); }
+    else if(n >= 1 && n <= 4){
+      setSync(n, tour.segments[n].distanceNm, false); // segment n begins at WPn
+    } else if(n === 5){
+      setSync(tour.segments.length-1,0,false);
+    }
+    app.running=true; app.paused=false; app.anchorMs=Date.now(); app.pausedRemainingNm=null; app.boundaryPrompted=false;
+    save(); updateUI();
+    if(announce) speak(n<=4 ? `Waypoint ${n} confirmed. Tour timing is synchronized.` : `Destination confirmed. Leg Forty complete.`);
+    log(`Waypoint ${n} confirmed`);
+    setTimeout(()=>{flushDue().then(()=>scheduleNext())}, announce ? 2200 : 0);
+  }
+
+  async function status(){
+    const rem=currentRemaining(), seg=segment();
+    const msg=`Tour status. ${rem.toFixed(0)} miles to ${waypointLabel(seg.to)}. ${app.running&&!app.paused?'The tour is running.':'The tour is paused.'}`;
+    els.message.textContent=msg; await speak(msg);
+  }
+  async function repeatLast(){
+    if(!lastNarrationId){ await speak('There is no previous narration block to repeat yet.'); return; }
+    for(const seg of tour.segments){
+      const b=seg.blocks.find(x=>x.id===lastNarrationId);
+      if(b){ await speak(b.text,{narrationId:b.id}); return; }
+    }
+  }
+  async function manualContinue(){
+    if(app.boundaryPrompted){
+      const target=segment().to;
+      if(/^WP0?(\d+)$/.test(target)) return atWaypoint(Number(target.match(/\d+/)[0]));
+      return atWaypoint(5);
+    }
+    const rem=currentRemaining();
+    const candidates=segment().blocks.filter(b=>!app.played[b.id]).sort((a,b)=>b.triggerRemainingNm-a.triggerRemainingNm);
+    if(candidates.length) await playBlock(candidates[0]);
+    else await speak(`There is no additional narration before ${waypointLabel(segment().to)}. I will wait for the waypoint confirmation.`);
+  }
+
+  function wordsToNumber(s){
+    s=s.toLowerCase().replace(/-/g,' ');
+    if(/^\d+(?:\.\d+)?$/.test(s.trim())) return Number(s.trim());
+    const small={zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19,
+      twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90};
+    const parts=s.trim().split(/\s+/); let total=0, current=0, found=false;
+    for(const p of parts){
+      if(p in small){found=true; const v=small[p]; if(v>=20) current+=v; else current+=v;}
+      else if(p==='hundred'){current*=100;found=true}
+    }
+    total+=current; return found?total:NaN;
+  }
+  function waypointNumberFromText(t){
+    const map={one:1,two:2,three:3,four:4,five:5};
+    const m=t.match(/waypoint\s*(\d|one|two|three|four|five)/i);
+    if(!m) return null;
+    return /^\d$/.test(m[1])?Number(m[1]):map[m[1].toLowerCase()];
+  }
+  async function handleCommand(raw){
+    const t=raw.toLowerCase().replace(/[,.!?]/g,' ').replace(/\s+/g,' ').trim();
+    els.heard.textContent=raw; log(`Heard: ${raw}`);
+    if(speaking) return;
+    if(!t.includes('tour') && !t.startsWith('waypoint')) return;
+    if(/tour\s+(start|resume)/.test(t)){ setRunning(true); return; }
+    if(/tour\s+pause/.test(t)){ setRunning(false); els.message.textContent='Tour paused'; await speak('Tour paused.'); return; }
+    if(/tour\s+status/.test(t)){ await status(); return; }
+    if(/tour\s+repeat/.test(t)){ await repeatLast(); return; }
+    if(/tour\s+continue/.test(t)){ await manualContinue(); return; }
+    const wn=waypointNumberFromText(t);
+    if((/tour\s+waypoint/.test(t)||t.startsWith('waypoint')) && wn){ atWaypoint(wn); return; }
+    if(/tour\s+sync/.test(t) && wn){
+      const beforeWp=t.split(/waypoint/i)[0];
+      const m=beforeWp.match(/sync\s+(.+?)\s+miles?/i);
+      if(m){
+        const miles=wordsToNumber(m[1].replace(/^.*?sync\s+/,''));
+        if(Number.isFinite(miles)){
+          const segIdx=wn-1;
+          setSync(segIdx,miles,true);
+          setTimeout(()=>setRunning(true),1300);
+          return;
+        }
+      }
+    }
+  }
+
+  function setupRecognition(){
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(!SR){
+      els.mic.textContent='speech recognition unavailable'; els.mic.className='badtxt';
+      log('SpeechRecognition API unavailable');
+      return false;
+    }
+    recognition=new SR();
+    recognition.lang='en-US';
+    recognition.continuous=false;  // mobile Chrome is generally more reliable one utterance at a time
+    recognition.interimResults=true;
+    recognition.maxAlternatives=1;
+    recognition.onstart=()=>{
+      els.mic.textContent='listening';
+      els.mic.className='goodtxt';
+      log('Speech recognition started');
+    };
+    recognition.onspeechstart=()=>{
+      els.mic.textContent='hearing speech';
+      els.mic.className='goodtxt';
+      log('Speech detected');
+    };
+    recognition.onresult=e=>{
+      let interim='';
+      for(let i=e.resultIndex;i<e.results.length;i++){
+        const transcript=e.results[i][0].transcript;
+        if(e.results[i].isFinal){
+          els.heard.textContent=transcript;
+          handleCommand(transcript);
+        } else {
+          interim=transcript;
+        }
+      }
+      if(interim) els.heard.textContent=interim+' …';
+    };
+    recognition.onnomatch=()=>{
+      els.mic.textContent='heard audio, no match';
+      els.mic.className='warntxt';
+      log('Recognition: no match');
+    };
+    recognition.onerror=e=>{
+      els.mic.textContent=`recognition: ${e.error}`;
+      els.mic.className=e.error==='no-speech'?'warntxt':'badtxt';
+      log(`Recognition error: ${e.error}`);
+    };
+    recognition.onend=()=>{
+      if(recognitionWanted && !speaking) setTimeout(startRecognition,500);
+    };
+    return true;
+  }
+  function startRecognition(){
+    if(!recognition && !setupRecognition()) return;
+    recognitionWanted=true;
+    if(speaking) return;
+    try{
+      recognition.start();
+      els.mic.textContent='starting listener…';
+      els.mic.className='warntxt';
+    }catch(e){
+      log('Recognition start exception: '+e.message);
+    }
+  }
+  function restartRecognitionSoon(){
+    if(recognitionWanted) setTimeout(startRecognition,650);
+  }
+
+  async function requestWake(){
+    if(!('wakeLock' in navigator)){
+      els.wake.textContent='API unavailable';els.wake.className='warntxt';log('Wake Lock API unavailable');return false;
+    }
+    try{
+      wakeLock=await navigator.wakeLock.request('screen');
+      els.wake.textContent='active';els.wake.className='goodtxt';log('Screen wake lock active');
+      wakeLock.addEventListener('release',()=>{els.wake.textContent='released';els.wake.className='warntxt';});
+      return true;
+    }catch(e){
+      els.wake.textContent='blocked/unavailable';els.wake.className='warntxt';log('Wake lock failed: '+e.message);return false;
+    }
+  }
+  document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible' && !wakeLock?.released) return; if(document.visibilityState==='visible') requestWake(); });
+
+  function showContext(){
+    const secure = window.isSecureContext;
+    const hosted = location.protocol === 'https:';
+    els.context.textContent = `${location.protocol.replace(':','').toUpperCase() || 'unknown'} · ${secure?'secure context':'restricted context'}`;
+    els.context.className = hosted && secure ? 'goodtxt' : 'warntxt';
+    document.getElementById('httpsNotice').style.display = hosted ? 'none' : 'block';
+    log(`Context: protocol=${location.protocol}, secure=${secure}, hostedHTTPS=${hosted}`);
+  }
+  showContext();
+
+  async function testRawMicrophone(){
+    const meter=document.getElementById('micMeter');
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+      els.mic.textContent='raw microphone API unavailable';
+      els.mic.className='badtxt';
+      log('getUserMedia unavailable');
+      return false;
+    }
+    els.mic.textContent='requesting microphone…';
+    els.mic.className='warntxt';
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      els.mic.textContent='microphone permitted';
+      els.mic.className='goodtxt';
+      log('Raw microphone permission granted');
+      const AC=window.AudioContext||window.webkitAudioContext;
+      if(!AC){
+        stream.getTracks().forEach(t=>t.stop());
+        return true;
+      }
+      const ctx=new AC();
+      const source=ctx.createMediaStreamSource(stream);
+      const analyser=ctx.createAnalyser();
+      analyser.fftSize=256;
+      source.connect(analyser);
+      const data=new Uint8Array(analyser.frequencyBinCount);
+      const end=Date.now()+5000;
+      await new Promise(resolve=>{
+        function tick(){
+          analyser.getByteTimeDomainData(data);
+          let sum=0;
+          for(const x of data){ const y=(x-128)/128; sum+=y*y; }
+          const rms=Math.sqrt(sum/data.length);
+          meter.style.width=Math.min(100, Math.max(2, rms*500))+'%';
+          if(Date.now()<end) requestAnimationFrame(tick); else resolve();
+        }
+        tick();
+      });
+      meter.style.width='0%';
+      stream.getTracks().forEach(t=>t.stop());
+      await ctx.close();
+      els.message.textContent='Raw microphone test passed. If the meter moved when you spoke, Android can hear you.';
+      return true;
+    }catch(e){
+      els.mic.textContent=`microphone: ${e.name}`;
+      els.mic.className='badtxt';
+      const hint = location.protocol === 'file:' ?
+        'This downloaded file was not granted microphone access. Test the hosted HTTPS version.' :
+        'Microphone permission was denied or blocked. Check Chrome site permission and Android microphone permission.';
+      els.message.textContent=hint;
+      log(`Raw microphone failed: ${e.name}: ${e.message}`);
+      return false;
+    }
+  }
+
+
+  async function warmSelectedVoice(){
+    const v=chosenVoice();
+    if(!v) return;
+    // Android/Chrome can lazily initialize a voice and use the default on the first request.
+    // Prime the chosen voice with an almost-silent, very short utterance, then issue the real speech.
+    speechSynthesis.cancel();
+    await new Promise(resolve=>{
+      const u=new SpeechSynthesisUtterance('.');
+      u.voice=v; u.lang=v.lang; u.volume=0.01; u.rate=10;
+      let done=false;
+      const finish=()=>{ if(done) return; done=true; setTimeout(resolve,180); };
+      u.onend=finish; u.onerror=finish;
+      speechSynthesis.speak(u);
+      setTimeout(finish,650);
+    });
+  }
+  async function speakPrepared(text, opts={}){
+    await warmSelectedVoice();
+    return speak(text, opts);
+  }
+  $('previewVoice').addEventListener('click',async()=>{
+    els.message.textContent='Preparing selected voice…';
+    await speakPrepared(
+      'Welcome aboard. We are leaving Ukiah and heading north into California redwood country. This is a preview of the selected phone voice.'
+    );
+    els.message.textContent='Voice preview complete.';
+  });
+  $('micTest').addEventListener('click',testRawMicrophone);
+  $('preflight').addEventListener('click',async()=>{
+    els.message.textContent='Preflight starting…';
+    log('Preflight button pressed');
+    const wakeOK=await requestWake();
+    const micOK=await testRawMicrophone();
+    if(!micOK){
+      els.message.textContent='Preflight stopped: microphone permission failed. If this is the downloaded file, use the hosted HTTPS version.';
+      return;
+    }
+    startRecognition();
+    await speakPrepared('Preflight setup is active. After this sentence, say Tour status to test speech recognition.');
+    els.message.textContent='Preflight active. Say “Tour status.”';
+  });
+  $('startBtn').addEventListener('click',()=>setRunning(true));
+  $('pauseBtn').addEventListener('click',()=>{setRunning(false);els.message.textContent='Tour paused'});
+  $('repeatBtn').addEventListener('click',repeatLast);
+  $('continueBtn').addEventListener('click',manualContinue);
+  $('syncBtn').addEventListener('click',()=>{
+    const wn=Number($('syncWp').value), miles=Number($('syncMiles').value);
+    if(!Number.isFinite(miles)){els.message.textContent='Enter a valid distance first.';return}
+    if(wn===5) setSync(tour.segments.length-1,miles);
+    else setSync(wn-1,miles);
+  });
+
+  const wpWrap=$('wpButtons');
+  const labels=['DEP','WP1','WP2','WP3','WP4','DEST'];
+  labels.forEach((lab,idx)=>{
+    const b=document.createElement('button');b.type='button';b.textContent=lab;
+    b.addEventListener('click',()=> idx===0 ? setSync(0,tour.segments[0].distanceNm) : atWaypoint(idx));
+    wpWrap.appendChild(b);
+  });
+
+  const notes=$('tourNotes');
+  let totalBlocks=0, totalWords=0;
+  tour.segments.forEach(seg=>seg.blocks.forEach(b=>{totalBlocks++;totalWords+=b.text.trim().split(/\s+/).length}));
+  notes.innerHTML=`<p><b>${totalBlocks} prepared narration blocks</b>, about ${Math.round(totalWords/145)} minutes of spoken material at a relaxed pace.</p>`+
+    `<p>The route is deterministic: narration comes only from the prepared package. It does not invent geography during the flight.</p>`+
+    `<p><b>Research sources:</b></p><ul>`+
+    tour.sources.map(s=>`<li>${s.name}<br><span>${s.url}</span></li>`).join('')+`</ul>`;
+
+  updateUI();
+  window.addEventListener('beforeunload',save);
+  if('serviceWorker' in navigator && location.protocol === 'https:'){
+    navigator.serviceWorker.register('./sw.js')
+      .then(()=>log('Offline cache service worker registered'))
+      .catch(e=>log('Service worker failed: '+e.message));
+  }
+  log('Leg 40 player v3 loaded');
+})();
+</script>
+</body>
+</html>

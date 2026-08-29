@@ -1,0 +1,21 @@
+{
+  "name": "FlightFolio Tour Player",
+  "short_name": "Flight Tour",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101418",
+  "theme_color": "#101418",
+  "description": "Hands-free guided-tour player for FlightFolio sightseeing flights.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
