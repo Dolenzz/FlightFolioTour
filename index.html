@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#101418">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
-<title>FlightFolio Tour Player v3 — Leg 40</title>
+<title>FlightFolio Tour Player v4 — Leg 40</title>
 <style>
 :root{
   color-scheme:dark;
@@ -52,7 +52,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
 </head>
 <body>
 <main>
-  <h1>FlightFolio Tour Player <span class="small">v3 · HTTPS edition</span></h1>
+  <h1>FlightFolio Tour Player <span class="small">v4 · speech fix</span></h1>
   <p class="sub" id="tourTitle"></p>
   <div class="card" id="httpsNotice" style="display:none;border-color:var(--warn)"><b>Secure web address required.</b> Microphone and wake-lock tests should be run from the hosted HTTPS version of this page, not from a downloaded file.</div>
 
@@ -76,6 +76,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
         <input id="speed" type="number" min="60" max="250" step="1" value="110">
       </div>
       <div style="align-self:end"><button type="button" id="micTest">Test microphone</button></div>
+      <div style="align-self:end"><button type="button" id="speechTest">Test speech recognition</button></div>
       <div style="align-self:end"><button type="button" class="good" id="preflight">Run preflight setup</button></div>
     </div>
     <div class="row" style="margin-top:10px">
@@ -87,6 +88,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       </div>
       <div class="grow small" id="voiceDetail">Selected voice: —</div>
     </div>
+    <div class="small" id="speechDetail" style="margin-top:8px">Speech recognition API: checking…</div>
     <p class="small">The player will try to keep the screen awake and listen for a small command vocabulary. It does not call ChatGPT or any paid API.</p>
   </section>
 
@@ -478,27 +480,36 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     }
   }
 
+  let recognitionStartResolver = null;
   function setupRecognition(){
     const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    const detail=document.getElementById('speechDetail');
     if(!SR){
-      els.mic.textContent='speech recognition unavailable'; els.mic.className='badtxt';
+      els.mic.textContent='speech recognition unavailable';
+      els.mic.className='badtxt';
+      detail.textContent='Speech recognition API: unavailable in this browser';
       log('SpeechRecognition API unavailable');
       return false;
     }
+    detail.textContent=`Speech recognition API: ${window.SpeechRecognition?'SpeechRecognition':'webkitSpeechRecognition'} available`;
     recognition=new SR();
     recognition.lang='en-US';
-    recognition.continuous=false;  // mobile Chrome is generally more reliable one utterance at a time
+    recognition.continuous=false;
     recognition.interimResults=true;
     recognition.maxAlternatives=1;
     recognition.onstart=()=>{
-      els.mic.textContent='listening';
+      els.mic.textContent='LISTENING FOR COMMAND';
       els.mic.className='goodtxt';
+      els.message.textContent='Listening now — say “Tour status.”';
       log('Speech recognition started');
+      if(recognitionStartResolver){ recognitionStartResolver(true); recognitionStartResolver=null; }
     };
+    recognition.onaudiostart=()=>log('Recognition audio capture started');
+    recognition.onsoundstart=()=>log('Recognition sound detected');
     recognition.onspeechstart=()=>{
-      els.mic.textContent='hearing speech';
+      els.mic.textContent='HEARING SPEECH';
       els.mic.className='goodtxt';
-      log('Speech detected');
+      log('Recognition speech detected');
     };
     recognition.onresult=e=>{
       let interim='';
@@ -506,6 +517,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
         const transcript=e.results[i][0].transcript;
         if(e.results[i].isFinal){
           els.heard.textContent=transcript;
+          els.message.textContent=`Recognized: “${transcript}”`;
           handleCommand(transcript);
         } else {
           interim=transcript;
@@ -514,34 +526,61 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       if(interim) els.heard.textContent=interim+' …';
     };
     recognition.onnomatch=()=>{
-      els.mic.textContent='heard audio, no match';
+      els.mic.textContent='heard speech, no text match';
       els.mic.className='warntxt';
       log('Recognition: no match');
     };
     recognition.onerror=e=>{
-      els.mic.textContent=`recognition: ${e.error}`;
+      els.mic.textContent=`speech recognition: ${e.error}`;
       els.mic.className=e.error==='no-speech'?'warntxt':'badtxt';
-      log(`Recognition error: ${e.error}`);
+      els.message.textContent=`Speech recognition error: ${e.error}`;
+      log(`Recognition error: ${e.error}${e.message?': '+e.message:''}`);
+      if(recognitionStartResolver){ recognitionStartResolver(false); recognitionStartResolver=null; }
     };
     recognition.onend=()=>{
-      if(recognitionWanted && !speaking) setTimeout(startRecognition,500);
+      log('Speech recognition ended');
+      if(recognitionWanted && !speaking) setTimeout(()=>startRecognition(false),850);
     };
     return true;
   }
-  function startRecognition(){
-    if(!recognition && !setupRecognition()) return;
+  function startRecognition(announceStarting=true){
+    if(!recognition && !setupRecognition()) return Promise.resolve(false);
     recognitionWanted=true;
-    if(speaking) return;
-    try{
-      recognition.start();
-      els.mic.textContent='starting listener…';
+    if(speaking) return Promise.resolve(false);
+    if(announceStarting){
+      els.mic.textContent='starting speech listener…';
       els.mic.className='warntxt';
-    }catch(e){
-      log('Recognition start exception: '+e.message);
     }
+    return new Promise(resolve=>{
+      recognitionStartResolver=resolve;
+      try{
+        recognition.start();
+        setTimeout(()=>{
+          if(recognitionStartResolver){
+            log('Recognition start timed out: no onstart/onerror within 3 seconds');
+            els.mic.textContent='speech listener did not start';
+            els.mic.className='badtxt';
+            els.message.textContent='Speech-recognition service did not start.';
+            recognitionStartResolver(false);
+            recognitionStartResolver=null;
+          }
+        },3000);
+      }catch(e){
+        log('Recognition start exception: '+e.name+': '+e.message);
+        els.mic.textContent=`speech start: ${e.name}`;
+        els.mic.className='badtxt';
+        els.message.textContent=`Speech recognition could not start: ${e.name}`;
+        recognitionStartResolver=null;
+        resolve(false);
+      }
+    });
+  }
+  function stopRecognitionLoop(){
+    recognitionWanted=false;
+    if(recognition){ try{recognition.abort()}catch(e){} }
   }
   function restartRecognitionSoon(){
-    if(recognitionWanted) setTimeout(startRecognition,650);
+    if(recognitionWanted) setTimeout(()=>startRecognition(false),1000);
   }
 
   async function requestWake(){
@@ -568,6 +607,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     log(`Context: protocol=${location.protocol}, secure=${secure}, hostedHTTPS=${hosted}`);
   }
   showContext();
+  setupRecognition();
 
   async function testRawMicrophone(){
     const meter=document.getElementById('micMeter');
@@ -653,18 +693,34 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     els.message.textContent='Voice preview complete.';
   });
   $('micTest').addEventListener('click',testRawMicrophone);
+
+  $('speechTest').addEventListener('click',async()=>{
+    stopRecognitionLoop();
+    speechSynthesis.cancel();
+    speaking=false;
+    els.message.textContent='Starting speech-recognition-only test. When the top status says LISTENING FOR COMMAND, say “Tour status.”';
+    log('Isolated speech recognition test pressed');
+    await new Promise(r=>setTimeout(r,350));
+    const ok=await startRecognition(true);
+    if(!ok) log('Isolated recognition test failed to enter listening state');
+  });
+
   $('preflight').addEventListener('click',async()=>{
+    stopRecognitionLoop();
     els.message.textContent='Preflight starting…';
     log('Preflight button pressed');
-    const wakeOK=await requestWake();
+    await requestWake();
     const micOK=await testRawMicrophone();
     if(!micOK){
-      els.message.textContent='Preflight stopped: microphone permission failed. If this is the downloaded file, use the hosted HTTPS version.';
+      els.message.textContent='Preflight stopped: microphone permission failed.';
       return;
     }
-    startRecognition();
-    await speakPrepared('Preflight setup is active. After this sentence, say Tour status to test speech recognition.');
-    els.message.textContent='Preflight active. Say “Tour status.”';
+    await speakPrepared('Preflight setup is active. When I finish speaking, wait until the top status says listening, then say Tour status.');
+    els.message.textContent='Narration finished. Starting speech listener…';
+    log('Preflight TTS ended; waiting 1.5 seconds before recognition start');
+    await new Promise(r=>setTimeout(r,1500));
+    const ok=await startRecognition(true);
+    if(ok) els.message.textContent='Preflight active — listening now. Say “Tour status.”';
   });
   $('startBtn').addEventListener('click',()=>setRunning(true));
   $('pauseBtn').addEventListener('click',()=>{setRunning(false);els.message.textContent='Tour paused'});
@@ -700,7 +756,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       .then(()=>log('Offline cache service worker registered'))
       .catch(e=>log('Service worker failed: '+e.message));
   }
-  log('Leg 40 player v3 loaded');
+  log('Leg 40 player v4 loaded');
 })();
 </script>
 </body>

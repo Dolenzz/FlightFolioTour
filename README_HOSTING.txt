@@ -1,41 +1,27 @@
-FLIGHTFOLIO TOUR PLAYER v3 — HOSTING-READY HTTPS TEST
+FLIGHTFOLIO TOUR PLAYER v4 — SPEECH RECOGNITION FIX
 
-WHY V3
-The local-file test returned a microphone NotAllowed error. The browser APIs used for the
-hands-free player are most reliable from a normal HTTPS origin. This bundle is therefore
-ready to publish as a static HTTPS website.
+The raw microphone test passed on the hosted v3 site, so microphone permission and HTTPS are working.
 
-FILES
-index.html               Main phone player
-manifest.webmanifest     Allows home-screen / standalone app behavior where supported
-sw.js                    Caches the player for offline use after first load
-leg40.tour.json          Tour-data format sample
-icon-192.png / 512.png   App icons
+V4 changes:
+- Adds a separate Test speech recognition button with NO narration beforehand.
+- Changes preflight sequencing so TTS finishes first, then waits 1.5 seconds, then starts the speech listener.
+- Shows detailed speech-recognition API/start/error status.
+- Updates the service-worker cache from v3 to v4.
 
-GITHUB PAGES — SIMPLE FREE HOSTING
-1. Sign into github.com on the PC.
-2. Create a new PUBLIC repository, e.g. flightfolio-tour-player.
-3. Add/upload ALL files from this folder to the repository root.
-4. Open repository Settings -> Pages.
-5. Under Build and deployment, choose Deploy from a branch.
-6. Choose branch: main, folder: /(root), then Save.
-7. GitHub will provide an https://...github.io/... address after deployment.
-8. Open that HTTPS address in Chrome on the Android phone.
-9. Run:
-   a. Choose voice -> Preview Voice
-   b. Test microphone -> speak for 5 seconds
-   c. Run preflight setup -> say "Tour status"
-10. If prompted, ALLOW microphone access for the site.
+UPDATE THE EXISTING GITHUB PAGES REPOSITORY
+Upload/replace ALL files from this package at the repository root and commit.
+At minimum index.html and sw.js must be replaced.
 
-If microphone still shows NotAllowed on HTTPS:
-- Android Settings -> Apps -> Chrome -> Permissions -> Microphone -> Allow while using app.
-- Chrome -> Settings -> Site settings -> Microphone -> On.
-- Reopen the site, tap the lock/site-controls icon for the GitHub Pages site and allow Microphone.
+PHONE TEST
+1. Reopen the existing GitHub Pages URL.
+2. Confirm the header says: v4 · speech fix
+3. Press Test speech recognition FIRST.
+4. Wait for Hands-free to say LISTENING FOR COMMAND.
+5. Say: Tour status.
+6. Note what happens to:
+   - Hands-free
+   - Last heard
+   - the main message
+7. If that works, run Preflight setup and test Tour status again after its sentence.
 
-NOTES
-- The site has no server code and no API key.
-- GitHub Pages hosting is free for a public repository.
-- The page and narration cache locally after first load. Browser speech recognition itself may still
-  require an internet connection depending on Chrome/Android implementation.
-- The voice preview now primes the chosen speech voice before speaking to reduce Android's tendency
-  to use the default voice for the first utterance.
+If you still see v3 after GitHub deploys, close/reopen the page or clear site data because the old service worker may still be cached.
