@@ -1,46 +1,49 @@
-FLIGHTFOLIO TOUR PLAYER v8 — STABLE LISTENER + SCHEDULER FIX
+FLIGHTFOLIO TOUR PLAYER v9 — REAL-FLIGHT BUILD
 
-FIXES IN V8
+V9 keeps the working v8 listener/scheduler and adds two real-flight housekeeping fixes.
 
-1. WAYPOINT TWO HOMOPHONES
-Chrome may transcribe:
-  waypoint two
-  waypoint to
-  waypoint too
-  waypoint 2
-All are accepted as Waypoint 2.
+1. RESET TOUR
+Dry-run tests leave saved position and "played narration" state behind.
+Before an actual flight, press RESET TOUR and confirm.
+This returns the player to KUKI -> WP1, clears all narration history, and pauses at departure.
 
-2. SYNC/AUTO-NARRATION BUG FIX
-V7 could start the tour clock while the sync confirmation was still speaking.
-The narration scheduler then refused to arm because TTS was active.
-V8 waits until the sync confirmation is COMPLETELY FINISHED, then starts the
-tour clock and schedules the next narration.
+2. DESTINATION COMMAND
+The final prompt can now be completed with:
+  Tour destination
+or:
+  Tour airport
 
-3. LESS LISTENER CHURN
-V8 requests continuous recognition and up to 5 transcript alternatives.
-Harmless ambient-hum no-match/no-speech events stay in the Diagnostic Log
-instead of making the Hands-free status jump around.
-If Chrome ends a recognition session anyway, the listener supervisor restarts
-it after about 150 ms rather than leaving a long gap.
+The app then says "Destination confirmed. Leg Forty complete." and stops the tour clock.
 
-4. MULTIPLE TRANSCRIPT ALTERNATIVES
-If Chrome offers several interpretations, the player searches them for one that
-looks like a Tour/Waypoint command rather than blindly using only the first.
+UPDATE
+Replace all files in your existing GitHub Pages repository with v9 and commit them.
+Confirm the header says:
+  v9 · real-flight build
 
-UPDATE EXISTING GITHUB PAGES SITE
-Replace all files with v8 and commit. Confirm the heading says:
-  v8 · stable listener
+REAL FLIGHT START
+1. Open the site.
+2. Select/preview your preferred voice.
+3. Press RESET TOUR and confirm.
+4. Set estimated groundspeed (110 kt unless you plan to use another speed).
+5. Run Preflight setup.
+6. Say "Tour status" once.
+7. When ready to take off, say "Tour start".
+8. Leave the player alone between narration blocks.
+9. At each actual flight-plan waypoint say:
+   Tour waypoint one
+   Tour waypoint two
+   Tour waypoint three
+   Tour waypoint four
+10. If timing drifts, say:
+   Tour sync 12 miles to waypoint three
+   (using the distance MSFS shows)
+11. Use:
+   Tour hold = pause
+   Tour go = resume
+   Tour again = repeat last narration
+   Tour update = status
+12. At KACV say:
+   Tour destination
 
-FOCUSED TEST
-A. Run Preflight. Say "Tour status".
-B. Say naturally: "Tour sync 16 miles to waypoint two".
-   "waypoint to" is okay if Last heard shows that.
-C. Let the sync confirmation finish completely.
-D. Do not say anything.
-   At 110 knots, the Leggett narration should begin about 49 seconds later
-   when the estimate reaches 14.5 NM.
-E. During the wait, the Hands-free box should remain essentially:
-   READY — listening for Tour command
-   even if the Diagnostic Log records background/no-match restarts.
-
-If D succeeds, the auto-narration scheduler bug is fixed.
+During the real flight, note timing, narration density, long-silence recognition,
+false triggers from simulator audio, and whether narration feels tied to what you see.

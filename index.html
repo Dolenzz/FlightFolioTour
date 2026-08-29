@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#101418">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
-<title>FlightFolio Tour Player v8 — Leg 40</title>
+<title>FlightFolio Tour Player v9 — Leg 40</title>
 <style>
 :root{
   color-scheme:dark;
@@ -52,7 +52,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
 </head>
 <body>
 <main>
-  <h1>FlightFolio Tour Player <span class="small">v8 · stable listener</span></h1>
+  <h1>FlightFolio Tour Player <span class="small">v9 · real-flight build</span></h1>
   <p class="sub" id="tourTitle"></p>
   <div class="card" id="httpsNotice" style="display:none;border-color:var(--warn)"><b>Secure web address required.</b> Microphone and wake-lock tests should be run from the hosted HTTPS version of this page, not from a downloaded file.</div>
 
@@ -107,6 +107,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       <button type="button" class="big" id="pauseBtn">PAUSE</button>
       <button type="button" class="big" id="repeatBtn">REPEAT</button>
       <button type="button" class="big" id="continueBtn">CONTINUE</button>
+      <button type="button" class="big" id="resetBtn">RESET TOUR</button>
     </div>
   </section>
 
@@ -141,6 +142,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       <li>“Tour status” / “Tour update”</li>
       <li>“Tour continue”</li>
       <li>“Tour waypoint two”</li>
+      <li>“Tour destination” / “Tour airport”</li>
       <li>“Tour sync 16 miles to waypoint two” <span class="small">(“Turn sync…” is also accepted)</span></li>
     </ul>
     <p class="small">Don't over-enunciate. Common Chrome substitutions are accepted: <b>Turn</b> for <b>Tour</b>, and <b>to/too</b> for waypoint two.</p>
@@ -377,6 +379,27 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     await speak(`You should be approaching ${target}. When you cross it, say Tour ${target.toLowerCase()}.`);
   }
 
+  function resetTour(){
+    clearSchedule();
+    speechSynthesis.cancel();
+    app = {
+      segmentIndex: 0,
+      anchorRemainingNm: tour.segments[0].distanceNm,
+      anchorMs: Date.now(),
+      running: false,
+      paused: true,
+      pausedRemainingNm: tour.segments[0].distanceNm,
+      played: {},
+      boundaryPrompted: false
+    };
+    lastUtteranceText='';
+    lastNarrationId=null;
+    save();
+    updateUI();
+    els.message.textContent='Tour reset to departure. Ready for preflight.';
+    log('Tour reset to clean departure state');
+  }
+
   function setRunning(on){
     if(on){
       const rem=currentRemaining();
@@ -430,19 +453,38 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
   }
 
   function atWaypoint(n, announce=true){
-    if(n <= 0){ setSync(0,tour.segments[0].distanceNm,false); }
-    else if(n >= 1 && n <= 4){
+    if(n <= 0){
+      setSync(0,tour.segments[0].distanceNm,false);
+    } else if(n >= 1 && n <= 4){
       setSync(n, tour.segments[n].distanceNm, false); // segment n begins at WPn
     } else if(n === 5){
-      setSync(tour.segments.length-1,0,false);
+      clearSchedule();
+      app.segmentIndex=tour.segments.length-1;
+      app.anchorRemainingNm=0;
+      app.anchorMs=Date.now();
+      app.pausedRemainingNm=0;
+      app.running=false;
+      app.paused=true;
+      app.boundaryPrompted=true;
+      save(); updateUI();
+      els.message.textContent='Leg 40 complete.';
+      log('Destination confirmed; Leg 40 complete');
+      if(announce) speak('Destination confirmed. Leg Forty complete.');
+      return;
     }
-    app.running=true; app.paused=false; app.anchorMs=Date.now(); app.pausedRemainingNm=null; app.boundaryPrompted=false;
+
+    app.running=true;
+    app.paused=false;
+    app.anchorMs=Date.now();
+    app.pausedRemainingNm=null;
+    app.boundaryPrompted=false;
     save(); updateUI();
+
     log(`Waypoint ${n} confirmed`);
     if(announce){
-      speak(n<=4 ? `Waypoint ${n} confirmed. Tour timing is synchronized.` : `Destination confirmed. Leg Forty complete.`)
-        .then(()=>{ if(n<=4) flushDue().then(()=>scheduleNext()); });
-    } else if(n<=4) {
+      speak(`Waypoint ${n} confirmed. Tour timing is synchronized.`)
+        .then(()=>{ flushDue().then(()=>scheduleNext()); });
+    } else {
       flushDue().then(()=>scheduleNext());
     }
   }
@@ -498,7 +540,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     // Chrome frequently hears the wake word "Tour" as "Turn".
     // Correct it only when followed by one of our known command words.
     t=t.replace(
-      /\bturn\s+(?=(?:sync|sink|sinc|since|status|update|pause|paws|pores|pours|hold|stop|wait|resume|go|proceed|start|begin|repeat|again|continue|way\s*point|waypoint)\b)/g,
+      /\bturn\s+(?=(?:sync|sink|sinc|since|status|update|pause|paws|pores|pours|hold|stop|wait|resume|go|proceed|start|begin|repeat|again|continue|destination|airport|way\s*point|waypoint)\b)/g,
       'tour '
     );
 
@@ -553,6 +595,11 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
     if(/\btour\s+(repeat|again)\b/.test(t)){ await repeatLast(); return; }
 
     if(/\btour\s+continue\b/.test(t)){ await manualContinue(); return; }
+
+    if(/\btour\s+(destination|airport|arrival)\b/.test(t)){
+      atWaypoint(5);
+      return;
+    }
 
     const wn=waypointNumberFromText(t);
     if((/\btour\s+waypoint\b/.test(t)||t.startsWith('waypoint')) && wn){
@@ -885,6 +932,11 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
   $('pauseBtn').addEventListener('click',()=>{setRunning(false);els.message.textContent='Tour paused'});
   $('repeatBtn').addEventListener('click',repeatLast);
   $('continueBtn').addEventListener('click',manualContinue);
+  $('resetBtn').addEventListener('click',()=>{
+    if(confirm('Reset Leg 40 to the departure and clear all played narration?')){
+      resetTour();
+    }
+  });
   $('syncBtn').addEventListener('click',()=>{
     const wn=Number($('syncWp').value), miles=Number($('syncMiles').value);
     if(!Number.isFinite(miles)){els.message.textContent='Enter a valid distance first.';return}
@@ -915,7 +967,7 @@ hr{border:0;border-top:1px solid var(--line);margin:14px 0}
       .then(()=>log('Offline cache service worker registered'))
       .catch(e=>log('Service worker failed: '+e.message));
   }
-  log('Leg 40 player v8 loaded');
+  log('Leg 40 player v9 loaded');
 })();
 </script>
 </body>
