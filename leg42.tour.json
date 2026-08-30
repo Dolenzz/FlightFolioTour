@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 3,
+  "id": "leg42-kcec-kmfr",
+  "title": "Leg 42 — Redwoods and Rogue Valley to Medford",
+  "subtitle": "Smith River, Oregon Caves, Illinois Valley and Rogue Valley",
+  "departure": {
+    "id": "KCEC",
+    "name": "Jack McNamara Field",
+    "voiceAliases": [
+      "kcec",
+      "k c e c",
+      "crescent city"
+    ]
+  },
+  "destination": {
+    "id": "KMFR",
+    "name": "Rogue Valley International-Medford Airport",
+    "voiceAliases": [
+      "kmfr",
+      "k m f r",
+      "medford"
+    ]
+  },
+  "cruiseAltitudeFt": 7000,
+  "defaultGroundSpeedKt": 110,
+  "routeDistanceNm": 96.65,
+  "waypointReminderNm": 2.0,
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "msfsIdent": "WP1JEDE",
+      "name": "Jedediah Smith Redwoods",
+      "lat": 41.785,
+      "lon": -124.106
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "msfsIdent": "WP2OREG",
+      "name": "Oregon Caves Country",
+      "lat": 42.102,
+      "lon": -123.415
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "msfsIdent": "WP3ILLI",
+      "name": "Illinois Valley",
+      "lat": 42.165,
+      "lon": -123.647
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "msfsIdent": "WP4ROGU",
+      "name": "Rogue River at Grants Pass",
+      "lat": 42.439,
+      "lon": -123.328
+    },
+    {
+      "number": 5,
+      "id": "WP05",
+      "msfsIdent": "WP5UPPE",
+      "name": "Upper and Lower Table Rocks",
+      "lat": 42.436,
+      "lon": -122.946
+    }
+  ],
+  "segments": [
+    {
+      "from": "KCEC",
+      "to": "WP01",
+      "distanceNm": 5.85,
+      "blocks": [
+        {
+          "id": "crescent-departure",
+          "triggerRemainingNm": 5.5,
+          "title": "Leaving Crescent City for the Smith River",
+          "text": "We are leaving Crescent City and turning inland toward the Smith River. The coast-redwood country does not end at the shoreline; it follows cool, wet river valleys into the mountains, and the Smith is one of the finest examples. The first waypoint is near Jedediah Smith Redwoods State Park and the community of Hiouchi. Once you are settled on course, the view ahead should change quickly from the open coastal plain to a much tighter river-and-forest landscape."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 36.26,
+      "blocks": [
+        {
+          "id": "jed-smith",
+          "triggerRemainingNm": 34.5,
+          "title": "Jedediah Smith Redwoods and the Smith River",
+          "spokenLabel": "Jedediah Smith redwood country",
+          "bridge": true,
+          "text": "Now that we are beyond Waypoint One, we are in the heart of Jedediah Smith Redwoods State Park. The park was established in 1929 and today forms the northern end of the jointly managed Redwood National and State Parks. Below, the Smith River runs directly through old-growth redwood forest. Near Hiouchi, trails move from enormous redwoods down to the riverbank, where the water is often strikingly clear and green. The park takes its name from Jedediah Strong Smith, the fur trapper and explorer who reached this river in 1828 after traveling north through California."
+        },
+        {
+          "id": "stout-grove",
+          "triggerRemainingNm": 31.8,
+          "title": "Stout Grove and the fight to save the redwoods",
+          "spokenLabel": "the Smith River corridor",
+          "text": "Very close to the river behind and below us is Stout Memorial Grove, a forty-four-acre pocket of old-growth redwoods that escaped twentieth-century logging. Clara Stout donated the grove to Save the Redwoods League in 1929 in memory of her husband, lumberman Frank Stout, and it became the first dedicated grove in Jedediah Smith Redwoods State Park. Some of its trees rise around three hundred feet. Flood-borne soils from the Smith River help give the grove a distinctive open understory, so the enormous trunks stand out even more dramatically at ground level."
+        },
+        {
+          "id": "smith-undammed",
+          "triggerRemainingNm": 29.0,
+          "title": "California's great undammed river",
+          "spokenLabel": "the upper Smith River",
+          "bridge": true,
+          "text": "The Smith River has another distinction worth noticing from the air. It is the last major undammed river system in California. Its National Recreation Area was created to protect wild and scenic river values, water quality, fisheries and the extraordinary range of landscapes between redwood forest and high mountain country. The river's clarity is not accidental. Much of its watershed is steep, forested and relatively undeveloped, and the main stem has never been interrupted by a large storage dam. Salmon and steelhead still move through a river system whose basic connection from mountains to ocean remains intact."
+        },
+        {
+          "id": "smith-geology",
+          "triggerRemainingNm": 26.5,
+          "title": "Ocean crust in the Smith River mountains",
+          "spokenLabel": "the Highway 199 corridor",
+          "text": "The Smith River country is unusually interesting geologically as well as biologically. Parts of this watershed expose ophiolite, pieces of ancient oceanic crust and upper mantle that were pushed onto the continent by tectonic forces. Serpentine and related rocks weather into soils that can be difficult for ordinary plants, yet they support specialized botanical communities. That helps explain why the Smith River National Recreation Area can shift so quickly from redwood forest to sparse rocky slopes, unusual meadows and very different conifer forests as elevation and bedrock change."
+        },
+        {
+          "id": "highway199",
+          "triggerRemainingNm": 24.0,
+          "title": "Highway 199 follows the river inland",
+          "spokenLabel": "Gasquet and the Smith River canyon",
+          "bridge": true,
+          "text": "For the next stretch, the road beneath us is almost as useful a landmark as the river. U.S. Highway 199 follows this natural corridor from Crescent City toward the Oregon border, squeezing between the Smith River and the surrounding mountains. Around Hiouchi and farther inland, river, highway and steep forested slopes repeatedly converge. From an airplane it is easy to see why this became the practical route through country that otherwise offers very few broad valleys or easy passes."
+        },
+        {
+          "id": "gasquet",
+          "triggerRemainingNm": 18.5,
+          "title": "Gasquet and the narrowing Smith River country",
+          "spokenLabel": "the Klamath-Siskiyou high country",
+          "bridge": true,
+          "text": "We are passing the Gasquet area now, where the Smith River corridor narrows into rugged mountain country. The community developed along the transportation route that eventually became Highway 199, but the larger story is the landscape itself. The Smith River National Recreation Area rises from coastal redwoods into mixed conifer forest, rocky ridges and high-elevation plateaus over a surprisingly short distance. That abrupt ecological change is one reason this corner of California and Oregon is famous among botanists."
+        },
+        {
+          "id": "siskiyou",
+          "triggerRemainingNm": 12.0,
+          "title": "The Klamath-Siskiyou Mountains",
+          "spokenLabel": "Oregon Caves country",
+          "bridge": true,
+          "text": "The mountains around us belong to the Klamath-Siskiyou region, one of the most geologically complicated corners of the West. Unlike a single young volcanic chain, these mountains contain pieces of oceanic crust, ancient sedimentary rocks, intrusive rocks and altered material assembled over a very long tectonic history. That complicated geology produces equally complicated soils, helping support an unusually diverse mix of plant communities. As we continue northeast, we are moving toward another expression of that geology: the marble of Oregon Caves."
+        },
+        {
+          "id": "oregon-caves-approach",
+          "triggerRemainingNm": 5.5,
+          "title": "Oregon Caves — marble beneath the Siskiyous",
+          "spokenLabel": "Waypoint Two at Oregon Caves",
+          "text": "Oregon Caves country is coming up ahead. The cave system formed in marble, rock that began as limestone and was later altered by heat and pressure. Water working through fractures enlarged the passages over immense spans of time. The best-known discovery story dates to 1874, when hunter Elijah Davidson followed his dog after it disappeared while chasing a bear and found the cave entrance. Oregon Caves became a national monument in 1909. The first practical road arrived later, opening the caves to far more visitors and helping reshape the surrounding Illinois Valley."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 11.0,
+      "blocks": [
+        {
+          "id": "caves-history",
+          "triggerRemainingNm": 9.4,
+          "title": "The road that opened Oregon Caves",
+          "spokenLabel": "the Illinois Valley",
+          "text": "Leaving the Oregon Caves waypoint, imagine how isolated this place once was. A road finally reached the monument in 1922, and the last thirteen miles were slow enough that the trip could take more than two hours. Development followed quickly: a chalet, cabins and other visitor facilities appeared in the 1920s, and Civilian Conservation Corps crews carried out major work during the 1930s. The improved road also helped create a crossroads community in the valley below: Cave Junction."
+        },
+        {
+          "id": "illinois-gold",
+          "triggerRemainingNm": 6.3,
+          "title": "Gold in the Illinois Valley",
+          "spokenLabel": "Cave Junction",
+          "text": "The Illinois Valley ahead was pulled abruptly into the nineteenth-century gold rush. Gold was found on Josephine Creek in 1851, and mining camps spread through the valley. The old Waldo area, south of present-day Cave Junction, became an important mining district; Chinese miners later worked Josephine Creek, Canyon Creek and other nearby drainages extensively. Like many western mining regions, the population surged, shifted and sometimes vanished as richer discoveries drew people elsewhere."
+        },
+        {
+          "id": "cave-junction",
+          "triggerRemainingNm": 4.1,
+          "title": "Cave Junction at the crossroads",
+          "spokenLabel": "Waypoint Three in the Illinois Valley",
+          "text": "Cave Junction is close to our next waypoint. Its name is wonderfully literal: it grew where the highway through the Illinois Valley met the road leading east toward Oregon Caves. The community began taking shape in the 1920s as automobile travel and cave tourism increased, and it eventually became the service center for this broad valley between the Siskiyou Mountains. The valley floor below is noticeably more open than the mountain country we have just crossed."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 21.71,
+      "blocks": [
+        {
+          "id": "waldo-mining",
+          "triggerRemainingNm": 20.0,
+          "title": "Waldo, miners and a vanished boomtown",
+          "spokenLabel": "the Applegate Trail country",
+          "bridge": true,
+          "text": "As we leave the Illinois Valley, one of the region's ghost stories lies south of our course. Waldo grew out of the gold rush and became a substantial mining settlement before the richer strikes faded and transportation patterns shifted. The Illinois Valley also supported a significant Chinese mining population, particularly along Josephine Creek and nearby waterways. Little of the boomtown survives today, but mining reshaped stream channels, settlement patterns and the early economy throughout this part of southwest Oregon."
+        },
+        {
+          "id": "sailor-diggings",
+          "triggerRemainingNm": 17.5,
+          "title": "Sailor Diggings and Josephine County",
+          "spokenLabel": "the Applegate Trail country",
+          "text": "This region's gold-rush history even connects back to the coast we left behind. Local accounts tell of sailors leaving a ship near Crescent City and heading inland toward the Jacksonville gold fields, only to find rich deposits in the Illinois Valley first. The resulting mining center became known as Sailor Diggings and later Waldo. Josephine County itself takes its name from Josephine Rollins Ort, who came into the region with her father in 1851. The boom faded, but the names and altered stream valleys still preserve traces of that first rush of settlement."
+        },
+        {
+          "id": "applegate",
+          "triggerRemainingNm": 15.0,
+          "title": "The Applegate Trail",
+          "spokenLabel": "the Rogue Valley transition",
+          "bridge": true,
+          "text": "Southwestern Oregon was also crossed by one of the major alternatives to the original Oregon Trail route. In the 1840s Jesse and Lindsay Applegate helped establish what became known as the Applegate Trail, intended to give emigrants a safer route into Oregon that avoided the dangerous Columbia River passage. The trail came north through parts of Nevada and northern California, then crossed this broader southwest Oregon region toward the Rogue and Willamette valleys. The same mountain barriers that shape our flight also dictated where wagons could realistically travel."
+        },
+        {
+          "id": "rogue-transition",
+          "triggerRemainingNm": 10.0,
+          "title": "From Siskiyou country into the Rogue Valley",
+          "spokenLabel": "Grants Pass",
+          "bridge": true,
+          "text": "The terrain ahead begins to open as we approach the Rogue River basin. This is a useful transition to watch from the air: the tight, forested valleys of the Illinois and Siskiyou country give way to a broader network of river terraces, farms, roads and towns. The Rogue itself rises far to the east near the Cascades and eventually cuts west all the way to the Pacific. For centuries it has been a transportation corridor, a salmon river and a central organizing feature of life in southwestern Oregon."
+        },
+        {
+          "id": "grants-pass",
+          "triggerRemainingNm": 5.6,
+          "title": "Grants Pass — gold, railroads and a river town",
+          "spokenLabel": "the Rogue River at Grants Pass",
+          "text": "Grants Pass is coming up ahead. The town's name honors Ulysses S. Grant's 1863 victory at Vicksburg; the original spelling even included an apostrophe. A stage stop existed here in the 1860s, and the Oregon-California Railroad reached the area in 1884, helping turn the settlement into a regional center. Mining, timber and agriculture all fed its growth, while the Rogue River increasingly became part of the town's identity and later its recreation economy."
+        },
+        {
+          "id": "rogue-wild-scenic",
+          "triggerRemainingNm": 3.6,
+          "title": "The Rogue River",
+          "spokenLabel": "Waypoint Four at the Rogue River",
+          "text": "The Rogue River is almost beneath our route now. Farther downstream, eighty-four miles of the lower Rogue became one of the original eight rivers protected by the federal Wild and Scenic Rivers Act in 1968. That protected section begins only several miles west of Grants Pass and continues through deep, rugged canyon country toward the coast. The river is famous for salmon and steelhead as well as whitewater boating, and its canyons remain among the wildest landscapes in western Oregon."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "WP05",
+      "distanceNm": 16.93,
+      "blocks": [
+        {
+          "id": "rogue-east",
+          "triggerRemainingNm": 15.5,
+          "title": "Following the Rogue east",
+          "spokenLabel": "the middle Rogue Valley",
+          "bridge": true,
+          "text": "From Grants Pass we turn east along the broader middle Rogue Valley. The river here is gentler than the famous canyon section downstream, and the surrounding land opens into farms, communities and transportation corridors. This is the part of the watershed where the Rogue begins to feel less like an isolated mountain river and more like the spine of a populated valley. Ahead, two flat-topped landmarks will soon make the geology unusually easy to read from the air."
+        },
+        {
+          "id": "middle-rogue",
+          "triggerRemainingNm": 11.0,
+          "title": "A valley shaped by rivers and old volcanoes",
+          "spokenLabel": "the Table Rocks",
+          "bridge": true,
+          "text": "The middle Rogue crosses a patchwork of much older rocks and younger volcanic material on its way through the valley. To the east, the Cascades contain comparatively young volcanic landscapes; west of us lie the much older and more complicated Klamath-Siskiyou mountains. The Rogue Valley sits between those worlds. Our next waypoint, Upper and Lower Table Rocks, preserves one of the clearest clues to an ancient valley surface that erosion has mostly carried away."
+        },
+        {
+          "id": "gold-hill",
+          "triggerRemainingNm": 8.8,
+          "title": "Gold Hill — a town named for the real thing",
+          "spokenLabel": "the Table Rocks",
+          "text": "We are passing the Gold Hill area along the Rogue River. The name is quite literal: rich gold-bearing quartz was found in the hills here around 1860, and mining helped create the early settlement. The railroad was just as important. The Oregon and California Railroad came through in the 1880s, and Gold Hill developed into a shipping point for mines, farms and livestock. For a time the town also supported a major cement plant and river-powered industry, another reminder that the Rogue Valley's economy has repeatedly changed with transportation and natural resources."
+        },
+        {
+          "id": "table-rock-geology",
+          "triggerRemainingNm": 6.8,
+          "title": "Why the Table Rocks are flat",
+          "spokenLabel": "Upper and Lower Table Rocks",
+          "text": "Upper and Lower Table Rocks should become unmistakable ahead: two broad, flat-topped mesas rising about eight hundred feet above the surrounding valley. Their flat caps are remnants of an andesite lava flow roughly seven million years old. The lava once spread across a much larger landscape, covering softer sedimentary rock beneath it. Over millions of years the Rogue River and its tributaries eroded most of that old surface away, while the harder lava protected these two surviving mesas like enormous stone umbrellas."
+        },
+        {
+          "id": "table-rock-culture",
+          "triggerRemainingNm": 4.1,
+          "title": "Table Rocks — Takelma homeland and rare habitat",
+          "spokenLabel": "Waypoint Five at the Table Rocks",
+          "text": "The Table Rocks are important for much more than their geology. People have lived in the Rogue Valley for thousands of years, and the Takelma lived along the middle and upper Rogue, including this area. Today the mesas are protected for cultural, geological and ecological values. Their flat summits hold seasonal vernal pools and a remarkable spring wildflower display; one tiny plant, the dwarf woolly meadowfoam, is known naturally only from the tops of the Table Rocks."
+        }
+      ]
+    },
+    {
+      "from": "WP05",
+      "to": "KMFR",
+      "distanceNm": 4.91,
+      "blocks": [
+        {
+          "id": "medford-approach",
+          "triggerRemainingNm": 4.6,
+          "title": "Medford and the Bear Creek Valley",
+          "spokenLabel": "Medford",
+          "text": "With the Table Rocks behind us, Medford is only a few minutes away. The city began in 1883 when the Oregon and California Railroad chose a depot site on the valley floor rather than routing directly through nearby Jacksonville. Medford grew quickly around the railroad and later became a center of the Rogue Valley's famous orchard industry. By the 1920s it was also an aviation pioneer in Oregon, with an early public airport and an important airmail stop. From here, concentrate on the arrival into Rogue Valley International-Medford. Railroad access also transformed agriculture here. In the early twentieth century, hundreds of thousands of apple and pear trees were planted across the Rogue Valley, and commercial fruit became one of the region's signature exports. The resulting orchard boom helped turn Medford from a small railroad town into the valley's dominant city."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Leg 42 FlightFolio PLN",
+      "url": "local:Leg 42 - Redwoods and Rogue Valley to Medford.pln"
+    },
+    {
+      "name": "California State Parks — Jedediah Smith Redwoods",
+      "url": "https://www.parks.ca.gov/?page_id=31007"
+    },
+    {
+      "name": "NPS — Jedediah Smith / Smith River",
+      "url": "https://www.nps.gov/places/jedsmithdayuse.htm"
+    },
+    {
+      "name": "USFS — Smith River National Recreation Area",
+      "url": "https://www.fs.usda.gov/sites/nfs/files/r05/sixrivers/publication/Appendix%20A.pdf"
+    },
+    {
+      "name": "NPS — Oregon Caves timeline",
+      "url": "https://www.nps.gov/orca/learn/historyculture/timeline.htm"
+    },
+    {
+      "name": "Oregon Encyclopedia — Oregon Caves",
+      "url": "https://www.oregonencyclopedia.org/articles/oregon_caves_national_monument/"
+    },
+    {
+      "name": "Oregon Encyclopedia — Chinese mining in Oregon",
+      "url": "https://www.oregonencyclopedia.org/articles/chinese_mining_in_oregon/"
+    },
+    {
+      "name": "City of Grants Pass — History",
+      "url": "https://www.grantspassoregon.gov/395/History"
+    },
+    {
+      "name": "BLM — Rogue Wild and Scenic River",
+      "url": "https://www.blm.gov/programs/national-conservation-lands/oregon-washington/rogue-wsr"
+    },
+    {
+      "name": "BLM — Table Rocks geology",
+      "url": "https://www.blm.gov/programs/recreation/recreation-activities/oregon-washington/tablerocks/natural-history/geology"
+    },
+    {
+      "name": "BLM — Table Rocks cultural history",
+      "url": "https://www.blm.gov/programs/recreation/recreation-activities/oregon-washington/tablerocks/cultural-history"
+    },
+    {
+      "name": "City of Medford — Historic Preservation",
+      "url": "https://www.medfordoregon.gov/Government/Departments/Planning/Historic"
+    },
+    {
+      "name": "NPS — Stout Memorial Grove",
+      "url": "https://www.nps.gov/places/stoutgrove.htm"
+    },
+    {
+      "name": "Rivers.gov — Smith River",
+      "url": "https://www.fws.gov/rivers/river/smith"
+    },
+    {
+      "name": "City of Gold Hill — History",
+      "url": "https://www.cityofgoldhill.gov/community/page/history"
+    }
+  ]
+}
