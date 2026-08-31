@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 4,
+  "id": "leg43-kmfr-77s",
+  "title": "Leg 43 — Crater Lake to Creswell",
+  "subtitle": "Crater Lake, Diamond Lake, Oakridge, Dorena and Creswell",
+  "departure": {
+    "id": "KMFR",
+    "name": "Rogue Valley International-Medford Airport",
+    "voiceAliases": [
+      "kmfr",
+      "k m f r",
+      "medford"
+    ]
+  },
+  "destination": {
+    "id": "77S",
+    "name": "Hobby Field, Creswell",
+    "voiceAliases": [
+      "77s",
+      "seven seven s",
+      "hobby field",
+      "creswell"
+    ]
+  },
+  "cruiseAltitudeFt": 10100,
+  "defaultGroundSpeedKt": 120,
+  "routeDistanceNm": 130.49,
+  "waypointReminderNm": 2.0,
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "msfsIdent": "WP1CRAT",
+      "name": "Crater Lake and Wizard Island",
+      "lat": 42.9446,
+      "lon": -122.108999
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "msfsIdent": "WP2DIAM",
+      "name": "Diamond Lake",
+      "lat": 43.176,
+      "lon": -122.137
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "msfsIdent": "WP3OAKR",
+      "name": "Oakridge and Middle Fork Willamette",
+      "lat": 43.744,
+      "lon": -122.461
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "msfsIdent": "WP4DORE",
+      "name": "Dorena Lake",
+      "lat": 43.735,
+      "lon": -122.893
+    }
+  ],
+  "segments": [
+    {
+      "from": "KMFR",
+      "to": "WP01",
+      "distanceNm": 48.09,
+      "blocks": [
+        {
+          "id": "medford-departure",
+          "triggerRemainingNm": 46.5,
+          "title": "Leaving Medford — pears, gift boxes and a movie line",
+          "spokenLabel": "the upper Rogue Valley",
+          "bridge": true,
+          "departureIntro": true,
+          "text": "As we leave Medford, here is a bit of local personality before the mountains take over. The Rogue Valley's pear industry eventually produced one of America's best-known mail-order gift companies: Harry and David. The brothers built their business around local Comice pears, then expanded into ideas such as the Fruit-of-the-Month Club and stacked gift towers. Medford even received a small Hollywood nod in the 1944 film Double Indemnity, when one character makes a point of identifying himself as a Medford, Oregon man. Ahead, the broad orchard country will steadily give way to the forested Cascades."
+        },
+        {
+          "id": "rogue-headwaters",
+          "triggerRemainingNm": 40.0,
+          "title": "Following the Rogue toward its headwaters",
+          "spokenLabel": "Lost Creek Lake",
+          "bridge": true,
+          "text": "We are working our way toward the high country where the Rogue River begins. The Rogue eventually travels more than two hundred miles from the Cascades to the Pacific at Gold Beach, but up here its tributaries are still mountain streams fed by snow, springs and forested watersheds. It is a useful river to follow mentally on this flight: we left its populated valley around Medford, and we are now climbing toward the volcanic landscape near its source."
+        },
+        {
+          "id": "lost-creek",
+          "triggerRemainingNm": 34.0,
+          "title": "Lost Creek Lake off the left",
+          "spokenLabel": "the Prospect area",
+          "bridge": true,
+          "text": "About six miles off our left is Lost Creek Lake on the Rogue River. The reservoir is held by the 327-foot William L. Jess Dam, completed in the 1970s for flood control, water supply, hydropower and other uses. One unusually thoughtful feature is its intake system: operators can draw water from different depths and mix it to help control the temperature released downstream, improving conditions for salmon and steelhead. From the air, the long reservoir also marks the point where the Rogue begins squeezing into much tighter mountain country."
+        },
+        {
+          "id": "prospect-power",
+          "triggerRemainingNm": 27.5,
+          "title": "Prospect — an early hydroelectric outpost",
+          "spokenLabel": "the volcanic high country",
+          "bridge": true,
+          "text": "The small community of Prospect lies roughly four miles to our left. Its early twentieth-century hydroelectric plant became much more important than the town's size might suggest. The Prospect plant went into service in 1911 and helped supply electricity to Medford, Jacksonville, Central Point, Grants Pass and Ashland, supporting the same orchard boom we just left behind. Before trucks and paved highways, equipment for the project had to be hauled into this rugged country by teams and wagons."
+        },
+        {
+          "id": "mazama-ash-country",
+          "triggerRemainingNm": 20.0,
+          "title": "Entering Mount Mazama's volcanic footprint",
+          "spokenLabel": "Mount Mazama country",
+          "bridge": true,
+          "text": "The landscape ahead belongs to the Cascade volcanic arc, and the ground beneath the forests carries evidence of one extraordinary event. When Mount Mazama erupted about seventy-seven hundred years ago, ash and pumice spread across a huge part of the Pacific Northwest. Geologists still use Mazama ash as a convenient time marker in sediments far from the mountain. The summit that once rose to roughly twelve thousand feet did not simply blow away; as the magma chamber emptied, the mountain collapsed inward and created the enormous caldera we are approaching."
+        },
+        {
+          "id": "mazama-people",
+          "triggerRemainingNm": 12.7,
+          "title": "A landscape remembered by people",
+          "spokenLabel": "Crater Lake",
+          "bridge": true,
+          "text": "Crater Lake's story is not only geological. Archaeological evidence shows that people were in this region before Mount Mazama's great eruption; artifacts have been found buried beneath its ash and pumice. The place is sacred in Klamath tradition, and that long human connection reaches back far beyond the arrival of nineteenth-century explorers. It is remarkable to think that the collapse which made the lake happened within the span of human memory, not in some unimaginably remote geological age."
+        },
+        {
+          "id": "crater-approach",
+          "triggerRemainingNm": 6.2,
+          "title": "Crater Lake ahead",
+          "spokenLabel": "Waypoint One at Crater Lake",
+          "text": "Crater Lake should now be the unmistakable centerpiece ahead. At about nineteen hundred forty-three feet deep, it is the deepest lake in the United States. There are no large rivers flowing into or out of it; rain and an enormous amount of mountain snow fill the basin, while evaporation and seepage keep the level in balance. Wizard Island is the volcanic cone rising from the western side of the lake, a reminder that eruptions continued inside the caldera after Mount Mazama collapsed. Our first waypoint is centered on this extraordinary view."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 13.95,
+      "blocks": [
+        {
+          "id": "old-man",
+          "triggerRemainingNm": 12.6,
+          "title": "Crater Lake's wandering Old Man",
+          "spokenLabel": "the north rim of Crater Lake",
+          "text": "Before we leave Crater Lake behind, there is a wonderfully odd resident of the lake called the Old Man. It is a roughly thirty-foot mountain-hemlock log that has floated vertically for well over a century, with only a few feet showing above the surface. A 1938 study tracked it traveling more than sixty miles in just a few months. Park lore became even stranger in 1988, when scientists temporarily tied the log up before a submersible survey. Storms and even August snow followed, so the Old Man was quietly released again. No one claims that proves anything, but it certainly improved the story."
+        },
+        {
+          "id": "oregon-quarter",
+          "triggerRemainingNm": 8.7,
+          "title": "Crater Lake in your pocket",
+          "spokenLabel": "Diamond Lake",
+          "text": "Crater Lake also ended up on millions of pieces of pocket change. Oregon chose the lake for its 2005 state quarter, and the design includes Wizard Island along with the surrounding rim. Wizard Island itself is only the visible tip of the post-collapse volcanism here; several other volcanic features are submerged beneath the lake. Only about two percent of Wizard Island's volcanic structure actually stands above the water."
+        },
+        {
+          "id": "diamond-approach",
+          "triggerRemainingNm": 5.2,
+          "title": "Diamond Lake and the Lightning Rod of the Cascades",
+          "spokenLabel": "Waypoint Two at Diamond Lake",
+          "text": "Diamond Lake is coming up ahead, with two very different volcanic mountains framing the basin. Mount Bailey rises on the west, while the much sharper Mount Thielsen stands to the east. Thielsen's narrow summit is struck by lightning often enough to earn the nickname Lightning Rod of the Cascades. The lake itself was named for pioneer John Diamond, who saw it in 1852 while searching for a wagon route across the mountains. Our second waypoint is over the lake basin."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 36.91,
+      "blocks": [
+        {
+          "id": "diamond-gem",
+          "triggerRemainingNm": 35.6,
+          "title": "Diamond Lake — the Gem of the Cascades",
+          "spokenLabel": "Mount Thielsen",
+          "bridge": true,
+          "text": "Diamond Lake has long marketed itself as the Gem of the Cascades. At a little over five thousand feet in elevation, it became one of Oregon's best-known high-country recreation lakes, especially for trout fishing. Its setting is unusually theatrical: Mount Bailey forms the broad volcanic wall to one side while the pointed summit of Mount Thielsen dominates the other. In winter the same basin that attracts boats and anglers turns into snowmobile, ski and snowshoe country."
+        },
+        {
+          "id": "thielsen",
+          "triggerRemainingNm": 30.5,
+          "title": "Mount Thielsen — a summit built for lightning",
+          "spokenLabel": "Lemolo Lake",
+          "bridge": true,
+          "text": "Mount Thielsen should be off our right side by roughly three miles. Its 9,182-foot summit is the eroded remnant of an extinct volcano, sharpened into a dramatic horn by erosion and glaciation. The final summit is a genuine technical scramble, and the Pacific Crest Trail crosses the surrounding wilderness. The pointed rock also acts like a natural lightning terminal, which is why the Lightning Rod of the Cascades nickname has stuck so well."
+        },
+        {
+          "id": "lemolo",
+          "triggerRemainingNm": 25.0,
+          "title": "Lemolo — a name that means wild",
+          "spokenLabel": "the North Umpqua headwaters",
+          "bridge": true,
+          "text": "Lemolo Lake should pass very close to our route, about a mile to the right. The name comes from Chinook Jargon and means wild or untamed, which is particularly fitting in this forested part of the Cascades. Lemolo is a reservoir on the North Umpqua River, and nearby Lemolo Falls carries the same name. This is also a good reminder that we have crossed a major watershed divide: the Rogue drains southwest toward Gold Beach, while the North Umpqua heads west toward Roseburg and the Pacific."
+        },
+        {
+          "id": "pumice-north-umpqua",
+          "triggerRemainingNm": 19.0,
+          "title": "Mazama pumice beneath a different river",
+          "spokenLabel": "the western Cascades",
+          "bridge": true,
+          "text": "Even though Crater Lake is now well behind us, Mount Mazama still leaves fingerprints on this landscape. Trails in the Mount Thielsen Wilderness cross deep deposits of pumice thrown out by the ancient eruption. The North Umpqua also begins in this high country before turning west through a famous chain of waterfalls and forested canyons. From the cockpit, the transition is gradual: volcanic uplands first, then increasingly deep green valleys as we move toward the wetter western side of the Cascades."
+        },
+        {
+          "id": "willamette-headwaters",
+          "triggerRemainingNm": 13.4,
+          "title": "Crossing toward the Willamette watershed",
+          "spokenLabel": "Hills Creek Reservoir",
+          "bridge": true,
+          "text": "We are now crossing another important drainage divide, leaving the Umpqua side of the Cascades and heading into the headwaters of the Middle Fork Willamette. That river begins high in these mountains and eventually joins other branches of the Willamette on its long northward run through Oregon's most populated valley. The forest still looks remote from here, but the river corridor ahead became a natural route for railroads, highways, logging towns and later outdoor recreation."
+        },
+        {
+          "id": "hills-creek",
+          "triggerRemainingNm": 8.3,
+          "title": "Hills Creek Reservoir almost on course",
+          "spokenLabel": "Oakridge",
+          "text": "Hills Creek Reservoir should be almost directly along our course just before Oakridge. Its dam is a 304-foot rockfill structure completed in 1961 on the Middle Fork Willamette. It is part of the thirteen-dam Willamette Valley Project, built primarily for flood-risk management but also used for hydropower, recreation and water management. The reservoir is a useful visual marker because Oakridge lies only a few miles downstream."
+        },
+        {
+          "id": "oakridge-approach",
+          "triggerRemainingNm": 5.1,
+          "title": "Oakridge — from timber town to trail town",
+          "spokenLabel": "Waypoint Three at Oakridge",
+          "text": "Oakridge is coming up at our third waypoint. The town grew with the railroad and for much of the twentieth century was shaped by timber and lumber mills. When that economy contracted, Oakridge gradually reinvented itself around outdoor recreation. Today it is widely promoted as the mountain-biking capital of the Pacific Northwest, with a remarkable network of forest trails surrounding town. It is a good example of a place whose identity changed while the mountains and river corridor around it stayed much the same."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 18.75,
+      "blocks": [
+        {
+          "id": "westfir-bridge",
+          "triggerRemainingNm": 17.4,
+          "title": "Westfir and Oregon's longest covered bridge",
+          "spokenLabel": "the Oakridge-Westfir area",
+          "text": "Just to our right near Oakridge is the tiny community of Westfir and one of Oregon's great pieces of timber-era engineering. The bright red Office Covered Bridge stretches 180 feet across the North Fork of the Middle Fork Willamette, making it the longest covered bridge in the state. It was built in 1944 by the Westfir Lumber Company to connect the mill with its office, and its heavy triple-truss construction was designed for loaded logging trucks. A separate covered walkway kept pedestrians out of the trucks' way."
+        },
+        {
+          "id": "oakridge-bike",
+          "triggerRemainingNm": 13.1,
+          "title": "How mountain bikes helped reinvent Oakridge",
+          "spokenLabel": "the Row River country",
+          "bridge": true,
+          "text": "Oakridge's modern trail reputation is more than a tourism slogan. After the timber decline of the late twentieth century, riders began discovering old roads, forest routes and purpose-built singletrack surrounding the town. Events such as Mountain Bike Oregon helped spread the word, and the area eventually became internationally recognized as a major riding destination. Old mill and logging infrastructure now sits beside bike shops, lodges and trail shuttles—a surprisingly complete economic change within just a few decades."
+        },
+        {
+          "id": "middle-fork",
+          "triggerRemainingNm": 9.2,
+          "title": "The Middle Fork corridor",
+          "spokenLabel": "Dorena and the Row River",
+          "text": "The river valleys below explain much of the settlement pattern in this part of Oregon. Rail lines and Highway 58 used the Middle Fork Willamette corridor because the surrounding Cascade terrain leaves relatively few easy passages. Logging towns grew where rivers, timber and transportation met. Our route now bends away from the main Willamette corridor toward Dorena and the Row River, where the scenery carries a completely different kind of local history: gold mining, covered bridges and even Hollywood."
+        },
+        {
+          "id": "bohemia",
+          "triggerRemainingNm": 6.8,
+          "title": "Bohemia gold country",
+          "spokenLabel": "Dorena Lake",
+          "text": "The hills around the Dorena and Cottage Grove area were once tied to the Bohemia mining district. Gold discoveries in the nineteenth century brought prospectors into the mountains southeast of Cottage Grove, and remnants of those mines still survive in the backcountry. The same old transportation corridor later became the route of a small logging railroad—and that railroad is about to give us one of the more unexpected pop-culture stories on this leg."
+        },
+        {
+          "id": "general-movie",
+          "triggerRemainingNm": 5.2,
+          "title": "Buster Keaton wrecked a locomotive here",
+          "spokenLabel": "Waypoint Four at Dorena Lake",
+          "text": "As Dorena Lake comes up, we are entering genuine movie-location country. Buster Keaton filmed much of his 1926 silent classic The General along the old railroad beside the Row River. For the climactic scene near Culp Creek, the production built a trestle and sent a real locomotive crashing through the burning bridge into the river. The stunt cost about forty-two thousand dollars, an astonishing sum at the time, and is often described as the most expensive single scene of the silent-film era. Our fourth waypoint is over Dorena Lake."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "77S",
+      "distanceNm": 12.8,
+      "blocks": [
+        {
+          "id": "dorena-row",
+          "triggerRemainingNm": 11.7,
+          "title": "Dorena Lake and the Row River",
+          "spokenLabel": "Cottage Grove movie country",
+          "text": "Dorena Lake was created by a flood-control dam on the Row River, and here is a small pronunciation trap: Row is said like cow, not like a line of seats. The old railroad grade along the lake is now the paved Row River Trail. This whole area is also covered-bridge country; the Dorena Bridge was built in 1949 after the reservoir changed the local road network and today survives as a picturesque pedestrian landmark."
+        },
+        {
+          "id": "cottage-grove-movies",
+          "triggerRemainingNm": 8.1,
+          "title": "Cottage Grove — a small town with a long film résumé",
+          "spokenLabel": "Cottage Grove",
+          "text": "Cottage Grove is about five miles off our left, and for a town of its size it has an impressive film résumé. The Row River railroad appeared not only in The General but also in the 1986 film Stand by Me, and Cottage Grove was used for the chaotic parade sequence near the end of Animal House. Travel Oregon now treats these locations as part of the state's film history. So if this stretch of western Oregon feels vaguely cinematic, there is a good reason for it."
+        },
+        {
+          "id": "covered-bridge-capital",
+          "triggerRemainingNm": 5.8,
+          "title": "The Covered Bridge Capital of Oregon",
+          "spokenLabel": "Hobby Field at Creswell",
+          "text": "Cottage Grove also calls itself the Covered Bridge Capital of Oregon. Six covered bridges survive in or around the community, including the Chambers Railroad Bridge, the only remaining covered railroad bridge in Oregon. The concentration is a reminder that these wooden structures were once practical working infrastructure rather than nostalgic decorations. We are now leaving the lake-and-bridge country and lining up toward Creswell."
+        },
+        {
+          "id": "creswell-hobby",
+          "triggerRemainingNm": 4.2,
+          "title": "Hobby Field — the name really did come from a hobby",
+          "spokenLabel": "the destination at Hobby Field",
+          "text": "Our destination is Hobby Field at Creswell, and the name has a fitting aviation story. The airport grew from the efforts of a small group of local aviation enthusiasts in the 1960s and is commonly said to honor Walter 'Hobby' Hobbensiefken, one of the people who helped build the field. Today it remains a busy general-aviation airport with flight training, aircraft maintenance, skydiving and even aerobatic-ride operations. A very appropriate place to end a sightseeing flight."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Leg 43 FlightFolio PLN",
+      "url": "local:Leg 43 - Crater Lake to Creswell.pln"
+    },
+    {
+      "name": "City of Medford — Historic Preservation",
+      "url": "https://www.medfordoregon.gov/Government/Departments/Planning/Historic"
+    },
+    {
+      "name": "Harry & David — founders and Rogue Valley orchards",
+      "url": "https://www.harryanddavid.com/articles/from-the-orchards/who-are-harry-and-david"
+    },
+    {
+      "name": "Travel Medford — Medford fast facts",
+      "url": "https://www.travelmedford.org/articles/medford-fast-facts"
+    },
+    {
+      "name": "USACE — Lost Creek / Rogue River",
+      "url": "https://www.nwp.usace.army.mil/Locations/Rogue-River/"
+    },
+    {
+      "name": "PacifiCorp — Prospect hydroelectric history",
+      "url": "https://www.pacificorp.com/content/dam/pcorp/documents/en/pacificorp/energy/hydro/rogue-river/Prospect_History_Web_Content_Final.pdf"
+    },
+    {
+      "name": "NPS — Crater Lake",
+      "url": "https://www.nps.gov/crla/learn/nature/crater-lake.htm"
+    },
+    {
+      "name": "NPS — Crater Lake history and culture",
+      "url": "https://www.nps.gov/crla/learn/historyculture/index.htm"
+    },
+    {
+      "name": "NPS — Old Man of the Lake",
+      "url": "https://home.nps.gov/crla/learn/nature/theoldman.htm"
+    },
+    {
+      "name": "NPS — Wizard Island",
+      "url": "https://www.nps.gov/crla/learn/nature/wizardisland.htm"
+    },
+    {
+      "name": "U.S. Mint — Oregon state quarter",
+      "url": "https://www.usmint.gov/learn/coins-and-medals/circulating-coins/quarter/50-state-quarters/oregon"
+    },
+    {
+      "name": "Oregon Encyclopedia — Diamond Lake",
+      "url": "https://www.oregonencyclopedia.org/articles/diamond_lake/"
+    },
+    {
+      "name": "Recreation.gov — Mount Thielsen Wilderness",
+      "url": "https://www.recreation.gov/camping/poi/250131"
+    },
+    {
+      "name": "Travel Oregon — Lemolo Falls",
+      "url": "https://traveloregon.com/things-to-do/destinations/waterfalls/lemolo-falls/"
+    },
+    {
+      "name": "USACE — Hills Creek Dam",
+      "url": "https://www.nwp.usace.army.mil/Locations/Willamette-Valley/"
+    },
+    {
+      "name": "Travel Oregon — Oakridge mountain biking",
+      "url": "https://traveloregon.com/things-to-do/outdoor-recreation/bicycling/mountain-biking/oakridge-next-mountain-bike-destination/"
+    },
+    {
+      "name": "City of Westfir — Office Covered Bridge",
+      "url": "https://www.ci.westfir.or.us/?page_id=102"
+    },
+    {
+      "name": "Recreation.gov — Row River Trail",
+      "url": "https://www.recreation.gov/gateways/1752"
+    },
+    {
+      "name": "Oregon Encyclopedia — The General",
+      "url": "https://www.oregonencyclopedia.org/articles/the_general_film/"
+    },
+    {
+      "name": "Travel Oregon — Oregon film locations",
+      "url": "https://traveloregon.com/things-to-do/culture-history/filmed-in-oregon/find-favorite-oregon-film-location/"
+    },
+    {
+      "name": "Travel Oregon — Animal House film tour",
+      "url": "https://traveloregon.com/things-to-do/trip-ideas/favorite-trips/oregon-film-tour-animal-house/"
+    },
+    {
+      "name": "City of Cottage Grove — Covered Bridges",
+      "url": "https://www.cottagegroveor.gov/1444/Covered-Bridges"
+    },
+    {
+      "name": "Creswell Hobby Field Airport Master Plan — Existing Conditions",
+      "url": "https://centurywest.com/wp-content/uploads/2026/02/2-HobbyField_Existing-Conditions_draft1.pdf"
+    },
+    {
+      "name": "Oregon Department of Aviation — Creswell airport businesses",
+      "url": "https://www.oregon.gov/aviation/AVB/Documents/2022/03_10/2A0465%20Creswell%20ConnectOregon%20Grant%202021.pdf"
+    }
+  ]
+}

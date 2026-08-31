@@ -1,59 +1,58 @@
-FLIGHTFOLIO TOUR PLAYER v12 — LEG 42
+FLIGHTFOLIO TOUR PLAYER v13 — LEG 43
 
 ROUTE
-KCEC -> WP1 Jedediah Smith Redwoods -> WP2 Oregon Caves Country ->
-WP3 Illinois Valley -> WP4 Rogue River at Grants Pass ->
-WP5 Upper/Lower Table Rocks -> KMFR Medford
+KMFR -> WP1 Crater Lake and Wizard Island -> WP2 Diamond Lake ->
+WP3 Oakridge / Middle Fork Willamette -> WP4 Dorena Lake ->
+77S Hobby Field, Creswell
 
-DISTANCE
-Actual exported waypoint geometry: 96.66 NM
-Approx. en-route time at 110 KT: 52.7 minutes
-Planned cruise altitude: 7000 ft
+DISTANCE / TIME
+Exported waypoint geometry: 130.49 NM
+About 65.2 minutes at the v13 default effective speed of 120 KT
+Planned cruise altitude: 10,100 ft
 
-NEW IN V12
-- "Trip" may be used interchangeably with "Tour":
-    Trip status
-    Trip sync 10 miles to waypoint three
-    Trip hold
-    Trip go
-    Trip waypoint four
-- Two-nautical-mile waypoint reminder.
-- Substantive waypoint narration begins earlier so it can finish before the reminder.
-- The period after the 2-NM reminder is intentionally quiet for waypoint confirmation.
-- Natural, varied bridge lines are used only before longer quiet stretches.
-- Tour/Trip Update now reports:
-    distance to next waypoint/destination
-    running or paused state
-    configured tour speed
-    next narration topic
-    approximate minutes and miles until that narration
-- Five-user-waypoint routes are now handled dynamically in buttons and destination logic.
-- Destination sync accepts destination/airport plus KMFR or Medford through alias normalization.
+NARRATION
+26 prepared narration blocks
+About 2096 written words (~14.5 minutes at 145 wpm)
 
-FLIGHTFOLIO ICAO IDENTIFIERS FOUND IN THE PLN
-WP1JEDE
-WP2OREG
-WP3ILLI
-WP4ROGU
-WP5UPPE
+V13 CHANGES
+- Leg 43 route and narration.
+- Moderate expansion beyond history/nature:
+    Harry & David and Medford pop-culture note
+    Crater Lake's Old Man and the Oregon state quarter
+    Oakridge's mountain-bike reinvention
+    Buster Keaton / The General
+    Stand by Me and Animal House connections around Cottage Grove
+    Creswell's aviation story and the origin of the Hobby Field name
+- Historical, geological and natural narration remains the backbone.
+- Overall narration density is only moderately higher, not continuous.
+- Default tour speed is now 120 KT as an effective route-speed starting point.
+  This is NOT intended to equal the Cessna's indicated airspeed.
+- Trip and Tour remain interchangeable wake words.
+- Two-NM waypoint reminder and quiet confirmation window remain in place.
+- Status/Update remains deliberate and reports next narration timing.
+- Departure-mode refinement:
+  the opening story is preserved and plays after the first post-takeoff sync,
+  even if the airplane has already passed its nominal trigger point.
+- MSFS generic waypoint labels are NOT guessed or added as voice aliases.
 
-We will simply observe whether MSFS preserves these identifiers or converts them to FPL numbers.
-
-STARTING THE FLIGHT
-1. Replace all repository files and commit.
-2. Confirm header says v12 · Leg 42.
+SUGGESTED START
+1. Replace the GitHub Pages files with this package.
+2. Confirm the header says v13 · Leg 43.
 3. RESET TOUR.
-4. Run Preflight.
-5. Take off normally.
-6. Once established on the GPS line/autopilot, sync to WP1:
-     Trip sync 4 miles to waypoint one
-   or:
-     Tour sync 4 miles to waypoint one
-7. Confirm waypoints as you cross them.
-8. The app should give its short reminder about 2 NM before each waypoint.
-9. After that reminder, it should remain quiet until your confirmation.
-10. Use Trip update / Tour update whenever you want a deliberate status report.
-11. At Medford:
+4. Run Preflight while parked.
+5. Take off and climb normally.
+6. Once established on the GPS course, use the actual distance to WP1:
+     Trip sync 40 miles to waypoint one
+   (use whatever distance your GPS actually shows).
+7. The Medford departure story will play after this first sync rather than being skipped.
+8. Adjust effective speed only if needed:
+     Trip speed 118
+     Trip speed 122
+9. Use:
+     Trip update
+   whenever you want the deliberate status report.
+10. Confirm each waypoint at the crossing. The reminder should come ~2 NM early.
+11. At Creswell:
      Trip destination
    or:
      Tour destination
