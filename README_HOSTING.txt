@@ -1,58 +1,77 @@
-FLIGHTFOLIO TOUR PLAYER v13 — LEG 43
+FLIGHTFOLIO TOUR PLAYER v14 — LEG 44
 
 ROUTE
-KMFR -> WP1 Crater Lake and Wizard Island -> WP2 Diamond Lake ->
-WP3 Oakridge / Middle Fork Willamette -> WP4 Dorena Lake ->
 77S Hobby Field, Creswell
+-> WP1 Mount Pisgah
+-> WP2 Corvallis / Oregon State University
+-> WP3 Albany
+-> WP4 Oregon State Capitol, Salem
+-> WP5 Champoeg State Heritage Area
+-> KUAO Aurora State Airport
+
+NOTE ABOUT WP2 / WP3
+The uploaded PLN describes these as "Manual Waypoint."
+Their coordinates place WP2 essentially over Oregon State University in Corvallis
+and WP3 at Albany, so those descriptive names are used in the tour package only.
+The PLN itself is not modified.
 
 DISTANCE / TIME
-Exported waypoint geometry: 130.49 NM
-About 65.2 minutes at the v13 default effective speed of 120 KT
-Planned cruise altitude: 10,100 ft
+Exported waypoint geometry: 92.83 NM
+About 46.4 minutes at the initial effective tour speed of 120 KT
+Planned cruise altitude: 3,700 ft
 
 NARRATION
-26 prepared narration blocks
-About 2096 written words (~14.5 minutes at 145 wpm)
+21 prepared narration blocks
+About 1588 written words (~11.0 minutes at 145 wpm)
 
-V13 CHANGES
-- Leg 43 route and narration.
-- Moderate expansion beyond history/nature:
-    Harry & David and Medford pop-culture note
-    Crater Lake's Old Man and the Oregon state quarter
-    Oakridge's mountain-bike reinvention
-    Buster Keaton / The General
-    Stand by Me and Animal House connections around Cottage Grove
-    Creswell's aviation story and the origin of the Hobby Field name
-- Historical, geological and natural narration remains the backbone.
-- Overall narration density is only moderately higher, not continuous.
-- Default tour speed is now 120 KT as an effective route-speed starting point.
-  This is NOT intended to equal the Cessna's indicated airspeed.
-- Trip and Tour remain interchangeable wake words.
-- Two-NM waypoint reminder and quiet confirmation window remain in place.
-- Status/Update remains deliberate and reports next narration timing.
-- Departure-mode refinement:
-  the opening story is preserved and plays after the first post-takeoff sync,
-  even if the airplane has already passed its nominal trigger point.
-- MSFS generic waypoint labels are NOT guessed or added as voice aliases.
+NARRATION MIX
+The history/nature backbone remains, with a moderate increase in lighter material:
+- Animal House filming at the University of Oregon
+- the UO / Nike origin story
+- Junction City's Scandinavian Festival
+- OSU's computer mouse, maraschino cherry, Fosbury Flop and technology alumni
+- Albany's community-built carousel
+- Enchanted Forest and its "Idiot Hill" origin story
+- One Flew Over the Cuckoo's Nest in Salem
+- the St. Paul Rodeo
+- Aurora Colony's famous musical tradition
 
-SUGGESTED START
-1. Replace the GitHub Pages files with this package.
-2. Confirm the header says v13 · Leg 43.
+NEW IN v14 — CONSERVATIVE AUTO PACE
+The player still begins at 120 KT effective tour speed, but it can now learn from
+position observations that you explicitly provide.
+
+An "exact observation" is:
+- Trip/Tour sync N miles to waypoint X
+- confirming a waypoint as you cross it
+- confirming the destination
+
+If the player has two exact observations on the same segment separated by at least
+3 NM, it calculates the effective speed over that interval. It then blends only 35%
+of that sample into the current setting and limits a single correction to 4 knots.
+This is intentionally conservative so one late command or odd maneuver cannot make
+the timing swing wildly.
+
+IMPORTANT:
+- This effective tour speed is not the Cessna's indicated airspeed.
+- Auto pace adjustments are silent; they do not interrupt the sightseeing narration.
+- Trip/Tour Update reports the current effective speed and number of learned intervals.
+- The screen shows Auto pace status while you monitor outside VR.
+- A manual "Trip speed 122" still works and becomes a new starting value.
+- Pausing invalidates the current learning interval, because the aircraft may continue
+  moving while the phone tour is paused. Learning resumes after the next exact sync.
+- The 2-NM waypoint reminder and quiet confirmation window remain unchanged.
+
+START
+1. Replace the GitHub Pages files with this package and commit.
+2. Confirm the header says v14 · Leg 44.
 3. RESET TOUR.
-4. Run Preflight while parked.
-5. Take off and climb normally.
-6. Once established on the GPS course, use the actual distance to WP1:
-     Trip sync 40 miles to waypoint one
-   (use whatever distance your GPS actually shows).
-7. The Medford departure story will play after this first sync rather than being skipped.
-8. Adjust effective speed only if needed:
-     Trip speed 118
-     Trip speed 122
-9. Use:
-     Trip update
-   whenever you want the deliberate status report.
-10. Confirm each waypoint at the crossing. The reminder should come ~2 NM early.
-11. At Creswell:
+4. Run Preflight.
+5. Take off normally.
+6. Once established on course, use the actual distance to WP1, for example:
+     Trip sync 3 miles to waypoint one
+7. The short Creswell/Mount Pisgah opening will be preserved on that first sync.
+8. Watch the Auto pace line during this outside-VR test.
+9. Use "Trip update" whenever you want the deliberate status report.
+10. Confirm each waypoint at the crossing.
+11. At Aurora:
      Trip destination
-   or:
-     Tour destination

@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 5,
+  "id": "leg44-77s-kuao",
+  "title": "Leg 44 — Salem Capitol and Champoeg Riverlands",
+  "subtitle": "Creswell, Mount Pisgah, Corvallis, Albany, Salem, Champoeg and Aurora",
+  "departure": {
+    "id": "77S",
+    "name": "Hobby Field, Creswell",
+    "voiceAliases": [
+      "77s",
+      "seven seven s",
+      "hobby field",
+      "creswell"
+    ]
+  },
+  "destination": {
+    "id": "KUAO",
+    "name": "Aurora State Airport",
+    "voiceAliases": [
+      "kuao",
+      "k u a o",
+      "aurora",
+      "aurora state airport"
+    ]
+  },
+  "cruiseAltitudeFt": 3700,
+  "defaultGroundSpeedKt": 120,
+  "routeDistanceNm": 92.83,
+  "waypointReminderNm": 2.0,
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "msfsIdent": "WP1MOUN",
+      "name": "Mount Pisgah",
+      "lat": 44.006,
+      "lon": -122.989
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "msfsIdent": "WP2MANU",
+      "name": "Corvallis / Oregon State University",
+      "lat": 44.5588278,
+      "lon": -123.2804417
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "msfsIdent": "WP3MANU",
+      "name": "Albany",
+      "lat": 44.6217528,
+      "lon": -123.0990611
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "msfsIdent": "WP4OREG",
+      "name": "Oregon State Capitol",
+      "lat": 44.942,
+      "lon": -123.035
+    },
+    {
+      "number": 5,
+      "id": "WP05",
+      "msfsIdent": "WP5CHAM",
+      "name": "Champoeg State Heritage Area",
+      "lat": 45.253,
+      "lon": -122.892
+    }
+  ],
+  "segments": [
+    {
+      "from": "77S",
+      "to": "WP01",
+      "distanceNm": 4.5,
+      "blocks": [
+        {
+          "id": "creswell-pisgah-departure",
+          "triggerRemainingNm": 4.2,
+          "title": "Leaving Creswell for Mount Pisgah",
+          "spokenLabel": "Mount Pisgah",
+          "departureIntro": true,
+          "text": "Leaving Creswell, we have a very short first hop to Mount Pisgah. Creswell calls itself the Friendly City; the town took its name from John Creswell, who was United States Postmaster General when the local post office opened in 1873. Ahead, Mount Pisgah rises from the southern Willamette Valley beside the Coast Fork of the Willamette. The wooded slopes around it are now part of the Howard Buford Recreation Area and Mount Pisgah Arboretum."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 35.48,
+      "blocks": [
+        {
+          "id": "pisgah-arboretum",
+          "triggerRemainingNm": 34.2,
+          "title": "Mount Pisgah — an arboretum built by a community",
+          "spokenLabel": "Eugene",
+          "text": "Mount Pisgah Arboretum occupies a little more than two hundred acres inside the much larger Howard Buford Recreation Area. The arboretum organization formed in 1973 after local leaders proposed an international tree collection, but the site increasingly became a place to interpret the native ecology of the southern Willamette Valley. Today its trails pass oak savanna, riverside forest, meadows and mixed woodland, and its annual wildflower and mushroom festivals have become local traditions."
+        },
+        {
+          "id": "eugene-animal-house",
+          "triggerRemainingNm": 30.0,
+          "title": "Eugene — Faber College was really the University of Oregon",
+          "spokenLabel": "the University of Oregon",
+          "text": "The University of Oregon campus is about two and a half miles off our left as we pass Eugene, and movie fans have seen quite a bit of it without necessarily knowing where they were. National Lampoon's Animal House was filmed around Eugene in 1977, with university buildings standing in for fictional Faber College. The original house used as Delta House was demolished in 1986, but several campus locations from the movie still survive."
+        },
+        {
+          "id": "eugene-nike",
+          "triggerRemainingNm": 25.6,
+          "title": "The track program that helped create Nike",
+          "spokenLabel": "the central Willamette Valley",
+          "bridge": true,
+          "text": "Eugene's track culture produced another connection that traveled far beyond Oregon. University of Oregon track coach Bill Bowerman and one of his former runners, Phil Knight, formed Blue Ribbon Sports on a handshake in 1964. That company became Nike. Bowerman was famous for experimenting with lighter running shoes while Knight turned the ideas into a business, making this stretch of Oregon part of the origin story of one of the world's best-known sports brands."
+        },
+        {
+          "id": "missoula-floods",
+          "triggerRemainingNm": 19.7,
+          "title": "Why the Willamette Valley floor is so flat and fertile",
+          "spokenLabel": "Junction City",
+          "bridge": true,
+          "text": "The broad agricultural floor below us was shaped by events far larger than the Willamette River itself. Near the end of the Ice Age, enormous floods repeatedly escaped glacial Lake Missoula in Montana, rushed down the Columbia, and backed south into the Willamette Valley. Those floods left thick layers of sand and silt across the lowlands. That legacy is one reason this valley became such productive farm country, while older hills rise like islands above the flatter flood deposits."
+        },
+        {
+          "id": "junction-scandinavian",
+          "triggerRemainingNm": 14.8,
+          "title": "Junction City and the festival that followed a freeway",
+          "spokenLabel": "the Corvallis countryside",
+          "bridge": true,
+          "text": "Junction City is about four miles off our left. The community has strong Danish and other Scandinavian roots, and its best-known tradition began partly as an economic rescue plan. When Interstate 5 bypassed town, local residents organized a Scandinavian Festival in 1961 to bring visitors back. They expected about four thousand people at the first one; roughly ten thousand showed up. The festival is still built around Danish, Swedish, Norwegian and Finnish food, music, dancing and costumes."
+        },
+        {
+          "id": "willamette-wine",
+          "triggerRemainingNm": 9.5,
+          "title": "The experiment that helped launch Oregon Pinot noir",
+          "spokenLabel": "Corvallis",
+          "text": "As Corvallis gets closer, we are also entering part of the origin story of modern Oregon wine. In 1965, David Lett rooted Pinot noir cuttings near Corvallis while searching for a permanent vineyard site. At the time, many experts doubted that Oregon's cool, wet climate could produce great Pinot noir. Those early experiments helped launch an industry that eventually made the Willamette Valley internationally known for the grape."
+        },
+        {
+          "id": "corvallis-osu-approach",
+          "triggerRemainingNm": 5.3,
+          "title": "Oregon State University ahead",
+          "spokenLabel": "Waypoint Two at Oregon State University",
+          "text": "Our second waypoint is essentially over Oregon State University in Corvallis. The campus has produced an unusually eclectic list of ideas and people: food scientist Ernest Wiegand perfected the modern Oregon-style maraschino cherry here in the 1920s; alumnus Douglas Engelbart later invented the computer mouse; and Dick Fosbury developed the back-first high-jump technique that became the Fosbury Flop. The school has also produced major names in science and technology, including two-time Nobel laureate Linus Pauling and NVIDIA founder Jensen Huang."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 8.63,
+      "blocks": [
+        {
+          "id": "osu-innovation",
+          "triggerRemainingNm": 7.6,
+          "title": "A few more unlikely Oregon State connections",
+          "spokenLabel": "Albany",
+          "text": "Leaving the Oregon State waypoint, one more bit of campus trivia fits the spirit of this tour. Douglas Engelbart's famous 1968 demonstration did not just show the mouse; it also previewed windows, hypertext, collaborative editing and video conferencing years before they became ordinary computer tools. Oregon State alumni also include Pixar production designer Harley Jessup and Peggy Cherng, a co-founder of Panda Express. It is quite a range of legacies for one college town."
+        },
+        {
+          "id": "albany-approach",
+          "triggerRemainingNm": 4.5,
+          "title": "Albany — two rivers and an old political dividing line",
+          "spokenLabel": "Waypoint Three at Albany",
+          "text": "Albany is coming up near the meeting of the Calapooia and Willamette rivers. Brothers Walter and Thomas Monteith laid out the town in 1847 and named it for Albany, New York. Early Albany developed an unusually literal political divide: the Monteith side of town leaned Republican and Unionist, while the Hackleman side leaned Democratic and included Confederate sympathizers. Residents even planted a hedge near Baker Street that became a physical line between the rival neighborhoods."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 19.42,
+      "blocks": [
+        {
+          "id": "albany-carousel",
+          "triggerRemainingNm": 18.1,
+          "title": "Albany's hand-carved carousel",
+          "spokenLabel": "the farms north of Albany",
+          "text": "Albany has a much lighter modern landmark in its downtown Historic Carousel and Museum. Volunteers spent years carving and painting a menagerie of animals around an antique 1909 Dentzel carousel mechanism. The collection includes the expected horses, but also a giraffe, zebra, dragon, salmon, walrus and other creatures. Restoring the old mechanism alone took more than a decade, turning what began as a community project into one of the city's signature attractions."
+        },
+        {
+          "id": "albany-metals",
+          "triggerRemainingNm": 15.0,
+          "title": "Rare metals on the edge of Albany",
+          "spokenLabel": "the central valley farms",
+          "text": "North of Albany is an industrial story that is easy to miss from the air. The Wah Chang plant began producing zirconium here in the 1950s and later became a major processor of zirconium, hafnium, tantalum and niobium. Those specialized metals are used in demanding applications including aircraft, military and industrial equipment. It is an unusual high-technology industry sitting in the middle of a landscape better known for farms and grass seed."
+        },
+        {
+          "id": "grass-seed",
+          "triggerRemainingNm": 11.7,
+          "title": "The grass-seed capital of the world",
+          "spokenLabel": "the Salem Hills",
+          "bridge": true,
+          "text": "Those enormous green and tan fields below are part of an industry with a surprisingly global reach. Oregon is the world's leading producer of cool-season forage and turf grass seed, with most of that acreage concentrated here in the Willamette Valley. The valley is often called the grass-seed capital of the world. Its mild wet winters and reliably dry summers are almost tailor-made for growing seed and then harvesting it cleanly."
+        },
+        {
+          "id": "enchanted-forest",
+          "triggerRemainingNm": 8.0,
+          "title": "Enchanted Forest — the theme park people called Idiot Hill",
+          "spokenLabel": "Salem",
+          "text": "About two miles off our right is one of Oregon's most homespun attractions, Enchanted Forest. Highway-department draftsman Roger Tofte bought twenty wooded acres in the 1960s for four thousand dollars and spent seven years building a storybook theme park largely by hand, literally mixing cement one bag at a time. Friends teased him by calling the project Idiot Hill. When it finally opened in 1971, seventy-five people came the first day and about a thousand arrived the following Sunday."
+        },
+        {
+          "id": "salem-cuckoo",
+          "triggerRemainingNm": 6.1,
+          "title": "Salem and One Flew Over the Cuckoo's Nest",
+          "spokenLabel": "the Oregon State Capitol",
+          "text": "Salem has its own major movie connection. The Oregon State Hospital, a little east of the Capitol, served as the principal filming location for the movie version of Ken Kesey's One Flew Over the Cuckoo's Nest. The production worked inside a functioning hospital, and some patients participated in the filmmaking. The hospital museum still preserves artifacts connected with the movie, including the television used in the famous baseball-game scene."
+        },
+        {
+          "id": "capitol-approach",
+          "triggerRemainingNm": 4.4,
+          "title": "Oregon's Art Deco Capitol",
+          "spokenLabel": "Waypoint Four at the Oregon State Capitol",
+          "text": "The Oregon State Capitol is just ahead at our fourth waypoint. The previous Capitol burned in 1935, and the replacement opened in 1938 with a very different streamlined Art Deco design clad in white marble. On top is the twenty-three-foot gilded bronze Oregon Pioneer, commonly nicknamed the Gold Man. The official name is simply the Oregon Pioneer, and the figure represents the pioneer era rather than any one historical person."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "WP05",
+      "distanceNm": 19.63,
+      "blocks": [
+        {
+          "id": "salem-cherries",
+          "triggerRemainingNm": 18.3,
+          "title": "Salem — the Cherry City",
+          "spokenLabel": "the northern Willamette Valley",
+          "text": "As we leave Salem, agriculture comes back into the story. The city was once famous enough for its orchards and canneries to be promoted as the Cherry City, and in 1907 visitors to a nurserymen's convention proclaimed Salem the Cherry City of the World after seeing an enormous local display. By the 1920s the area had thousands of acres of cherries and numerous canneries, part of the food-processing economy that grew alongside the fertile valley farms."
+        },
+        {
+          "id": "valley-wine-north",
+          "triggerRemainingNm": 13.8,
+          "title": "From farm country into Oregon wine country",
+          "spokenLabel": "St. Paul",
+          "bridge": true,
+          "text": "The northern Willamette Valley is now as famous for vineyards as it once was for orchards and field crops. Pinot noir eventually became Oregon's flagship wine grape, helped by cool summers, long autumns and the valley's mix of volcanic and sedimentary soils. The wine region stretches through hills on both sides of us, while the flatter ground near the river remains a patchwork of seed crops, nurseries, hops, vegetables and other intensely cultivated farmland."
+        },
+        {
+          "id": "st-paul-rodeo",
+          "triggerRemainingNm": 8.0,
+          "title": "St. Paul — a tiny town with a very big rodeo",
+          "spokenLabel": "Champoeg",
+          "text": "St. Paul is about two and a half miles off our left, and its population is tiny compared with the reputation of its rodeo. Eight local farmers and businessmen came up with the idea in 1935, cleaned up an old baseball field and built their own chutes. The first rodeo on July Fourth, 1936 drew fifty Oregon cowboys competing for a five-hundred-dollar purse. It grew into one of the country's best-known rodeos, an unusually large event for such a small farming town."
+        },
+        {
+          "id": "champoeg-approach",
+          "triggerRemainingNm": 5.0,
+          "title": "Champoeg — a two-vote decision and a vanished town",
+          "spokenLabel": "Waypoint Five at Champoeg",
+          "text": "Champoeg is coming up on the Willamette River. In 1843, settlers meeting here voted fifty-two to fifty to create a provisional government, a pivotal moment in the political organization of the Oregon Country. A real town then grew around the river landing, reaching about two hundred residents and sixty buildings. But the great flood of 1861 washed away most of the wooden town, and later flooding finished the job. The heritage area preserves the landscape and memory of a community that largely disappeared."
+        }
+      ]
+    },
+    {
+      "from": "WP05",
+      "to": "KUAO",
+      "distanceNm": 5.17,
+      "blocks": [
+        {
+          "id": "aurora-colony",
+          "triggerRemainingNm": 4.7,
+          "title": "Aurora Colony — communal life with a famous soundtrack",
+          "spokenLabel": "Aurora State Airport",
+          "text": "On the final hop toward Aurora State Airport, the nearby town of Aurora has a particularly unusual nineteenth-century story. From 1856 to 1883, nearly six hundred mostly German and Swiss immigrants lived in the Aurora Colony, a Christian communal society. The colonists became famous around Oregon for their music, supporting brass bands, orchestras and choirs that played fairs, political rallies and major celebrations. In 1869, railroad promoter Ben Holladay even hired the Aurora band for a sixteen-day promotional trip around Puget Sound. We are now only a few minutes from the destination."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Leg 44 FlightFolio PLN",
+      "url": "local:Leg 44 - Salem Capitol and Champoeg Riverlands.pln"
+    },
+    {
+      "name": "City of Creswell — About Us",
+      "url": "https://www.ci.creswell.or.us/page/about-us"
+    },
+    {
+      "name": "Mount Pisgah Arboretum — About and History",
+      "url": "https://mountpisgaharboretum.org/about/"
+    },
+    {
+      "name": "University of Oregon — Animal House filming guide",
+      "url": "https://news.uoregon.edu/content/campus-visitors-guide-animal-house-then-and-now"
+    },
+    {
+      "name": "University of Oregon — Phil Knight and Bill Bowerman",
+      "url": "https://president.uoregon.edu/honorary-degrees/philip-h-knight"
+    },
+    {
+      "name": "USGS — Missoula Floods in the Willamette Valley",
+      "url": "https://www.usgs.gov/publications/maps-showing-inundation-depths-ice-rafted-erratics-and-sedimentary-facies-late"
+    },
+    {
+      "name": "Junction City Scandinavian Festival — History",
+      "url": "https://junctioncityscandia.org/history/"
+    },
+    {
+      "name": "Oregon Wine Board — Oregon Wine History",
+      "url": "https://www.oregonwine.org/discover/oregon-wine-history/"
+    },
+    {
+      "name": "Oregon State University — OSU 150",
+      "url": "https://oregonstate.edu/150"
+    },
+    {
+      "name": "Oregon State University — Douglas Engelbart",
+      "url": "https://news.oregonstate.edu/news/50-years-ago-osu-grad-introduced-computer-mouse-and-world-hasn%E2%80%99t-been-same"
+    },
+    {
+      "name": "Oregon State University — Maraschino Cherry",
+      "url": "https://archive.progress.oregonstate.edu/winter-2014/timeline/food-processing-begins-cherry-top"
+    },
+    {
+      "name": "City of Albany — History",
+      "url": "https://albanyoregon.gov/history"
+    },
+    {
+      "name": "City of Albany — Historic Districts",
+      "url": "https://services.cityofalbany.net/historic/districts"
+    },
+    {
+      "name": "Albany Historic Carousel & Museum — About",
+      "url": "https://www.albanyhistoriccarousel.org/about"
+    },
+    {
+      "name": "NRC — Wah Chang Albany",
+      "url": "https://www.nrc.gov/info-finder/decommissioning/complex/tdy-industries-inc-wah-chang"
+    },
+    {
+      "name": "Oregon State University — Willamette Valley Grass Seed",
+      "url": "https://valleyfieldcrops.oregonstate.edu/willamette-valley-grass-seed-production"
+    },
+    {
+      "name": "Enchanted Forest — History",
+      "url": "https://www.enchantedforest.com/history/history.html"
+    },
+    {
+      "name": "Oregon State Hospital Museum — Exhibits",
+      "url": "https://oshmuseum.org/exhibits/"
+    },
+    {
+      "name": "Oregon State Capitol — Fire and Bronze",
+      "url": "https://oregoncapitol.com/discover-fire-and-bronze/"
+    },
+    {
+      "name": "Oregon State Capitol — Pioneer Talking Points",
+      "url": "https://oregoncapitol.com/wp-content/uploads/2024/10/Pioneer-Talking-Points_Final-2024.pdf"
+    },
+    {
+      "name": "City of Salem — Cherry City history",
+      "url": "https://www.cityofsalem.net/home/showpublisheddocument/29611/639089051787730000"
+    },
+    {
+      "name": "Oregon Wine Board — Willamette Valley",
+      "url": "https://www.oregonwine.org/regions/willamette-valley/"
+    },
+    {
+      "name": "St. Paul Rodeo — History",
+      "url": "https://www.stpaulrodeo.com/p/about/history"
+    },
+    {
+      "name": "Oregon State Parks — Champoeg",
+      "url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=79"
+    },
+    {
+      "name": "Aurora Colony Museum — History",
+      "url": "https://www.auroracolony.org/history-3"
+    },
+    {
+      "name": "Aurora Colony Museum — Music",
+      "url": "https://www.auroracolony.org/music"
+    }
+  ]
+}
