@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 8,
+  "id": "leg47-ktiw-0s9",
+  "title": "Leg 47 — Space Needle and Port Townsend",
+  "subtitle": "Tacoma Narrows, Seattle, Elliott Bay, Bainbridge Island, Hood Canal and Port Townsend",
+  "departure": {
+    "id": "KTIW",
+    "name": "Tacoma Narrows Airport",
+    "voiceAliases": [
+      "ktiw",
+      "k t i w",
+      "tacoma narrows",
+      "tacoma narrows airport"
+    ]
+  },
+  "destination": {
+    "id": "0S9",
+    "name": "Jefferson County International Airport",
+    "voiceAliases": [
+      "0s9",
+      "zero s nine",
+      "zero s 9",
+      "jefferson county",
+      "port townsend airport"
+    ]
+  },
+  "cruiseAltitudeFt": 3500,
+  "defaultGroundSpeedKt": 120,
+  "routeDistanceNm": 65.92,
+  "waypointReminderNm": 2.0,
+  "preflightBriefing": "Welcome aboard. Today we're leaving Tacoma Narrows and heading north through the heart of Puget Sound to Jefferson County Airport near Port Townsend. Almost immediately after departure we'll cross the Tacoma Narrows, then continue toward Seattle for the Space Needle and Elliott Bay. From there we'll turn across to Bainbridge Island, pass the Hood Canal Bridge, and finish with the Victorian seaport of Port Townsend. Along the way we'll mix Seattle pop culture, World's Fair history, the birthplace of pickleball, a difficult chapter of Bainbridge Island history, unusual floating-bridge engineering, and a little movie history near Port Townsend. The first waypoint comes very quickly after takeoff, so there is no need to rush the tour clock. I'll stay quiet while you taxi and depart. Once you're airborne and settled, say Trip start, or use Trip sync if you want to set our position precisely.",
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "msfsIdent": "WP1TACO",
+      "name": "Tacoma Narrows Bridge",
+      "lat": 47.268999,
+      "lon": -122.551
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "msfsIdent": "WP2SPAC",
+      "name": "Space Needle",
+      "lat": 47.6205,
+      "lon": -122.3493
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "msfsIdent": "WP3ELLI",
+      "name": "Elliott Bay",
+      "lat": 47.604,
+      "lon": -122.38
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "msfsIdent": "WP4BAIN",
+      "name": "Bainbridge Island",
+      "lat": 47.642,
+      "lon": -122.523
+    },
+    {
+      "number": 5,
+      "id": "WP05",
+      "msfsIdent": "WP5HOOD",
+      "name": "Hood Canal Bridge",
+      "lat": 47.858,
+      "lon": -122.622
+    },
+    {
+      "number": 6,
+      "id": "WP06",
+      "msfsIdent": "WP6PORT",
+      "name": "Port Townsend Waterfront",
+      "lat": 48.117,
+      "lon": -122.76
+    }
+  ],
+  "segments": [
+    {
+      "from": "KTIW",
+      "to": "WP01",
+      "distanceNm": 1.1,
+      "blocks": [
+        {
+          "id": "narrows-quick-hop",
+          "triggerRemainingNm": 0.95,
+          "title": "Tacoma Narrows immediately after departure",
+          "spokenLabel": "Tacoma Narrows Bridge",
+          "text": "The Tacoma Narrows Bridge is essentially right off the departure end of this flight. If you have already crossed it before starting the tour, that is perfectly fine; the bridge was previewed in the preflight briefing, and we'll continue north toward Seattle."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 22.64,
+      "blocks": [
+        {
+          "id": "puget-sound-north",
+          "triggerRemainingNm": 21.3,
+          "title": "North through Puget Sound",
+          "spokenLabel": "Seattle",
+          "bridge": true,
+          "text": "With Tacoma Narrows behind us, we are heading north over the central Puget Sound region. Water, islands and peninsulas do most of the visual work here. Tacoma will fall away behind us, while Seattle gradually builds ahead. The Olympic Mountains should remain off the left side beyond the Kitsap Peninsula, while the Cascades are farther to the right. Our next major landmark is the Space Needle, so look for the densest part of the Seattle skyline rather than trying to identify individual suburbs."
+        },
+        {
+          "id": "seattle-grunge",
+          "triggerRemainingNm": 15.7,
+          "title": "Seattle's sound traveled far beyond Puget Sound",
+          "spokenLabel": "downtown Seattle",
+          "bridge": true,
+          "text": "Seattle's skyline is getting easier to pick out ahead, and the city has an outsized place in popular music. In the late nineteen-eighties and early nineteen-nineties, bands including Nirvana, Pearl Jam, Soundgarden and Alice in Chains helped make Seattle synonymous with grunge. The scene was much more varied than the label suggests, but for a few years the rest of the music world seemed to be looking toward this corner of the country. From the air, use the cluster of downtown towers and Elliott Bay as your anchor."
+        },
+        {
+          "id": "space-needle-origin",
+          "triggerRemainingNm": 6.2,
+          "title": "The Space Needle began as a napkin sketch",
+          "spokenLabel": "Space Needle",
+          "text": "The Space Needle should now be coming into view near Seattle Center, just north of the main downtown tower cluster. The idea began with hotel executive Edward Carlson, who sketched a futuristic tower on a napkin after seeing a broadcast tower in Germany. It became the centerpiece of Seattle's 1962 World's Fair, themed around the coming Space Age. The finished Needle stands six hundred five feet tall and was built in only about four hundred days."
+        },
+        {
+          "id": "space-needle-pop",
+          "triggerRemainingNm": 3.9,
+          "title": "Elvis, the World's Fair and a very Seattle landmark",
+          "spokenLabel": "Space Needle",
+          "text": "The World's Fair turned the Space Needle into an instant celebrity. About two point six five million people visited the tower during the fair, and the guest list included figures ranging from John Glenn and Walt Disney to Elvis Presley. Elvis came to Seattle that year to film It Happened at the World's Fair, which used the fairgrounds and the Space Needle as a futuristic backdrop. As we pass, the Needle is the thin saucer-topped tower near Seattle Center, distinct from the taller rectangular downtown skyscrapers."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 1.59,
+      "blocks": [
+        {
+          "id": "needle-to-bay",
+          "triggerRemainingNm": 1.42,
+          "title": "From the Needle to Elliott Bay",
+          "spokenLabel": "Elliott Bay",
+          "text": "The Space Needle is behind us almost as soon as we leave it, and Elliott Bay is immediately next. Look toward the broad water along Seattle's west-facing downtown edge. The waterfront below includes ferry terminals, piers and the rebuilt central promenade, while Pike Place Market sits just uphill from the shoreline. This is another compressed section, so think of the Needle and Elliott Bay as one continuous Seattle pass."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 6.22,
+      "blocks": [
+        {
+          "id": "elliott-ferries",
+          "triggerRemainingNm": 5.7,
+          "title": "Seattle's front porch",
+          "spokenLabel": "Bainbridge Island",
+          "text": "Leaving Elliott Bay, the ferry routes themselves become useful visual landmarks. Washington State Ferries connect downtown Seattle with communities across Puget Sound, and the route to Bainbridge Island runs almost directly across the water in front of us. Behind us, Seattle's waterfront has been substantially rebuilt after removal of the old Alaskan Way Viaduct, reconnecting downtown more directly with the bay."
+        },
+        {
+          "id": "bainbridge-pickleball",
+          "triggerRemainingNm": 3.7,
+          "title": "Bainbridge Island invented pickleball",
+          "spokenLabel": "Bainbridge Island",
+          "text": "Bainbridge Island is coming up, and here is one of the more unexpected claims to fame on this trip. Pickleball was invented here in 1965 when Joel Pritchard, Bill Bell and Barney McCallum improvised a game for bored children using a badminton court, paddles and a plastic ball. The sport spread from backyard play on Bainbridge to become Washington's official state sport and eventually an international phenomenon. The original game's exact naming story is disputed, but the popular tale that it was simply named for a family dog is probably too neat."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "WP05",
+      "distanceNm": 13.57,
+      "blocks": [
+        {
+          "id": "bainbridge-exclusion",
+          "triggerRemainingNm": 12.5,
+          "title": "Bainbridge Island and the first forced removal",
+          "spokenLabel": "the north end of Bainbridge",
+          "bridge": true,
+          "text": "Bainbridge Island also carries a much more difficult piece of American history. After Executive Order 9066, Japanese Americans living here were the first on the West Coast to be forcibly removed from their community. On March thirtieth, 1942, two hundred twenty-seven residents were taken from the Eagledale ferry dock and sent first to Manzanar. The Bainbridge Island Japanese American Exclusion Memorial now stands at the departure site with the message, 'Let It Not Happen Again.' From this altitude the memorial itself is far too small to identify, but Eagle Harbor on the island's southeast side provides the geographic setting."
+        },
+        {
+          "id": "bainbridge-island-life",
+          "triggerRemainingNm": 7.5,
+          "title": "An island tied to Seattle by ferries",
+          "spokenLabel": "Hood Canal",
+          "bridge": true,
+          "text": "As Bainbridge slips behind us, the island's modern life is still tightly connected to Seattle by ferry. The crossing is short enough that commuters can live among forests and shoreline and still arrive directly in downtown Seattle. Ahead, the geography becomes more complex again as we move toward the Kitsap Peninsula and the Hood Canal. The next major landmark is not a town but a long floating bridge stretched across salt water."
+        },
+        {
+          "id": "hood-approach",
+          "triggerRemainingNm": 4.8,
+          "title": "The Hood Canal Bridge ahead",
+          "spokenLabel": "Hood Canal Bridge",
+          "text": "The Hood Canal Bridge should be identifiable ahead as a long, low roadway crossing the water between the Kitsap and Olympic peninsulas. At roughly seventy-eight hundred feet long, it is one of the world's longest floating bridges and the only floating bridge spanning salt water. Unlike a high suspension bridge, most of it rides on enormous concrete pontoons, which is why it can seem surprisingly close to the water from the air."
+        }
+      ]
+    },
+    {
+      "from": "WP05",
+      "to": "WP06",
+      "distanceNm": 16.51,
+      "blocks": [
+        {
+          "id": "hood-engineering",
+          "triggerRemainingNm": 15.4,
+          "title": "A bridge that opens by sliding apart",
+          "spokenLabel": "the Olympic Peninsula",
+          "bridge": true,
+          "text": "The Hood Canal Bridge has to solve an unusual problem: it carries highway traffic across a major marine route used by large vessels, including Navy traffic. For a full opening, sections of the bridge are raised and enormous floating spans retract beneath them to create a channel through the roadway. A marine opening can take anywhere from around ten minutes to three-quarters of an hour. The bridge's west half famously sank during a severe 1979 storm and had to be rebuilt."
+        },
+        {
+          "id": "puget-maritime",
+          "triggerRemainingNm": 10.2,
+          "title": "The maritime doorway to Port Townsend",
+          "spokenLabel": "Port Townsend",
+          "bridge": true,
+          "text": "We are now approaching the northeastern corner of the Olympic Peninsula. Port Townsend grew because of exactly this geography: ships entering Puget Sound from the Strait of Juan de Fuca passed close by, and nineteenth-century boosters expected the town to become a dominant regional port. Seattle and Tacoma eventually captured far more of that growth, but Port Townsend's stalled boom had an unexpected benefit—it left an unusually intact collection of Victorian commercial buildings and homes."
+        },
+        {
+          "id": "port-townsend-film",
+          "triggerRemainingNm": 6.7,
+          "title": "Hollywood came to Fort Worden",
+          "spokenLabel": "Port Townsend waterfront",
+          "text": "Port Townsend also has a strong movie connection. Fort Worden, the former coastal-defense post just north of town, became one of the principal locations for the 1982 film An Officer and a Gentleman. The old military buildings and parade grounds stood in for the fictional naval aviation training base. The production helped put Port Townsend's distinctive waterfront and historic architecture in front of a much wider audience."
+        },
+        {
+          "id": "port-townsend-approach",
+          "triggerRemainingNm": 4.4,
+          "title": "Port Townsend's Victorian waterfront",
+          "spokenLabel": "Port Townsend Waterfront",
+          "text": "Port Townsend is coming up now. Use the waterfront and the compact historic downtown as the visual anchor, with older residential neighborhoods climbing the bluff behind it. The town's late nineteenth-century building boom produced elaborate brick commercial blocks and Victorian homes, many of which survived precisely because the expected metropolitan expansion never arrived. Today that preserved seaport character is one of Port Townsend's defining features."
+        }
+      ]
+    },
+    {
+      "from": "WP06",
+      "to": "0S9",
+      "distanceNm": 4.29,
+      "blocks": [
+        {
+          "id": "port-townsend-final",
+          "triggerRemainingNm": 3.8,
+          "title": "From the waterfront to Jefferson County Airport",
+          "spokenLabel": "Jefferson County International Airport",
+          "text": "Port Townsend's waterfront is behind us and Jefferson County International Airport is only a few miles away. The final approach takes us south of the historic town rather than directly over it. This is a good place to leave the sightseeing behind and concentrate on the arrival. When you are finished at Jefferson County, say Trip destination."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Uploaded Leg 47 PLN",
+      "url": "local:Space Needle and Port Townsend.pln"
+    },
+    {
+      "name": "Space Needle — About and History",
+      "url": "https://www.spaceneedle.com/about"
+    },
+    {
+      "name": "Seattle Center — History",
+      "url": "https://www.seattlecenter.com/about/history"
+    },
+    {
+      "name": "Seattle Waterfront — Program Overview",
+      "url": "https://www.seattle.gov/waterfront/about-the-waterfront/program-overview"
+    },
+    {
+      "name": "HistoryLink — Invention of Pickleball",
+      "url": "https://www.historylink.org/File/20195"
+    },
+    {
+      "name": "NPS — Bainbridge Island Japanese American Exclusion Memorial",
+      "url": "https://www.nps.gov/places/the-bainbridge-island-japanese-american-exclusion-memorial.htm"
+    },
+    {
+      "name": "WSDOT — Hood Canal Bridge",
+      "url": "https://wsdot.wa.gov/travel/roads-bridges/hood-canal-bridge"
+    },
+    {
+      "name": "WSDOT — Hood Canal Bridge engineering/history",
+      "url": "https://www.wsdot.wa.gov/eesc/bridge/WBES/2007/assets/monday/2A/Joseph_Merth_2A.pdf"
+    },
+    {
+      "name": "HistoryLink — Port Townsend history",
+      "url": "https://historylink.org/file/10752"
+    },
+    {
+      "name": "NPS — Port Townsend Historic District",
+      "url": "https://npgallery.nps.gov/AssetDetail/00d7fc75-1d80-4cd1-a51b-fa789c9637a0"
+    }
+  ]
+}
