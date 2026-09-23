@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 7,
+  "id": "leg46-kcls-ktiw",
+  "title": "Leg 46 — Alder Lake and Rainier Gateways",
+  "subtitle": "Alder Lake, Elbe, Ashford, Eatonville, Orting and Tacoma Narrows",
+  "departure": {
+    "id": "KCLS",
+    "name": "Chehalis-Centralia Airport",
+    "voiceAliases": [
+      "kcls",
+      "k c l s",
+      "chehalis",
+      "centralia"
+    ]
+  },
+  "destination": {
+    "id": "KTIW",
+    "name": "Tacoma Narrows Airport",
+    "voiceAliases": [
+      "ktiw",
+      "k t i w",
+      "tacoma narrows",
+      "tacoma narrows airport"
+    ]
+  },
+  "cruiseAltitudeFt": 5500,
+  "defaultGroundSpeedKt": 120,
+  "routeDistanceNm": 85.0,
+  "waypointReminderNm": 2.0,
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "msfsIdent": "WP1ALDE",
+      "name": "Alder Lake",
+      "lat": 46.79,
+      "lon": -122.3
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "msfsIdent": "WP2ELBE",
+      "name": "Elbe",
+      "lat": 46.76,
+      "lon": -122.18
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "msfsIdent": "WP3ASHF",
+      "name": "Ashford",
+      "lat": 46.758,
+      "lon": -122.03
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "msfsIdent": "WP4EATO",
+      "name": "Eatonville",
+      "lat": 46.867,
+      "lon": -122.266
+    },
+    {
+      "number": 5,
+      "id": "WP05",
+      "msfsIdent": "WP5ORTI",
+      "name": "Orting",
+      "lat": 47.1,
+      "lon": -122.2
+    },
+    {
+      "number": 6,
+      "id": "WP06",
+      "msfsIdent": "WP6TACO",
+      "name": "Tacoma Narrows",
+      "lat": 47.27,
+      "lon": -122.55
+    }
+  ],
+  "segments": [
+    {
+      "from": "KCLS",
+      "to": "WP01",
+      "distanceNm": 28.9,
+      "blocks": [
+        {
+          "id": "departure-rainier",
+          "triggerRemainingNm": 27.8,
+          "title": "Leaving Chehalis-Centralia for Rainier country",
+          "spokenLabel": "the Rainier foothills",
+          "bridge": true,
+          "departureIntro": true,
+          "text": "We are leaving Chehalis-Centralia and turning northeast toward the foothills of Mount Rainier. This route stays much lower than the more mountain-focused alternative, so the goal is not to climb toward Rainier itself. Instead, we will use the mountain as a huge visual backdrop while staying close enough to the ground to make out lakes, towns, highways and river valleys. If the weather is clear, Rainier should become increasingly dominant off the right-front side of the airplane."
+        },
+        {
+          "id": "nisqually-country",
+          "triggerRemainingNm": 22.2,
+          "title": "Toward the Nisqually watershed",
+          "spokenLabel": "Alder Lake",
+          "bridge": true,
+          "text": "We are moving toward the Nisqually River watershed, one of the major river systems draining Mount Rainier. The river begins in glaciers high on the mountain and runs west through forests, reservoirs and lowland communities before reaching Puget Sound. For visual orientation, watch for the terrain becoming more broken and forested ahead. Alder Lake will be the first unmistakable landmark: a long, branching reservoir filling the river valley."
+        },
+        {
+          "id": "alder-dam",
+          "triggerRemainingNm": 15.5,
+          "title": "Alder Dam and the lake that powers Tacoma",
+          "spokenLabel": "Alder Lake",
+          "bridge": true,
+          "text": "Alder Lake was created by Alder Dam on the Nisqually River. The dam was completed in 1945 and rises about three hundred thirty feet above bedrock. Water from the reservoir passes through the Alder powerhouse before continuing downstream toward LaGrande Dam, and the project generates enough electricity in an average year to serve roughly eighteen thousand Northwest homes. From the air, the lake is far easier to identify than the dam itself, so use the long reservoir and its forested arms as your visual reference."
+        },
+        {
+          "id": "alder-approach",
+          "triggerRemainingNm": 5.6,
+          "title": "Alder Lake ahead",
+          "spokenLabel": "Alder Lake",
+          "text": "Alder Lake is coming up directly on the route. Rather than looking for a town, look for the broad blue reservoir tucked between forested ridges. The next few waypoints come quickly: after the lake we will pass Elbe, then Ashford, two small gateway communities on the road toward Mount Rainier. This is the start of the compressed part of the flight, so the narration will stay shorter while those places come one after another."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 5.3,
+      "blocks": [
+        {
+          "id": "alder-to-elbe",
+          "triggerRemainingNm": 4.7,
+          "title": "From Alder Lake into Elbe",
+          "spokenLabel": "Elbe",
+          "text": "Alder Lake is behind us and Elbe is only a few miles ahead. This tiny community sits where the Nisqually valley tightens into the Rainier foothills. Elbe has fewer than fifty residents, but it is hard to miss its railroad personality: the Mount Rainier Scenic Railroad operates here, and old rail cars have been reused as restaurants, lodging and roadside attractions. The town began as a railroad and logging settlement and was named for the Elbe River region of Germany."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 6.2,
+      "blocks": [
+        {
+          "id": "elbe-short",
+          "triggerRemainingNm": 5.7,
+          "title": "Elbe's little white church",
+          "spokenLabel": "Ashford",
+          "text": "You have just passed Elbe. One of its best-known landmarks is a tiny white Lutheran church dating to 1906, only about eighteen by twenty-four feet. The railroad once made this valley a much busier place than it looks today. Ashford is next, only a few miles ahead, so this is more of a continuous Rainier-gateway sequence than a normal long cruise segment."
+        },
+        {
+          "id": "ashford-approach",
+          "triggerRemainingNm": 3.7,
+          "title": "Ashford — the gateway to Mount Rainier",
+          "spokenLabel": "Ashford",
+          "text": "Ashford is coming up now. The town is only about six road miles from the Nisqually entrance to Mount Rainier National Park, and tourism has shaped it for more than a century. Logging once mattered just as much: nearby National was a timber boomtown until its mill closed in the 1940s. From the cockpit, Ashford is a small settlement along the highway rather than a dramatic landmark, so use the road corridor and the enormous presence of Rainier beyond it as your visual cue."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 11.7,
+      "blocks": [
+        {
+          "id": "rainier-names",
+          "triggerRemainingNm": 10.8,
+          "title": "A mountain with many names",
+          "spokenLabel": "Eatonville",
+          "bridge": true,
+          "text": "As we turn away from Ashford, Mount Rainier should remain the dominant feature of the view. People have used this mountain landscape for thousands of years, long before it became a national park. Associated tribes have many names for the mountain, including forms such as Tahoma, Tacoma and Takhoma. The English name Mount Rainier came from British explorer George Vancouver, who named the peak for his friend Rear Admiral Peter Rainier in 1792; Rainier himself never saw the mountain."
+        },
+        {
+          "id": "rainier-park",
+          "triggerRemainingNm": 7.2,
+          "title": "America's fifth national park",
+          "spokenLabel": "Eatonville",
+          "text": "Mount Rainier became a national park in 1899, the fifth in the United States. The park quickly became a major tourism destination as roads improved and automobiles made the mountain easier to reach. The Nisqually entrance arch, east of Ashford, was built in 1911 from massive rough-hewn logs and helped establish what later became the familiar National Park Service rustic style. We are not flying into the park on this route, but the communities below grew in large part because travelers did."
+        },
+        {
+          "id": "eatonville-approach",
+          "triggerRemainingNm": 4.8,
+          "title": "Eatonville in the foothills",
+          "spokenLabel": "Eatonville",
+          "text": "Eatonville is coming up next. The town was founded around the trading post of Thomas Van Eaton, who was guided into this country in 1889 by a Nisqually man known as Indian Henry. Eatonville later became another railroad and timber community and remains one of the southern gateways to Rainier. On a clear day the mountain is the obvious landmark; the town itself is the compact cluster in the foothills beneath it."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "WP05",
+      "distanceNm": 14.2,
+      "blocks": [
+        {
+          "id": "northwest-trek",
+          "triggerRemainingNm": 12.8,
+          "title": "Northwest Trek and the foothill wildlife country",
+          "spokenLabel": "Orting",
+          "bridge": true,
+          "text": "Leaving Eatonville, this part of the foothills is also home to Northwest Trek Wildlife Park, a large wildlife preserve known for native Northwest animals including elk, bison, mountain goats and predators. The park is west of our route, so it is not something you should expect to pick out clearly from the airplane. The more useful visual story is the landscape itself: open foothill valleys between heavily forested ridges, with Rainier still towering behind us and to the right."
+        },
+        {
+          "id": "orting-lahar",
+          "triggerRemainingNm": 8.2,
+          "title": "Why Orting practices running for high ground",
+          "spokenLabel": "Orting",
+          "text": "Orting is ahead in one of the most striking examples of how a volcano shapes daily life far from its summit. The town sits between the Puyallup and Carbon rivers in a potential Mount Rainier lahar pathway. A lahar is a fast-moving slurry of water, rock and volcanic debris. Orting maintains warning sirens, evacuation routes and regular school drills, and city planning assumes residents may have only around forty minutes to reach higher ground after a major warning."
+        },
+        {
+          "id": "orting-approach",
+          "triggerRemainingNm": 4.8,
+          "title": "Orting below",
+          "spokenLabel": "Orting",
+          "text": "Orting is coming up now. Look for the town spread across the flat valley floor between the rivers, with the straight roadway and the former railroad corridor helping outline the settlement. The Foothills Trail runs directly through town on an old rail alignment and then follows the Carbon River toward the mountains. This is exactly the kind of place that should be easier to identify from five thousand five hundred feet than a more distant off-route town."
+        }
+      ]
+    },
+    {
+      "from": "WP05",
+      "to": "WP06",
+      "distanceNm": 17.6,
+      "blocks": [
+        {
+          "id": "orting-trail",
+          "triggerRemainingNm": 16.3,
+          "title": "The old railroad became a trail",
+          "spokenLabel": "Tacoma",
+          "bridge": true,
+          "text": "You have just passed Orting. The Foothills Trail beneath us follows a historic railroad corridor through the river valley and today carries cyclists and walkers instead of freight. One of its most scenic sections begins in Orting and follows the Carbon River with open views back toward Mount Rainier. As we continue northwest, the rural valley will gradually give way to the much denser Tacoma metropolitan area."
+        },
+        {
+          "id": "tacoma-city",
+          "triggerRemainingNm": 11.3,
+          "title": "Tacoma and the mountain that shares its name",
+          "spokenLabel": "Tacoma Narrows",
+          "bridge": true,
+          "text": "Tacoma is beginning to fill the view ahead and to the right. The city's name was adopted in the nineteenth century from a Native name associated with Mount Rainier, although spellings and meanings have varied over time. For visual orientation, Puget Sound is the broad water ahead, while the Tacoma Narrows is the much tighter channel separating Tacoma from the Kitsap Peninsula. Our next waypoint is directly over that narrow water crossing."
+        },
+        {
+          "id": "gertie-story",
+          "triggerRemainingNm": 7.1,
+          "title": "Galloping Gertie",
+          "spokenLabel": "Tacoma Narrows",
+          "text": "The Tacoma Narrows Bridge has one of the most famous engineering stories in America. The original suspension bridge opened in July 1940 and immediately became known for dramatic vertical waves in even modest winds. Drivers sometimes watched the car ahead vanish into a trough in the roadway and then reappear. On November seventh, only four months after opening, the bridge twisted violently in a windstorm and collapsed into Puget Sound. The failure transformed suspension-bridge engineering worldwide."
+        },
+        {
+          "id": "gertie-dog",
+          "triggerRemainingNm": 4.6,
+          "title": "The one casualty was a dog",
+          "spokenLabel": "Tacoma Narrows",
+          "text": "There is one detail in the Galloping Gertie story that tends to stick with people. No human being died in the collapse. The only fatality was a dog named Tubby, trapped in a stalled car on the bridge. The replacement bridge opened in 1950, and a parallel span followed in 2007. As we approach, look for the two modern suspension bridges running side by side across the narrow channel."
+        }
+      ]
+    },
+    {
+      "from": "WP06",
+      "to": "KTIW",
+      "distanceNm": 1.1,
+      "blocks": [
+        {
+          "id": "final-hop",
+          "triggerRemainingNm": 1.0,
+          "title": "Tacoma Narrows Airport",
+          "spokenLabel": "Tacoma Narrows Airport",
+          "text": "Tacoma Narrows Airport is immediately ahead on the Gig Harbor side of the water. This final leg is only about a mile, so there is no sightseeing story to squeeze in here. Concentrate on the arrival, and when you are finished say Trip destination."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Uploaded Leg 46 PLN",
+      "url": "local:Alder Lake and Rainier Gateways.pln"
+    },
+    {
+      "name": "Tacoma Public Utilities — Alder Dam",
+      "url": "https://www.mytpu.org/community-environment-parks/hydropower-natural-resources/nisqually-river-project/alder-dam/"
+    },
+    {
+      "name": "Visit Rainier — Elbe",
+      "url": "https://visitrainier.com/elbe/"
+    },
+    {
+      "name": "NPS — Mount Rainier History",
+      "url": "https://home.nps.gov/mora/learn/historyculture/mount-rainier-history.htm"
+    },
+    {
+      "name": "NPS — Nisqually Entrance",
+      "url": "https://www.nps.gov/places/nisqually-entrance.htm"
+    },
+    {
+      "name": "Visit Rainier — Eatonville",
+      "url": "https://visitrainier.com/eatonville/"
+    },
+    {
+      "name": "City of Orting — Emergency Preparedness",
+      "url": "https://www.cityoforting.org/public-safety/emergency-management/emergency-preparedness/-arch-1"
+    },
+    {
+      "name": "Pierce County — Foothills Trail",
+      "url": "https://www.piercecountywa.gov/foothills"
+    },
+    {
+      "name": "WSDOT — Tacoma Narrows Bridge History",
+      "url": "https://www.wsdot.wa.gov/TNBhistory/"
+    }
+  ]
+}
