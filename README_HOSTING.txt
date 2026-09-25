@@ -1,89 +1,63 @@
-FLIGHTFOLIO TOUR PLAYER v18 — LEG 47
+FLIGHTFOLIO TOUR PLAYER v19 — LEG 48
 
 ROUTE
-KTIW Tacoma Narrows Airport
--> Tacoma Narrows Bridge
--> Space Needle
--> Elliott Bay
--> Bainbridge Island
--> Hood Canal Bridge
--> Port Townsend Waterfront
--> 0S9 Jefferson County International Airport
+0S9 Jefferson County International Airport
+-> Snoqualmie Falls Viewing Run
+-> North Bend Cascade Approach
+-> Snoqualmie Pass North Flank
+-> KELN Bowers Field, Ellensburg
 
 PLANNED ALTITUDE
-3,500 ft
+7,000 ft
 
 DISTANCE / TIME
-Route geometry: 65.92 NM
-Estimated en-route time at initial effective 120 KT: 33.0 minutes
+Route geometry: 112.46 NM
+Estimated en-route time at initial effective 120 KT: 56.2 minutes
+
+SEGMENT DISTANCES
+0S9 -> Snoqualmie Falls Viewing Run: 52.34 NM
+Falls viewing run -> North Bend: 4.02 NM
+North Bend -> Snoqualmie Pass North Flank: 13.40 NM
+Snoqualmie Pass -> KELN: 42.70 NM
 
 NARRATION
-In-flight blocks: 16
-In-flight words: 1185
-Approx. in-flight narration: 8.2 minutes (24.8% of estimated flight time)
+In-flight blocks: 24
+In-flight words: 1620
+Approx. in-flight narration: 11.2 minutes (19.9% of estimated flight time)
 Pre-flight briefing: about 1.0 minutes, separate from the route clock
 
-NEW IN v17
+KEY LEG 48 CHANGE — VIEWING-PASS AWARE NARRATION
+FlightFolio may now position a route waypoint for the best viewing geometry rather than directly
+on top of the named attraction. The tour treats the PLN description as authoritative.
 
-1. SEPARATE MICROPHONE TEST AND TOUR START
+WP1 — Snoqualmie Falls Viewing Run
+  Snoqualmie Falls lies LEFT of the southeastbound viewing run.
 
-TEST MICROPHONE is now a diagnostic only. Use it before putting on the headset/VR if desired.
-It does not start the tour, play narration, or move the tour clock.
+WP2 — North Bend Cascade Approach
+  Short 4.0 NM leg after WP1; narration flows naturally from the Falls toward North Bend.
 
-START TOUR is now the actual beginning of the flight experience:
-- while parked at the departure airport, press START TOUR
-- the route briefing plays
-- when the briefing finishes, the player stays PAUSED
-- the speech listener is enabled
-- taxi and take off normally
-- once established after takeoff, say:
-    Trip resume
+WP3 — Snoqualmie Pass North Flank
+  Snoqualmie Pass / I-90 corridor remains RIGHT of the eastbound track.
+  Alpine Lakes Wilderness ridge-and-lake country lies LEFT beyond the corridor.
 
-Voice behavior:
-- Trip start / Tour start before the briefing also plays the briefing and leaves the tour paused
-- Trip resume / Tour resume starts the route clock after takeoff
-- Trip briefing / Tour briefing replays the briefing and leaves the tour paused
+The narrator does not assume that crossing a waypoint means flying directly over the named sight.
 
+START WORKFLOW
+1. Use TEST MICROPHONE before the flight if desired.
+2. Once seated in the aircraft, press START TOUR or say Trip start.
+3. The pre-flight briefing plays and the tour remains PAUSED.
+4. Taxi and take off.
+5. Once established, say Trip resume.
+6. Use Trip sync whenever desired for tighter timing.
+7. Confirm synchronization waypoints using Trip waypoint one/two/three.
+8. At Bowers Field say Trip destination.
 
-2. PLACE-NAME-FIRST LANGUAGE RETAINED
-Normal narration uses Space Needle, Elliott Bay, Bainbridge Island, etc.
-Waypoint numbers remain mainly for confirmation commands.
-
-3. CONDENSED WAYPOINTS
-- KTIW -> Tacoma Narrows Bridge is only ~1.1 NM.
-- Space Needle -> Elliott Bay is only ~1.6 NM.
-Those are treated as continuous sightseeing passes rather than forcing long stories
-or rigid independent narration cycles.
-
-4. NARRATION DENSITY
-In-flight narration is about 25% of estimated flight time, within the desired
-20-25% band. The separate pre-flight briefing does not consume en-route airtime.
-
-5. CONTENT MIX
-- Seattle / Space Needle / 1962 World's Fair
-- Seattle pop culture and aviation identity
-- Elliott Bay / waterfront / ferries
-- Bainbridge Island pickleball origin
-- Bainbridge Japanese American exclusion history
-- Hood Canal floating-bridge engineering
-- Port Townsend's Victorian seaport and film connection
-
-6. EXISTING FEATURES RETAINED
+RETAINED FEATURES
+- separate microphone test and tour briefing
+- full hands-free VR workflow
+- place-name-first narration
 - conservative auto pace
-- Tour / Trip aliases
-- natural quiet-stretch transitions
-- place-name-first confirmations and status
-- 2-NM reminder with short-segment scaling
 - pause/resume
-- no guessed MSFS FPL aliases
-
-INSTALL / TEST
-1. Replace GitHub Pages files and commit.
-2. Confirm header says v18 · Leg 47.
-3. RESET TOUR.
-4. Use TEST MICROPHONE before the flight if desired.
-5. Once seated in the aircraft, press START TOUR for the briefing.
-6. Taxi / take off with the tour paused.
-7. Once settled, say Trip resume or use Trip sync.
-7. Confirm places with the existing Trip waypoint one/two/etc. commands.
-8. At 0S9 say Trip destination.
+- short-segment reminder scaling
+- Tour/Trip aliases
+- no guessed MSFS generic waypoint names

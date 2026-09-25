@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 9,
+  "id": "leg48-0s9-keln",
+  "title": "Leg 48 — Snoqualmie Falls to Ellensburg",
+  "subtitle": "Snoqualmie Falls, North Bend, Snoqualmie Pass and the Kittitas Valley",
+  "departure": {
+    "id": "0S9",
+    "name": "Jefferson County International Airport",
+    "voiceAliases": [
+      "0s9",
+      "zero s nine",
+      "zero s 9",
+      "jefferson county",
+      "port townsend airport"
+    ]
+  },
+  "destination": {
+    "id": "KELN",
+    "name": "Bowers Field",
+    "voiceAliases": [
+      "keln",
+      "k e l n",
+      "bowers field",
+      "ellensburg",
+      "ellensburg airport"
+    ]
+  },
+  "cruiseAltitudeFt": 7000,
+  "defaultGroundSpeedKt": 120,
+  "routeDistanceNm": 112.46,
+  "waypointReminderNm": 2.0,
+  "preflightBriefing": "Welcome aboard. Today we're leaving Jefferson County International near Port Townsend and crossing Washington from the maritime side of the Cascades into the open Kittitas Valley at Ellensburg. The first half of the trip is a long run toward Snoqualmie Falls. FlightFolio has placed that waypoint for the view rather than directly over the waterfall, so the falls should appear off the left side of the southeastbound pass. A few miles later we'll pass North Bend beneath Mount Si, then continue east with Snoqualmie Pass to the right and the Alpine Lakes country to the left. After crossing the Cascades we'll follow the changing landscape past the Cle Elum and Roslyn area and into Ellensburg. We'll have waterfalls, Twin Peaks locations, mountain-road history, railroad and coal country, Northern Exposure, and the wide dry-side valley ahead. I'll stay quiet while you taxi and depart. Once you're airborne and settled, say Trip resume.",
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "msfsIdent": "WP1SNOQ",
+      "name": "Snoqualmie Falls Viewing Run",
+      "lat": 47.488999,
+      "lon": -121.822,
+      "viewingNotes": [
+        "Snoqualmie Falls lies left of the southeastbound viewing run."
+      ]
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "msfsIdent": "WP2NORT",
+      "name": "North Bend Cascade Approach",
+      "lat": 47.468,
+      "lon": -121.728,
+      "viewingNotes": []
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "msfsIdent": "WP3SNOQ",
+      "name": "Snoqualmie Pass North Flank",
+      "lat": 47.426,
+      "lon": -121.404,
+      "viewingNotes": [
+        "Snoqualmie Pass corridor remains right of the eastbound track.",
+        "Alpine Lakes Wilderness ridge-and-lake country lies left beyond the corridor."
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "from": "0S9",
+      "to": "WP01",
+      "distanceNm": 52.34,
+      "blocks": [
+        {
+          "id": "leave-port-townsend",
+          "triggerRemainingNm": 50.8,
+          "title": "Across western Washington",
+          "spokenLabel": "the Cascade foothills",
+          "bridge": true,
+          "departureIntro": true,
+          "text": "We are leaving the Port Townsend area behind and beginning a long southeast run across western Washington. This first leg is less about a single landmark than watching the state change beneath us. The lowlands west of the Cascades are greener, wetter and more densely forested, while the mountain wall ahead gradually becomes the dominant feature. Our first major sightseeing target is Snoqualmie Falls, but FlightFolio has deliberately set up a viewing pass rather than sending us directly over it."
+        },
+        {
+          "id": "water-to-mountains",
+          "triggerRemainingNm": 44.0,
+          "title": "From maritime country to the foothills",
+          "spokenLabel": "the western Cascade foothills",
+          "bridge": true,
+          "text": "One of the pleasures of this route is the transition in scale. Around Puget Sound, water and low forested ridges divide the landscape into islands, peninsulas and valleys. Ahead, those gentler shapes begin stacking into the western Cascade foothills. Washington's geography compresses dramatically here: a relatively short flight takes us from saltwater country toward a mountain barrier that controls weather, transportation and settlement across the state."
+        },
+        {
+          "id": "snoqualmie-tribal",
+          "triggerRemainingNm": 35.5,
+          "title": "The Snoqualmie Valley before the highway",
+          "spokenLabel": "Snoqualmie Valley",
+          "bridge": true,
+          "text": "The upper Snoqualmie Valley has been a meeting and travel area for thousands of years. The Snoqualmie people used the valley seasonally, and the falls hold deep cultural and spiritual importance. Later settlers were drawn by timber, farmland and transportation routes. By the late nineteenth century, railroads and logging had transformed the valley, but the river and the falls remained its defining landmarks."
+        },
+        {
+          "id": "falls-power",
+          "triggerRemainingNm": 26.8,
+          "title": "A waterfall that also became a power plant",
+          "spokenLabel": "Snoqualmie Falls",
+          "bridge": true,
+          "text": "Snoqualmie Falls is more than a scenic stop. The hydroelectric plant built into the site in the late eighteen-nineties was the world's first completely underground power plant. Its original powerhouse was excavated into bedrock near the falls, and the project still generates electricity today. From the air, of course, the waterfall is what matters visually: a dramatic break in the river surrounded by dark forest."
+        },
+        {
+          "id": "falls-daredevils",
+          "triggerRemainingNm": 23.0,
+          "title": "Tourists and daredevils at the falls",
+          "spokenLabel": "Snoqualmie Falls",
+          "text": "Snoqualmie Falls was attracting tourists long before automobiles made the trip easy. When the first passenger train reached the valley in 1889, more than a thousand people reportedly turned out for the celebration. The falls also attracted stunt performers. A tightrope walker crossed above the gorge successfully, while an 1890 balloon-and-parachute attempt ended fatally when shifting air currents dropped the performer onto rocks near the falls. The scenery has always been spectacular, but it has never been a forgiving place."
+        },
+        {
+          "id": "snoqualmie-railroad",
+          "triggerRemainingNm": 20.8,
+          "title": "Railroads opened the upper valley",
+          "spokenLabel": "the Snoqualmie Valley",
+          "text": "The railroad changed this valley almost overnight. In 1889 the Seattle, Lake Shore and Eastern reached the upper Snoqualmie country, making timber and agricultural products much easier to move to market and bringing tourists in the opposite direction. Towns that had been isolated by difficult river and trail travel suddenly had a direct link toward Seattle. That transportation story will repeat itself ahead at Snoqualmie Pass, where every generation has tried to make the Cascade crossing faster and more reliable."
+        },
+        {
+          "id": "twin-peaks-preview",
+          "triggerRemainingNm": 18.8,
+          "title": "Entering Twin Peaks country",
+          "spokenLabel": "North Bend and Snoqualmie",
+          "bridge": true,
+          "text": "We are also entering one of television's most recognizable landscapes. David Lynch and Mark Frost used Snoqualmie, North Bend and nearby communities for many of the exterior locations in Twin Peaks. Snoqualmie Falls appeared in the opening imagery, the Salish Lodge became the exterior of the Great Northern Hotel, and North Bend supplied the Double R Diner and other familiar locations. Even if you never watched the series, the reason filmmakers liked this valley is easy to understand from the air."
+        },
+        {
+          "id": "falls-setup",
+          "triggerRemainingNm": 9.0,
+          "title": "Setting up the Snoqualmie Falls viewing run",
+          "spokenLabel": "Snoqualmie Falls",
+          "text": "Snoqualmie Falls is ahead, but do not look for it directly beneath the waypoint. The route has been shaped as a sightseeing pass. As we continue southeast, the falls should be off the left side of the airplane. Look for the Snoqualmie River and a sudden white drop in the forested valley, with the lodge and developed overlook area near the lip."
+        },
+        {
+          "id": "falls-close",
+          "triggerRemainingNm": 4.4,
+          "title": "Snoqualmie Falls off the left",
+          "spokenLabel": "Snoqualmie Falls",
+          "text": "This is the Snoqualmie Falls viewing run. The waterfall drops roughly two hundred seventy feet and is one of Washington's best-known natural landmarks. Keep your attention to the left side rather than trying to line up on the waypoint itself. North Bend follows only a few miles later, so Mount Si should soon become the easier visual anchor ahead."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 4.02,
+      "blocks": [
+        {
+          "id": "north-bend-close",
+          "triggerRemainingNm": 3.65,
+          "title": "North Bend beneath Mount Si",
+          "spokenLabel": "North Bend",
+          "text": "North Bend is just ahead beneath the steep face of Mount Si. In Twin Peaks, this area supplied many of the show's most familiar real-world locations, including the cafe used as the Double R Diner. Mount Si itself became part of the show's visual identity. The town and mountain arrive quickly after the falls, so think of this as one continuous pass from Snoqualmie Falls into North Bend rather than two separate sightseeing stops."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 13.4,
+      "blocks": [
+        {
+          "id": "mount-si",
+          "triggerRemainingNm": 12.4,
+          "title": "Mount Si and the gateway to the Cascades",
+          "spokenLabel": "Mount Si",
+          "bridge": true,
+          "text": "With North Bend behind us, Mount Si marks the western edge of the Cascades in a very direct way. The mountain rises abruptly above the valley floor and has long served as a visual landmark for travelers moving east. From here the terrain tightens quickly, and the route begins to feel less like a lowland sightseeing flight and more like a mountain crossing."
+        },
+        {
+          "id": "pass-road",
+          "triggerRemainingNm": 8.3,
+          "title": "The road across Snoqualmie Pass",
+          "spokenLabel": "Snoqualmie Pass",
+          "text": "Snoqualmie Pass has been a transportation corridor for generations. Wagon-road construction began in the nineteenth century, automobiles crossed in the early twentieth, and today's Interstate 90 follows the same basic need: getting people and freight through the Cascade barrier. The highway was not reliably kept open through an entire winter until 1931, a reminder of how formidable this crossing could be before modern snow control and road engineering."
+        },
+        {
+          "id": "wildlife-crossing",
+          "triggerRemainingNm": 6.3,
+          "title": "A highway crossing built for wildlife",
+          "spokenLabel": "the I-90 corridor",
+          "text": "Modern Snoqualmie Pass engineering is not only about cars and snow. East of the summit, highway reconstruction added wildlife crossings so animals can move between habitat on opposite sides of Interstate 90. One of the best-known structures is a broad vegetated overcrossing that looks more like a strip of hillside than a conventional bridge. From seven thousand feet it may be difficult to pick out, but it is part of a much larger effort to reconnect a landscape that the interstate divided."
+        },
+        {
+          "id": "pass-viewing",
+          "triggerRemainingNm": 4.6,
+          "title": "Snoqualmie Pass to the right, Alpine Lakes to the left",
+          "spokenLabel": "Snoqualmie Pass",
+          "text": "The waypoint ahead is another viewing line rather than a bullseye over the attraction. Snoqualmie Pass and the Interstate 90 corridor should remain off the right side of our eastbound track. To the left, beyond the immediate ridges, lies the Alpine Lakes Wilderness: steep granite country scattered with lakes and high basins. The route keeps us north of the main pass corridor while preserving the mountain view."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "KELN",
+      "distanceNm": 42.7,
+      "blocks": [
+        {
+          "id": "east-slope-change",
+          "triggerRemainingNm": 40.8,
+          "title": "Crossing to the dry side",
+          "spokenLabel": "the eastern Cascades",
+          "bridge": true,
+          "text": "Past the Snoqualmie Pass flank, the character of the landscape begins changing again. As Pacific weather loses moisture crossing the Cascades, the east side becomes progressively drier and more open. Dense western forests give way to broader valleys, thinner tree cover and eventually the grass-and-shrub country of central Washington. It is one of the clearest environmental transitions on this entire tour."
+        },
+        {
+          "id": "keechelus-i90",
+          "triggerRemainingNm": 35.3,
+          "title": "Lake Keechelus and the mountain highway",
+          "spokenLabel": "the I-90 corridor",
+          "bridge": true,
+          "text": "The Interstate 90 corridor continues east through this mountain country beside long reservoirs and narrow valleys. Lake Keechelus sits along the pass route and has been a landmark for travelers since long before the interstate existed. Modern highway projects in this area have included avalanche protection, wider bridges and even wildlife crossings designed to reconnect habitat on opposite sides of the road."
+        },
+        {
+          "id": "cle-elum-coal",
+          "triggerRemainingNm": 27.5,
+          "title": "Cle Elum — coal, railroads and swift water",
+          "spokenLabel": "Cle Elum",
+          "bridge": true,
+          "text": "Ahead lies the Cle Elum area, where coal and railroads shaped the modern town. The name Cle Elum comes from a local Indigenous term commonly translated as swift water. Rail lines reached the community in the eighteen-eighties, and nearby coal became important fuel for locomotives crossing the Cascades. The town's history is still tied closely to railroading, mining and timber, even though today's economy and landscape feel very different."
+        },
+        {
+          "id": "northern-exposure",
+          "triggerRemainingNm": 21.0,
+          "title": "Roslyn stood in for Alaska",
+          "spokenLabel": "Roslyn",
+          "text": "A little north of the main route is Roslyn, another former coal town with an unexpected television career. From 1990 to 1995, Roslyn stood in for the fictional Alaska town of Cicely in Northern Exposure. Its weathered early-twentieth-century buildings gave producers the look they wanted without sending the production all the way to Alaska. Lake Cle Elum and nearby Easton also appeared in the series."
+        },
+        {
+          "id": "roslyn-coal-town",
+          "triggerRemainingNm": 18.6,
+          "title": "Roslyn before television",
+          "spokenLabel": "Roslyn and Cle Elum",
+          "text": "Long before Roslyn played Alaska on television, it was a coal town built around the Northern Pacific Railroad. Mining drew workers from many countries, leaving the community with an unusually diverse cultural history for a small mountain town. That older identity is still visible in the historic streets and cemeteries around Roslyn, even though popular culture now gives many visitors their first reason to recognize the name."
+        },
+        {
+          "id": "challenger-cle-elum",
+          "triggerRemainingNm": 15.8,
+          "title": "Cle Elum and Challenger commander Dick Scobee",
+          "spokenLabel": "the upper Kittitas Valley",
+          "text": "Cle Elum also has an aviation and space connection. Astronaut Dick Scobee, commander of the Space Shuttle Challenger on its final mission in 1986, was born here. That is an unusually fitting local story for an aerial tour: a small Cascade railroad and mining town also became the birthplace of a man who eventually commanded a spacecraft."
+        },
+        {
+          "id": "wind-country",
+          "triggerRemainingNm": 10.4,
+          "title": "Wind country in the Kittitas Valley",
+          "spokenLabel": "the Kittitas Valley",
+          "bridge": true,
+          "text": "As the valley opens toward Ellensburg, wind becomes part of the landscape and the economy. Large wind-energy projects occupy ridges in Kittitas County, taking advantage of the strong airflow created by the mountain-and-valley geography. From the airplane, rows of turbines can be much easier to identify than many individual towns, especially when sunlight catches the rotating blades."
+        },
+        {
+          "id": "ellensburg-capital",
+          "triggerRemainingNm": 8.1,
+          "title": "Ellensburg once wanted to be the state capital",
+          "spokenLabel": "Ellensburg",
+          "text": "Ellensburg had ambitions beyond being a ranching and college town. When Washington became a state in 1889, Ellensburg was among the communities competing to become the permanent state capital. Olympia ultimately kept the role, but the episode says something about how quickly Ellensburg expected to grow as railroads and settlement pushed into central Washington. A few years later the state normal school opened here, eventually becoming Central Washington University."
+        },
+        {
+          "id": "ellensburg-history",
+          "triggerRemainingNm": 6.5,
+          "title": "Ellensburg — college town and rodeo town",
+          "spokenLabel": "Ellensburg",
+          "text": "Ellensburg is ahead in the broad Kittitas Valley. The city was incorporated in the nineteenth century, later became home to what is now Central Washington University, and is nationally associated with the Ellensburg Rodeo, held around Labor Day since 1923. The open valley, grid of streets and surrounding agricultural land should make the city much easier to recognize from seven thousand feet than the smaller mountain communities behind us."
+        },
+        {
+          "id": "bowers-final",
+          "triggerRemainingNm": 3.3,
+          "title": "Bowers Field arrival",
+          "spokenLabel": "Bowers Field",
+          "text": "Bowers Field is coming up at Ellensburg. The mountain crossing is behind us now, and the landscape is completely different from the green Puget Sound side where we began. This is a good place to leave the storytelling behind and concentrate on the arrival. When you are finished at Bowers Field, say Trip destination."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Uploaded Leg 48 PLN",
+      "url": "local:Snoqualmie Falls to Ellensburg.pln"
+    },
+    {
+      "name": "Official Snoqualmie Falls — History",
+      "url": "https://www.snoqualmiefalls.com/history/"
+    },
+    {
+      "name": "Official Snoqualmie Falls — Hydroelectric Project",
+      "url": "https://www.snoqualmiefalls.com/snoqualmie-falls-hydroelectric-project/"
+    },
+    {
+      "name": "North Bend Visitors Bureau — Twin Peaks Filming Locations",
+      "url": "https://www.discovernorthbend.com/195/Twin-Peaks-Filming-Locations"
+    },
+    {
+      "name": "WSDOT — I-90 Snoqualmie Pass East Project",
+      "url": "https://wsdot.wa.gov/construction-planning/major-projects/i-90-snoqualmie-pass-east-project"
+    },
+    {
+      "name": "City of Cle Elum — About Cle Elum",
+      "url": "https://cleelum.gov/about_cle_elum/"
+    },
+    {
+      "name": "Roslyn Historical Museum — Northern Exposure",
+      "url": "https://www.roslynmuseum.com/northern-exposure.html"
+    },
+    {
+      "name": "Washington EFSEC — Kittitas Valley Wind Power Project",
+      "url": "https://www.efsec.wa.gov/energy-facilities/kittitas-valley"
+    },
+    {
+      "name": "City of Ellensburg — Area Partners and Attractions",
+      "url": "https://www.ellensburgwa.gov/959/Area-Partners-Attractions"
+    },
+    {
+      "name": "City of Ellensburg — Parks and Recreation Comprehensive Plan",
+      "url": "https://www.ellensburgwa.gov/DocumentCenter/View/5854"
+    }
+  ]
+}
