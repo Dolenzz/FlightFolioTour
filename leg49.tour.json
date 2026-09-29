@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 10,
+  "id": "leg49-keln-kpsc",
+  "title": "Leg 49 — Yakima Canyon to Hanford Reach",
+  "subtitle": "Yakima River Canyon, Priest Rapids, Hanford Reach and the Tri-Cities",
+  "departure": {
+    "id": "KELN",
+    "name": "Bowers Field",
+    "voiceAliases": [
+      "keln",
+      "k e l n",
+      "bowers field",
+      "ellensburg"
+    ]
+  },
+  "destination": {
+    "id": "KPSC",
+    "name": "Tri-Cities Airport",
+    "voiceAliases": [
+      "kpsc",
+      "k p s c",
+      "tri cities",
+      "tri cities airport",
+      "pasco airport"
+    ]
+  },
+  "cruiseAltitudeFt": 5500,
+  "defaultGroundSpeedKt": 120,
+  "routeDistanceNm": 75.69,
+  "waypointReminderNm": 2.0,
+  "preflightBriefing": "Welcome aboard. Today we're leaving Bowers Field at Ellensburg and following the Yakima River south through its basalt canyon before turning east toward the Columbia. We'll spend some time with the canyon itself, then pass Priest Rapids Dam with the dam and the broad Columbia immediately west of our track. From there we'll follow the east side of Hanford Reach, one of the most unusual stretches of the Columbia River, where protected desert and wildlife sit beside one of the defining landscapes of the atomic age. The final run takes us into the Tri-Cities and Pasco. Along the way we'll have canyon geology, birds and trout, hydropower, the Hanford story, and a landscape shaped by both ancient floods and modern history. I'll stay quiet while you taxi and depart. Once you're airborne and settled, say Trip resume.",
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "msfsIdent": "WP1YAKI",
+      "name": "Yakima Canyon Entry",
+      "lat": 46.865,
+      "lon": -120.377,
+      "viewingNotes": []
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "msfsIdent": "WP2YAKI",
+      "name": "Yakima Canyon River Pass",
+      "lat": 46.73,
+      "lon": -120.19,
+      "viewingNotes": [
+        "Follow the open canyon floor with river bends beside the aircraft."
+      ]
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "msfsIdent": "WP3PRIE",
+      "name": "Priest Rapids Viewing Pass",
+      "lat": 46.65,
+      "lon": -119.89,
+      "viewingNotes": [
+        "Priest Rapids Dam and the broad Columbia channel are immediately west of track."
+      ]
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "msfsIdent": "WP4HANF",
+      "name": "Hanford Reach East Bank",
+      "lat": 46.49,
+      "lon": -119.56,
+      "viewingNotes": [
+        "View the undeveloped Columbia reach from its east-bank side."
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "from": "KELN",
+      "to": "WP01",
+      "distanceNm": 11.9,
+      "blocks": [
+        {
+          "id": "yakima-canyon-intro",
+          "triggerRemainingNm": 10.9,
+          "title": "Leaving Ellensburg for the Yakima Canyon",
+          "spokenLabel": "Yakima Canyon",
+          "bridge": true,
+          "departureIntro": true,
+          "text": "We are leaving Ellensburg and heading south toward the Yakima River Canyon. The river looks gentle from above, but it has cut a remarkably deep route through folded layers of Columbia Basin basalt. Some of the canyon walls rise more than two thousand feet above the river. As we approach, the open Kittitas Valley begins tightening into a much narrower corridor of water, highway, railroad and dark volcanic rock."
+        },
+        {
+          "id": "yakima-geology",
+          "triggerRemainingNm": 7.7,
+          "title": "A river cutting across folded basalt",
+          "spokenLabel": "the canyon entrance",
+          "text": "The shape of this canyon is especially interesting because the river cuts across huge folds in the basalt instead of simply following the easiest low ground. Those folds, called anticlines, were slowly uplifted while the Yakima kept eroding downward. The result is the winding canyon ahead, with repeated bends exposing the layered rock. From the cockpit, watch how closely the river, State Route 821 and the railroad share the same narrow passage."
+        },
+        {
+          "id": "yakima-byway",
+          "triggerRemainingNm": 4.6,
+          "title": "Washington's first scenic byway",
+          "spokenLabel": "Yakima Canyon",
+          "text": "The road along the river became Washington's first designated State Scenic Byway in 1968. Down at road level the canyon is known for rafting, camping and trout fishing, but from up here the attraction is the entire shape of the corridor. The river should now be the easiest reference: a green ribbon curling between dry hills and basalt walls as we enter the canyon."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 11.17,
+      "blocks": [
+        {
+          "id": "yakima-wildlife",
+          "triggerRemainingNm": 10.2,
+          "title": "Hawks, eagles and falcons in the canyon",
+          "spokenLabel": "Yakima River Canyon",
+          "bridge": true,
+          "text": "Now that we're inside the Yakima Canyon, the cliffs around us support one of Washington's densest concentrations of nesting hawks, eagles and falcons. More than two hundred bird species use the canyon at some point during the year. Bighorn sheep, mule deer and elk also make use of the dry slopes and river corridor. Most of that wildlife is far too small to pick out from this altitude, but the habitat itself is easy to read in the contrast between the green riverbank and the dry hills."
+        },
+        {
+          "id": "yakima-trout",
+          "triggerRemainingNm": 6.4,
+          "title": "A blue-ribbon trout river",
+          "spokenLabel": "the Yakima River",
+          "text": "The Yakima below is also managed as a blue-ribbon trout stream. Anglers share it with summer floaters and rafters, and several recreation sites are spaced along the canyon. From above, the river bends are the real show. Rather than looking for one particular landmark, follow the water as it swings from side to side beneath us; this waypoint is simply keeping us aligned with that long river pass."
+        },
+        {
+          "id": "yakima-exit",
+          "triggerRemainingNm": 3.6,
+          "title": "Leaving the tightest canyon country",
+          "spokenLabel": "the lower canyon",
+          "text": "As the canyon begins to loosen its grip, the surrounding country opens again. The basalt does not disappear, but the sense of being confined to one narrow river corridor starts to fade. Ahead, our route leaves the Yakima and works east toward the Columbia River. The next major landmark will be Priest Rapids Dam, where the scale changes from a winding canyon river to one of the great waterways of the Pacific Northwest."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 13.26,
+      "blocks": [
+        {
+          "id": "columbia-approach",
+          "triggerRemainingNm": 11.9,
+          "title": "Toward the Columbia",
+          "spokenLabel": "the Columbia River",
+          "bridge": true,
+          "text": "We are turning away from the Yakima Canyon now and heading toward the Columbia. The landscape becomes broader and more open, with irrigated agriculture appearing as sharp green geometry against dry shrub-steppe. The Columbia itself is difficult to mistake once it comes into view: a much wider ribbon of water than the Yakima, cutting across an otherwise dry part of central Washington."
+        },
+        {
+          "id": "priest-rapids-history",
+          "triggerRemainingNm": 6.5,
+          "title": "Priest Rapids Dam",
+          "spokenLabel": "Priest Rapids Dam",
+          "text": "Priest Rapids Dam is coming up on the Columbia. The project was built in the late nineteen-fifties and began generating electricity in 1959. It carries the name of the former rapids in this reach of the river, near the homeland of the Wanapum people, who have lived along the Columbia here since time immemorial. The dam stretches across the river with the reservoir broadening behind it."
+        },
+        {
+          "id": "priest-rapids-view",
+          "triggerRemainingNm": 4.4,
+          "title": "Hydropower on the Columbia",
+          "spokenLabel": "Priest Rapids Dam",
+          "text": "Keep your attention just west of our track now. Priest Rapids Dam and the broad Columbia channel should be off that side rather than directly underneath us. The plant has ten generating units and a capacity of roughly nine hundred fifty megawatts. This is a good example of how completely the modern Columbia has been engineered for power, irrigation and navigation, even while the next stretch of river ahead remains strikingly undeveloped."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 16.67,
+      "blocks": [
+        {
+          "id": "hanford-reach-intro",
+          "triggerRemainingNm": 15.1,
+          "title": "Entering Hanford Reach country",
+          "spokenLabel": "Hanford Reach",
+          "bridge": true,
+          "text": "Beyond Priest Rapids we are entering Hanford Reach country. This is the last non-tidal, free-flowing stretch of the Columbia River in the United States, extending for roughly fifty-one miles from Priest Rapids toward Richland. The river bends through dry shrub-steppe with long undeveloped shorelines, a sharp contrast to the dams, farms and cities found along so much of the Columbia."
+        },
+        {
+          "id": "hanford-wildlife",
+          "triggerRemainingNm": 10.8,
+          "title": "A refuge created by an unusual history",
+          "spokenLabel": "Hanford Reach",
+          "text": "The undeveloped look of Hanford Reach is partly the result of an unusual twentieth-century history. Large areas were closed to ordinary settlement and development when the federal government created the Hanford Site during World War Two. Decades of restricted access unintentionally protected extensive shrub-steppe habitat. Today the national monument supports mule deer, coyotes, pelicans, bald and golden eagles, herons, waterfowl and rare native plants."
+        },
+        {
+          "id": "white-bluffs",
+          "triggerRemainingNm": 8.1,
+          "title": "White bluffs, dunes and an ancient landscape",
+          "spokenLabel": "the Hanford Reach",
+          "text": "This protected landscape also preserves much older stories. The monument contains the White Bluffs, dune fields, fossils of animals including camel, rhinoceros and mastodon, and archaeological evidence of more than ten thousand years of human presence. From the airplane, the broad empty riverbanks are more obvious than any individual fossil bed or archaeological site, but that emptiness is one reason so much of the landscape survived."
+        },
+        {
+          "id": "hanford-b-reactor",
+          "triggerRemainingNm": 5.4,
+          "title": "The beginning of the atomic age at Hanford",
+          "spokenLabel": "Hanford",
+          "text": "Hanford also became one of the central sites of the Manhattan Project. Construction of B Reactor began in 1943, and in September 1944 it became the world's first full-scale nuclear production reactor. Its purpose was to produce plutonium on an industrial scale. Plutonium made at Hanford was used in the Trinity test and in the Fat Man bomb dropped on Nagasaki in August 1945. The history here is inseparable from both extraordinary scientific achievement and the enormous human consequences of nuclear weapons."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "KPSC",
+      "distanceNm": 22.69,
+      "blocks": [
+        {
+          "id": "hanford-displacement",
+          "triggerRemainingNm": 21.1,
+          "title": "Communities that disappeared behind the fence",
+          "spokenLabel": "the former Hanford towns",
+          "bridge": true,
+          "text": "The Manhattan Project transformed this landscape almost overnight. Residents of Hanford, White Bluffs and surrounding farms were forced to leave as the government took over the area for the secret wartime project. Indigenous people also lost access to places along the Columbia that had been used for fishing, gathering and ceremony for generations. Some prewar structures survive behind the modern Hanford security boundary, reminders that this was a lived-in river valley before it became an industrial nuclear site."
+        },
+        {
+          "id": "hanford-workers",
+          "triggerRemainingNm": 17.8,
+          "title": "A secret city and tens of thousands of workers",
+          "spokenLabel": "Richland and Hanford",
+          "text": "At the height of wartime construction, more than forty-five thousand people worked at Hanford, many without knowing the full purpose of what they were building. Nearby Richland was rapidly expanded to house workers and their families, with standardized houses built in large numbers and identified by lettered designs. The whole region changed from small agricultural communities into one of the most important industrial science centers in the country."
+        },
+        {
+          "id": "tri-cities-rivers",
+          "triggerRemainingNm": 13.7,
+          "title": "Three cities shaped by three rivers",
+          "spokenLabel": "the Tri-Cities",
+          "text": "The Tri-Cities are coming into the picture now: Richland, Pasco and Kennewick, gathered around the Columbia, Snake and Yakima rivers. Long before the modern cities existed, these river confluences were important places for Native communities, fishing and trade. Later came railroads, irrigation, agriculture and finally the enormous influence of Hanford. From the air, the rivers still explain the geography better than the street map does."
+        },
+        {
+          "id": "ice-age-floods",
+          "triggerRemainingNm": 10.1,
+          "title": "A landscape reshaped by Ice Age floods",
+          "spokenLabel": "the Tri-Cities basin",
+          "text": "The broad basin below also carries the marks of Ice Age floods. Repeated catastrophic floods swept across eastern Washington near the end of the last ice age, temporarily backing water into this region and leaving behind sediments that later helped support agriculture. The basalt underneath is much older, built from enormous lava flows. So even this apparently quiet basin records two very different kinds of geologic violence: fire first, then flood."
+        },
+        {
+          "id": "tri-cities-agriculture",
+          "triggerRemainingNm": 7.0,
+          "title": "From desert to farms and vineyards",
+          "spokenLabel": "Pasco and the Tri-Cities",
+          "text": "Irrigation turned much of this dry country into productive farmland. The Tri-Cities region is now strongly associated with orchards, row crops and wine grapes, all made possible by carefully managed water. The contrast is especially clear from the air, where green circles and rectangles of irrigated land stand out against the natural tan and brown of the surrounding shrub-steppe."
+        },
+        {
+          "id": "pasco-arrival",
+          "triggerRemainingNm": 3.6,
+          "title": "Tri-Cities Airport ahead",
+          "spokenLabel": "Tri-Cities Airport",
+          "text": "Tri-Cities Airport at Pasco is coming up now. Behind us is a remarkably varied short flight: the Yakima's basalt canyon, a major Columbia River dam, an undeveloped national monument and one of the central landscapes of the Manhattan Project. I'll leave the rest of the flying to you from here. When you're finished at Tri-Cities Airport, say Trip destination."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Uploaded Leg 49 PLN",
+      "url": "local:Leg 49 - Yakima Canyon to Hanford Reach.pln"
+    },
+    {
+      "name": "BLM — Yakima River Canyon",
+      "url": "https://www.blm.gov/visit/yakima-river-canyon"
+    },
+    {
+      "name": "BLM — Big Pines / Yakima River Canyon natural features",
+      "url": "https://www.blm.gov/visit/big-pines"
+    },
+    {
+      "name": "Grant PUD — Priest Rapids Dam history",
+      "url": "https://www.grantpud.org/history"
+    },
+    {
+      "name": "U.S. Fish & Wildlife Service — Hanford Reach National Monument",
+      "url": "https://www.fws.gov/national-monument/hanford-reach"
+    },
+    {
+      "name": "U.S. Fish & Wildlife Service — Hanford Reach About Us",
+      "url": "https://www.fws.gov/national-monument/hanford-reach/about-us"
+    },
+    {
+      "name": "National Park Service — Hanford B Reactor",
+      "url": "https://www.nps.gov/places/000/b-reactor.htm"
+    },
+    {
+      "name": "National Park Service — Hanford, Manhattan Project NHP",
+      "url": "https://www.nps.gov/mapr/hanford.htm"
+    },
+    {
+      "name": "Visit Tri-Cities — History at a Glance",
+      "url": "https://www.visittri-cities.com/things-to-do/history-science/tri-cities-history-at-a-glance/"
+    }
+  ]
+}
