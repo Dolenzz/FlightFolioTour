@@ -1,5 +1,5 @@
-const CACHE='flightfolio-tour-v20';
-const ASSETS=['./manifest.webmanifest','./leg49.tour.json','./icon-192.png','./icon-512.png'];
+const CACHE='flightfolio-tour-v21';
+const ASSETS=['./manifest.webmanifest','./leg50.tour.json','./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install', event => {
   self.skipWaiting();

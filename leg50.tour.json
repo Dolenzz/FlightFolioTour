@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 11,
+  "id": "leg50-kpsc-klws",
+  "title": "Leg 50 — Palouse Falls to Lewiston",
+  "subtitle": "Palouse Falls, the lower Snake River canyon and the Lewis-Clark Valley",
+  "departure": {
+    "id": "KPSC",
+    "name": "Tri-Cities Airport",
+    "voiceAliases": [
+      "kpsc",
+      "k p s c",
+      "tri cities",
+      "tri cities airport",
+      "pasco"
+    ]
+  },
+  "destination": {
+    "id": "KLWS",
+    "name": "Lewiston-Nez Perce County Airport",
+    "voiceAliases": [
+      "klws",
+      "k l w s",
+      "lewiston",
+      "lewiston airport",
+      "nez perce county airport"
+    ]
+  },
+  "cruiseAltitudeFt": 5500,
+  "defaultGroundSpeedKt": 120,
+  "routeDistanceNm": 100.99,
+  "waypointReminderNm": 2.0,
+  "preflightBriefing": "Welcome aboard. Today we're leaving the Tri-Cities and heading east across Washington's dry interior toward Lewiston. The first major highlight is Palouse Falls, where the Palouse River drops through a deep basalt gorge carved by Ice Age floods. We'll approach from the northwest, then make a west-side viewing pass with the falls and plunge pool off the left side. After that we'll follow the canyon country toward the lower Snake River, where broad water, basalt slopes and the Lower Granite reservoir system lead us toward the Lewis-Clark Valley. The final part of the flight brings in Nez Perce history, the Snake and Clearwater river confluence, Lewis and Clark, and Lewiston itself. I'll stay quiet while you taxi and depart. Once you're airborne and settled, say Trip resume.",
+  "waypoints": [
+    {
+      "number": 1,
+      "id": "WP01",
+      "msfsIdent": "WP1PALO",
+      "name": "Palouse Falls Northwest Approach",
+      "lat": 46.71,
+      "lon": -118.43,
+      "viewingNotes": []
+    },
+    {
+      "number": 2,
+      "id": "WP02",
+      "msfsIdent": "WP2PALO",
+      "name": "Palouse Falls West Viewing Pass",
+      "lat": 46.68,
+      "lon": -118.31,
+      "viewingNotes": [
+        "Palouse Falls and the plunge lie off the left side of the southeastbound pass."
+      ]
+    },
+    {
+      "number": 3,
+      "id": "WP03",
+      "msfsIdent": "WP3PALO",
+      "name": "Palouse Canyon East Exit",
+      "lat": 46.61,
+      "lon": -118.08,
+      "viewingNotes": []
+    },
+    {
+      "number": 4,
+      "id": "WP04",
+      "msfsIdent": "WP4LOWE",
+      "name": "Lower Granite River View",
+      "lat": 46.48,
+      "lon": -117.58,
+      "viewingNotes": [
+        "Follow the broad lower Snake River canyon southeast with basalt slopes alongside."
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "from": "KPSC",
+      "to": "WP01",
+      "distanceNm": 39.08,
+      "blocks": [
+        {
+          "id": "departure-dry-country",
+          "triggerRemainingNm": 37.6,
+          "title": "Leaving the Tri-Cities",
+          "spokenLabel": "eastern Washington",
+          "bridge": true,
+          "departureIntro": true,
+          "text": "We are leaving the Tri-Cities and heading into the dry interior of eastern Washington. The irrigated fields around Pasco will gradually give way to a much harsher-looking landscape of basalt, coulees and rolling farm country. This whole region sits on enormous layers of ancient lava, later ripped and reshaped by catastrophic Ice Age floods. Palouse Falls is one of the clearest places on today's route where that violent geologic history becomes easy to see from the air."
+        },
+        {
+          "id": "scablands",
+          "triggerRemainingNm": 31.0,
+          "title": "A landscape carved by Ice Age floods",
+          "spokenLabel": "the channeled scablands",
+          "bridge": true,
+          "text": "Much of the rough country ahead belongs to the Channeled Scablands. Near the end of the last ice age, huge floods repeatedly burst out of glacial Lake Missoula and swept across eastern Washington. Water moved with enough force to strip away soil, tear channels through basalt and leave behind coulees, cataracts and isolated rock benches. For decades, geologists argued over whether floods on that scale were even possible. Today the flood story is central to understanding this landscape."
+        },
+        {
+          "id": "palouse-prairie",
+          "triggerRemainingNm": 24.8,
+          "title": "Palouse country beyond the canyon",
+          "spokenLabel": "the Palouse region",
+          "text": "The name Palouse applies to much more than the waterfall. Farther east and north, the Palouse is famous for rolling hills covered in wheat, lentils and other crops, but the river itself cuts through a very different world of exposed basalt. The name is also tied to the Palus people, part of the larger Sahaptin-speaking cultural world of the Columbia Plateau. That human history reaches far deeper than the modern farms and roads visible from the airplane."
+        },
+        {
+          "id": "falls-state-symbol",
+          "triggerRemainingNm": 18.3,
+          "title": "Washington's state waterfall",
+          "spokenLabel": "Palouse Falls",
+          "bridge": true,
+          "text": "Palouse Falls was officially designated Washington's state waterfall in 2014 after a group of local schoolchildren pushed for the recognition. The falls drop roughly two hundred feet, and unlike many Ice Age flood cataracts, water still runs over this one year-round. That makes it a rare surviving active waterfall on a landscape where many of the giant flood channels are now dry."
+        },
+        {
+          "id": "falls-geology",
+          "triggerRemainingNm": 11.2,
+          "title": "How the river found this plunge",
+          "spokenLabel": "Palouse Falls",
+          "text": "The waterfall exists because the Palouse River was diverted into a new course during the Ice Age floods. Instead of following its older valley, the river was forced through resistant basalt and eventually cut the narrow gorge ahead. The result is not just the main drop but a whole sequence of steep walls, bends and plunge pools. As we get closer, the best visual clue is the dark incision in the plateau rather than the waterfall itself."
+        },
+        {
+          "id": "falls-setup",
+          "triggerRemainingNm": 5.9,
+          "title": "Setting up the Palouse Falls pass",
+          "spokenLabel": "Palouse Falls",
+          "text": "We are getting close to Palouse Falls now. The first waypoint is just setting us up for the view; the main sight comes on the next short leg. As we turn southeast, keep your attention on the left side. The gorge and the waterfall should begin to open up there, but the terrain can hide parts of the canyon until the angle improves."
+        }
+      ]
+    },
+    {
+      "from": "WP01",
+      "to": "WP02",
+      "distanceNm": 5.26,
+      "blocks": [
+        {
+          "id": "falls-view",
+          "triggerRemainingNm": 4.7,
+          "title": "Palouse Falls off the left side",
+          "spokenLabel": "Palouse Falls",
+          "text": "This is the Palouse Falls viewing pass. Look off the left side for the narrow Palouse River gorge and the main plunge into the bowl below. The drop is about two hundred feet, with columnar basalt walls enclosing the canyon. Because we're staying west of the falls instead of flying directly over them, the view should develop across the side of the airplane rather than disappear underneath us."
+        },
+        {
+          "id": "falls-human",
+          "triggerRemainingNm": 2.9,
+          "title": "A waterfall people kept trying to conquer",
+          "spokenLabel": "Palouse Falls",
+          "text": "Palouse Falls has also attracted its share of daredevils. In 2009, professional kayaker Tyler Bradt ran the falls in a kayak, setting a world-record waterfall descent at the time. It is an impressive stunt, but from up here the scale of the canyon makes the feat look even more improbable. Keep looking left as long as the terrain leaves the falls in view; once we pass the gorge, we'll start following the river country toward the Snake."
+        }
+      ]
+    },
+    {
+      "from": "WP02",
+      "to": "WP03",
+      "distanceNm": 10.37,
+      "blocks": [
+        {
+          "id": "palouse-gorge",
+          "triggerRemainingNm": 9.5,
+          "title": "Following the Palouse gorge",
+          "spokenLabel": "the Palouse River gorge",
+          "bridge": true,
+          "text": "With the falls slipping behind us, the Palouse River continues through a winding basalt gorge toward the Snake River. Parts of that gorge may be visible beside us, while other sections disappear behind ridges as the river twists through the rock. This is a better place to follow the overall shape of the canyon than to expect an uninterrupted view of the water itself."
+        },
+        {
+          "id": "lyons-ferry",
+          "triggerRemainingNm": 5.8,
+          "title": "Where the Palouse meets the Snake",
+          "spokenLabel": "the Snake River country",
+          "text": "Near the mouth of the Palouse, the landscape opens toward the Snake River and the old Lyons Ferry crossing. A ferry operated across the Snake here from the nineteenth century until the modern bridge replaced it in the late nineteen-sixties. The meeting of the Palouse and Snake rivers is a natural transition point in today's flight: from a narrow tributary gorge into the much broader river system that will carry us toward Lewiston."
+        },
+        {
+          "id": "snake-transition",
+          "triggerRemainingNm": 3.3,
+          "title": "From the Palouse into the Snake",
+          "spokenLabel": "the lower Snake River",
+          "text": "The lower Snake River is the next major visual anchor. Instead of a tight little canyon, look for a much broader water corridor with long basalt slopes rising on either side. From here on, the route becomes easier to read from the cockpit because the river itself points us toward the Lewis-Clark Valley."
+        }
+      ]
+    },
+    {
+      "from": "WP03",
+      "to": "WP04",
+      "distanceNm": 22.07,
+      "blocks": [
+        {
+          "id": "lower-snake",
+          "triggerRemainingNm": 20.7,
+          "title": "The lower Snake River canyon",
+          "spokenLabel": "the lower Snake River",
+          "bridge": true,
+          "text": "We are settling into the lower Snake River country now. The river below is part of a chain of reservoirs created by four federal dams on the lower Snake. That system changed the river from a sequence of free-flowing rapids into a navigable waterway deep enough for barges. From the airplane, the most obvious result is the broad, smooth ribbon of water running through otherwise dry basalt hills."
+        },
+        {
+          "id": "lower-granite",
+          "triggerRemainingNm": 15.8,
+          "title": "Lower Granite and an inland navigation corridor",
+          "spokenLabel": "Lower Granite Lake",
+          "text": "The water ahead is part of Lower Granite Lake, the reservoir behind Lower Granite Lock and Dam. The dam was the fourth and final project built in the lower Snake River system, with its first generating units operating in the nineteen-seventies. The reservoir extends all the way upstream to Lewiston, which is one reason commercial barges can travel hundreds of miles inland from the Pacific."
+        },
+        {
+          "id": "salmon-system",
+          "triggerRemainingNm": 11.4,
+          "title": "A working river and a salmon river",
+          "spokenLabel": "the Snake River",
+          "text": "That engineered river has always carried a difficult tradeoff. The dams provide hydropower, navigation and irrigation benefits, but they also transformed salmon migration routes used for thousands of years. Fish ladders, hatcheries and other mitigation programs try to keep salmon moving through the system, yet wild salmon numbers remain far below historic levels. It is hard to look at this calm reservoir from the air and imagine the river as a once much rougher migration corridor."
+        },
+        {
+          "id": "river-view",
+          "triggerRemainingNm": 6.5,
+          "title": "Basalt slopes along the Snake",
+          "spokenLabel": "the river canyon",
+          "text": "This is the broad lower Snake River view. The river should stay easy to follow as we continue southeast, with dry basalt slopes rising alongside the water. Some bends may disappear briefly behind the nearer ridges, so don't worry if the river drops out of sight for a moment. The larger canyon is still guiding us toward Lewiston."
+        },
+        {
+          "id": "nez-perce-homeland",
+          "triggerRemainingNm": 3.8,
+          "title": "Entering Nez Perce country",
+          "spokenLabel": "the Lewis-Clark Valley",
+          "text": "As we continue upstream, we are also moving deeper into the homeland of the Nez Perce, or Nimiipuu. The Snake and Clearwater rivers were not barriers here; they were travel routes, fishing places and centers of community life. Salmon runs connected families and villages across a huge region long before modern roads, dams or state lines existed."
+        }
+      ]
+    },
+    {
+      "from": "WP04",
+      "to": "KLWS",
+      "distanceNm": 24.21,
+      "blocks": [
+        {
+          "id": "lewiston-approach",
+          "triggerRemainingNm": 22.6,
+          "title": "Toward Lewiston and Clarkston",
+          "spokenLabel": "the Lewis-Clark Valley",
+          "bridge": true,
+          "text": "The final stretch takes us toward the twin cities of Lewiston, Idaho, and Clarkston, Washington. Their names make the Lewis and Clark connection obvious, but this river junction was important long before the expedition arrived. The Clearwater joins the Snake at Lewiston, and the surrounding valley opens into one of the most distinctive low-elevation pockets in the inland Northwest."
+        },
+        {
+          "id": "lewis-clark",
+          "triggerRemainingNm": 17.8,
+          "title": "Lewis and Clark reach the confluence",
+          "spokenLabel": "the Snake-Clearwater confluence",
+          "text": "The Lewis and Clark Expedition passed this area in October 1805 after building dugout canoes on the Clearwater farther upstream. They entered the Snake and continued west toward the Columbia and eventually the Pacific. On their return in 1806, the Nez Perce again played a crucial role, providing help while deep snow blocked the expedition's route back across the Bitterroot Mountains."
+        },
+        {
+          "id": "first-capital",
+          "triggerRemainingNm": 13.0,
+          "title": "Lewiston was Idaho's first capital",
+          "spokenLabel": "Lewiston",
+          "text": "Lewiston began growing rapidly after gold discoveries in the early eighteen-sixties and became the first capital of Idaho Territory in 1863. The capital moved to Boise only a few years later, but Lewiston remained an important transportation and commercial center because of the rivers. The city's low elevation also gives it a noticeably milder climate than much of northern Idaho."
+        },
+        {
+          "id": "inland-port",
+          "triggerRemainingNm": 9.3,
+          "title": "An inland seaport hundreds of miles from the ocean",
+          "spokenLabel": "Lewiston",
+          "text": "One of Lewiston's strangest geographic facts is that ocean-going commerce reaches astonishingly far inland here. The connected lock-and-dam system on the Columbia and Snake lets barge traffic travel roughly four hundred miles upstream from Portland to Lewiston. That makes this river valley function as an inland port even though we are deep inside the continent."
+        },
+        {
+          "id": "confluence-view",
+          "triggerRemainingNm": 6.0,
+          "title": "Where the Clearwater meets the Snake",
+          "spokenLabel": "the river confluence",
+          "text": "The Snake and Clearwater confluence should be becoming the clearest visual landmark ahead. Look for the two broad river corridors meeting beside Lewiston and Clarkston. The city fabric spreads around that junction, but the rivers still explain the whole shape of the valley better than the streets do."
+        },
+        {
+          "id": "arrival",
+          "triggerRemainingNm": 3.5,
+          "title": "Lewiston arrival",
+          "spokenLabel": "Lewiston-Nez Perce County Airport",
+          "text": "Lewiston-Nez Perce County Airport is coming up now. Behind us is a compact but dramatic run from an Ice Age waterfall through basalt canyon country and up the lower Snake to one of the Northwest's great river junctions. I'll leave you to the arrival from here. When you're finished at Lewiston, say Trip destination."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "Uploaded Leg 50 PLN",
+      "url": "local:Leg 50 -Palouse Falls to Lewiston.pln"
+    },
+    {
+      "name": "Washington State Parks — Palouse Falls",
+      "url": "https://parks.wa.gov/find-parks/state-parks/palouse-falls-state-park-heritage-site"
+    },
+    {
+      "name": "Washington Legislature — State Waterfall",
+      "url": "https://leg.wa.gov/learn-and-participate/educational-resources/state-symbols/waterfall/"
+    },
+    {
+      "name": "Washington State Parks — Ice Age Floods",
+      "url": "https://parks.wa.gov/about/news-center/field-guide-blog/how-ice-age-floods-shaped-washington-state"
+    },
+    {
+      "name": "U.S. Army Corps of Engineers — Lower Granite Dam and Lake Lower Granite",
+      "url": "https://www.nwd.usace.army.mil/Fact-Sheets/Article/3485347/lower-granite-dam-and-lake-lower-granite/"
+    },
+    {
+      "name": "National Park Service — Confluence Overlook History",
+      "url": "https://www.nps.gov/nepe/learn/historyculture/confluence-overlook-history.htm"
+    },
+    {
+      "name": "Idaho State Historical Society — Lewis and Clark",
+      "url": "https://history.idaho.gov/lewis-clark/"
+    },
+    {
+      "name": "City of Lewiston — City & Regional Overview",
+      "url": "https://www.cityoflewiston.org/575/City-Regional-Overview"
+    }
+  ]
+}
