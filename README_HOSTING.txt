@@ -1,58 +1,61 @@
-FLIGHTFOLIO TOUR PLAYER v21 — LEG 50
+FLIGHTFOLIO TOUR PLAYER v22 — LEG 51
 
 ROUTE
-KPSC Tri-Cities Airport
--> Palouse Falls Northwest Approach
--> Palouse Falls West Viewing Pass
--> Palouse Canyon East Exit
--> Lower Granite River View
--> KLWS Lewiston-Nez Perce County Airport
+KLWS Lewiston-Nez Perce County Airport
+-> Hells Canyon North Approach
+-> Hells Canyon Rim View
+-> Hells Canyon Dam Pass
+-> Seven Devils West Flank
+-> Council Valley Exit
+-> Lake Cascade / McCall Approach
+-> KMYL McCall Municipal Airport
 
 PLANNED ALTITUDE
-5,500 ft
+9,500 ft
 
 DISTANCE / TIME
-Route geometry: 100.99 NM
-Estimated en-route time at initial effective 120 KT: 50.5 minutes
+Route geometry: 134.59 NM
+Estimated en-route time at initial effective 120 KT: about 67.3 minutes
 
 SEGMENT DISTANCES
-KPSC -> Falls Northwest Approach: 39.08 NM
-NW Approach -> West Viewing Pass: 5.26 NM
-Falls Viewing Pass -> Canyon East Exit: 10.37 NM
-Canyon East Exit -> Lower Granite River View: 22.07 NM
-Lower Granite River View -> KLWS: 24.21 NM
+KLWS -> Hells Canyon North Approach: 22.78 NM
+North Approach -> Hells Canyon Rim View: 24.65 NM
+Rim View -> Hells Canyon Dam Pass: 16.65 NM
+Dam Pass -> Seven Devils West Flank: 9.64 NM
+Seven Devils -> Council Valley Exit: 29.52 NM
+Council Valley -> Lake Cascade / McCall Approach: 15.76 NM
+Lake Cascade -> KMYL: 15.59 NM
 
 NARRATION
-In-flight blocks: 22
-In-flight words: 1430
-Approx. in-flight narration: 9.9 minutes (19.5% of estimated flight time)
-Pre-flight briefing: about 0.9 minutes, separate from the route clock
+34 in-flight narration blocks.
+Long legs use more frequent short and medium callouts instead of relying on a fixed narration percentage.
+Major site stories remain clustered near the actual site.
 
-LEG 50 AUTHORING RULES
+LEG 51 AUTHORING RULES
 
-1. AIRCRAFT-RELATIVE DIRECTIONS
-Normal sightseeing directions use left side, right side, ahead, alongside, or behind.
-Compass directions are reserved mainly for fixed geographic descriptions such as an east bank.
+1. CADENCE OVER A FIXED PERCENTAGE
+Overall narration percentage is only a loose check. Long legs receive useful shorter callouts when there is genuinely worthwhile nearby material, avoiding unnecessarily long dead stretches.
 
-2. TERRAIN / LINE-OF-SIGHT CAUTION
-The narrator does not assume that a canyon or river is continuously visible.
-Where ridges may block the view, the narration says so and avoids overconfident visual claims.
+2. SITE-SPECIFIC STORIES STAY NEAR THE SITE
+Hells Canyon, Seven Devils, Council, Lake Cascade and McCall stories are kept inside their geographic windows rather than stretched over tens of miles.
 
-3. VIEWING PASS
-The Palouse Falls waypoint is west of the falls. During the southeastbound pass,
-the falls and plunge pool are described as off the LEFT side.
+3. NEAR-ROUTE FEATURES FIRST
+Nearby identifiable towns, valleys, rivers and landmarks take priority over more distant thematic features when both could be discussed.
 
-4. GEOGRAPHIC STORY CLUSTERS
-Palouse Falls stories remain together around the falls.
-Lower Snake stories remain together while following the river.
-Lewiston / confluence stories are saved for the actual approach to Lewiston.
+4. AIRCRAFT-RELATIVE DIRECTIONS
+Sightseeing directions use left side, right side, ahead, alongside or behind. Compass directions are reserved mainly for fixed geography.
 
-5. NO META LANGUAGE
-No spoken references to route-generation software, testing, waypoint algorithms, or why
-the route was constructed a certain way.
+5. TERRAIN MASKING
+The narration does not assume a river or canyon floor is continuously visible. When ridges can block the view, it uses the larger terrain shape as the visual anchor.
 
-6. CONVERSATIONAL QUIET-STRETCH BRIDGES
-The player now rotates through 12 casual sign-offs, mostly avoiding exact timing or mileage.
+6. MANUAL LAKE CASCADE CHECKPOINT
+The manually added final checkpoint is treated as a real sightseeing and arrival-transition point. The route crosses Lake Cascade and then turns north for the McCall approach.
+
+7. NO DEVELOPMENT META-LANGUAGE
+No spoken references to route-generation software, testing or development decisions.
+
+DEPLOYMENT
+Leg 51 is now published directly through the GitHub-connected workflow. The repository keeps the existing mature player source, while the service worker injects the active Leg 51 tour data into the hosted page at navigation time. This avoids the old download/unzip/manual-upload cycle.
 
 START WORKFLOW
 1. Use TEST MICROPHONE before the flight if desired.
@@ -61,5 +64,5 @@ START WORKFLOW
 4. Taxi and take off.
 5. Once established, say Trip resume.
 6. Use Trip sync only if desired.
-7. Confirm waypoints with Trip waypoint one/two/three/four.
-8. At KLWS say Trip destination.
+7. Confirm waypoints with Trip waypoint one/two/three/four/five/six.
+8. At KMYL say Trip destination.
