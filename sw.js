@@ -1,5 +1,5 @@
-const CACHE='flightfolio-tour-v22';
-const ACTIVE='./leg51.tour.json';
+const CACHE='flightfolio-tour-v23';
+const ACTIVE='./leg52.tour.json';
 const ASSETS=['./index.html','./manifest.webmanifest',ACTIVE,'./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',event=>{
@@ -31,10 +31,10 @@ async function activePage(request){
     textFromNetworkOrCache(ACTIVE,ACTIVE)
   ]);
   let html=base;
-  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v22 — Leg 51</title>');
-  html=html.replace(/v21 · Leg 50/g,'v22 · Leg 51');
-  html=html.replace(/Reset Leg 50/g,'Reset Leg 51');
-  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 51 player v22 loaded');
+  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v23 — Leg 52</title>');
+  html=html.replace(/v21 · Leg 50/g,'v23 · Leg 52');
+  html=html.replace(/Reset Leg 50/g,'Reset Leg 52');
+  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 52 player v23 loaded');
   const safeTour=tourText.replace(/<\/script/gi,'<\\/script');
   html=html.replace(/<script id="tourData" type="application\/json">[\s\S]*?<\/script>/i,
     '<script id="tourData" type="application/json">'+safeTour+'</script>');
