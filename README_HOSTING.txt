@@ -1,65 +1,63 @@
-FLIGHTFOLIO TOUR PLAYER v23 — LEG 52
+FLIGHTFOLIO TOUR PLAYER v25 — LEG 53
 
 ROUTE
-KMYL McCall Municipal Airport
--> Lick Creek Approach
--> Lick Creek Pass
--> Yellow Pine Valley Pass
--> Panther Creek Traverse
--> Challis Basin Approach
--> KLLJ Challis Airport
+KLLJ Challis Airport
+-> Mackay Valley Approach
+-> Arco Lava Fields Exit
+-> Craters North Viewing Pass
+-> Big Southern Butte East Pass
+-> KPIH Pocatello Regional Airport
 
 PLANNED ALTITUDE
-10,500 ft
+10,000 ft
 
 DISTANCE / TIME
-Route geometry: 109.90 NM
-Estimated en-route time at initial effective 120 KT: 55.0 minutes
+Route geometry: 134.63 NM
+Estimated en-route time at initial effective 120 KT: 67.3 minutes
 
 SEGMENT DISTANCES
-KMYL -> Lick Creek Approach: 20.82 NM
-Lick Creek Approach -> Lick Creek Pass: 11.74 NM
-Lick Creek Pass -> Yellow Pine: 14.60 NM
-Yellow Pine -> Panther Creek: 36.19 NM
-Panther Creek -> Challis Basin: 20.26 NM
-Challis Basin -> KLLJ: 6.29 NM
+KLLJ -> Mackay Valley Approach: 37.27 NM
+Mackay Valley Approach -> Arco Lava Fields Exit: 24.90 NM
+Arco Lava Fields Exit -> Craters North Viewing Pass: 11.64 NM
+Craters North Viewing Pass -> Big Southern Butte East Pass: 26.62 NM
+Big Southern Butte East Pass -> KPIH: 34.21 NM
 
 NARRATION
-In-flight blocks: 32
-In-flight words: 1623
-Approx. in-flight narration: 11.2 minutes (20.4% of estimated flight time)
-Pre-flight briefing: about 0.6 minutes, separate from the route clock
+In-flight blocks: 42
+In-flight words: 1885
+Approx. in-flight narration: 13.0 minutes (19.3% of estimated flight time)
+Pre-flight briefing is separate from the route clock.
 
-LEG 52 AUTHORING RULES
+LEG 53 AUTHORING RULES
 
 1. NO ROUTE-CONSTRUCTION LANGUAGE
 Spoken narration does not explain why waypoints exist, why the flight path bends,
-or how points were selected. Waypoint purpose is inferred from coordinates and geography.
+or how points were selected.
 
 2. SITE-SPECIFIC STORIES STAY LOCAL
-Yellow Pine stories are concentrated close to Yellow Pine. Panther Creek history starts only
-as the flight enters the Panther Creek drainage. Challis material is reserved for the basin approach.
+Mackay, Arco, Craters of the Moon, Big Southern Butte and Pocatello stories are
+clustered around their actual geographic windows.
 
 3. LONG-LEG CADENCE
-The 36 NM Yellow Pine-to-Panther Creek stretch uses a sequence of short and medium regional
-stories rather than one large story cluster followed by a long silence.
+The two long legs use frequent short and medium nearby/regional callouts rather than
+one early story cluster followed by long silence.
 
-4. GEOGRAPHIC VISIBILITY
-Directions and descriptions follow actual terrain geometry. Streams hidden by trees or canyon walls
-are described through their valleys rather than assuming continuous water visibility.
+4. VISIBILITY IS BASED ON GEOGRAPHY
+Terrain, feature size, relative bearing and likely line of sight drive visual wording.
+Platform or rendering resolution is not used as an authoring assumption.
 
 5. AIRCRAFT-RELATIVE DIRECTIONS
-Sightseeing language uses left/right/ahead/behind when a direction is needed.
+Sightseeing language uses left/right/ahead/behind where useful.
 
-6. AIRPORT NAME CORRECTION
-The PLN destination description says Lemhi County Airport, but KLLJ is Challis Airport.
-The player uses Challis Airport consistently.
+6. TRIP IS PRIMARY
+Narrator prompts use Trip first. Tour remains accepted as a secondary wake word.
+After the briefing, the primary spoken command is Trip continue.
 
 START WORKFLOW
 1. Test microphone if desired.
 2. In the aircraft, press START TOUR or say Trip start.
 3. Briefing plays and tour remains paused.
 4. Taxi/take off.
-5. Once established, say Trip resume.
-6. Confirm waypoints with Trip waypoint one through five.
-7. At KLLJ say Trip destination.
+5. Once established, say Trip continue.
+6. Confirm waypoints with Trip waypoint one through four.
+7. At KPIH say Trip destination.
