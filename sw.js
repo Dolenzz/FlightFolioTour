@@ -1,5 +1,5 @@
-const CACHE='flightfolio-tour-v24';
-const ACTIVE='./leg52.tour.json';
+const CACHE='flightfolio-tour-v25';
+const ACTIVE='./leg53.tour.json';
 const ASSETS=['./index.html','./manifest.webmanifest',ACTIVE,'./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',event=>{
@@ -32,13 +32,11 @@ async function activePage(request){
   ]);
   let tourText=rawTourText.replace(/Trip resume/g,'Trip continue');
   let html=base;
-  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v24 — Leg 52</title>');
-  html=html.replace(/v21 · Leg 50/g,'v24 · Leg 52');
-  html=html.replace(/Reset Leg 50/g,'Reset Leg 52');
-  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 52 player v24 loaded');
+  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v25 — Leg 53</title>');
+  html=html.replace(/v21 · Leg 50/g,'v25 · Leg 53');
+  html=html.replace(/Reset Leg 50/g,'Reset Leg 53');
+  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 53 player v25 loaded');
 
-  // Trip is the preferred spoken wake word. "Trip continue" resumes from a normal pause,
-  // but preserves the existing continue/waypoint behavior while already running or at a boundary.
   html=html.replace(/Briefing complete — tour paused\. Take off when ready, then say “Trip resume\.”/g,
     'Briefing complete — tour paused. Take off when ready, then say “Trip continue.”');
   html=html.replace(/Briefing complete — tour paused and listening\. Take off when ready, then say “Trip resume\.”/g,
