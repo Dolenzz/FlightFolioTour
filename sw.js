@@ -1,4 +1,4 @@
-const CACHE='flightfolio-tour-v23';
+const CACHE='flightfolio-tour-v24';
 const ACTIVE='./leg52.tour.json';
 const ASSETS=['./index.html','./manifest.webmanifest',ACTIVE,'./icon-192.png','./icon-512.png'];
 
@@ -26,15 +26,41 @@ async function textFromNetworkOrCache(request,fallback){
 }
 
 async function activePage(request){
-  const [base,tourText]=await Promise.all([
+  const [base,rawTourText]=await Promise.all([
     textFromNetworkOrCache(request,'./index.html'),
     textFromNetworkOrCache(ACTIVE,ACTIVE)
   ]);
+  let tourText=rawTourText.replace(/Trip resume/g,'Trip continue');
   let html=base;
-  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v23 — Leg 52</title>');
-  html=html.replace(/v21 · Leg 50/g,'v23 · Leg 52');
+  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v24 — Leg 52</title>');
+  html=html.replace(/v21 · Leg 50/g,'v24 · Leg 52');
   html=html.replace(/Reset Leg 50/g,'Reset Leg 52');
-  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 52 player v23 loaded');
+  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 52 player v24 loaded');
+
+  // Trip is the preferred spoken wake word. "Trip continue" resumes from a normal pause,
+  // but preserves the existing continue/waypoint behavior while already running or at a boundary.
+  html=html.replace(/Briefing complete — tour paused\. Take off when ready, then say “Trip resume\.”/g,
+    'Briefing complete — tour paused. Take off when ready, then say “Trip continue.”');
+  html=html.replace(/Briefing complete — tour paused and listening\. Take off when ready, then say “Trip resume\.”/g,
+    'Briefing complete — tour paused and listening. Take off when ready, then say “Trip continue.”');
+  html=html.replace(/if\(\/\\btour\\s\+continue\\b\/\.test\(t\)\)\{ await manualContinue\(\); return; \}/,
+`if(/\\btour\\s+continue\\b/.test(t)){
+      if(app.boundaryPrompted){ await manualContinue(); return; }
+      if(app.paused || !app.running){
+        setRunning(true);
+        await speak('Trip continuing.');
+        return;
+      }
+      await manualContinue();
+      return;
+    }`);
+  html=html.replace(/“Tour start” \/ “Trip start”/g,'“Trip start” / “Tour start”');
+  html=html.replace(/“Tour resume” \/ “Trip resume” — starts timing after takeoff/g,'“Trip continue” / “Tour continue” — starts timing after takeoff');
+  html=html.replace(/“Tour briefing” \/ “Trip briefing”/g,'“Trip briefing” / “Tour briefing”');
+  html=html.replace(/“Tour status” \/ “Trip update”/g,'“Trip update” / “Trip status”');
+  html=html.replace(/<li>“Tour continue”<\/li>/g,'<li>“Trip continue” / “Tour continue”</li>');
+  html=html.replace(/Use <b>Tour<\/b> or <b>Trip<\/b> interchangeably\./g,'Use <b>Trip</b> as the primary wake word; <b>Tour</b> remains fully supported.');
+
   const safeTour=tourText.replace(/<\/script/gi,'<\\/script');
   html=html.replace(/<script id="tourData" type="application\/json">[\s\S]*?<\/script>/i,
     '<script id="tourData" type="application/json">'+safeTour+'</script>');
