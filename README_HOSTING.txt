@@ -1,57 +1,65 @@
-FLIGHTFOLIO TOUR PLAYER v25 — LEG 53
+FLIGHTFOLIO TOUR PLAYER v26 — LEG 54
 
 ROUTE
-KLLJ Challis Airport
--> Mackay Valley Approach
--> Arco Lava Fields Exit
--> Craters North Viewing Pass
--> Big Southern Butte East Pass
--> KPIH Pocatello Regional Airport
+KPIH Pocatello Regional Airport
+-> Rexburg South
+-> Driggs Teton Viewing Pass
+-> Tetonia North Valley Exit
+-> Ashton
+-> Island Park
+-> KWYS Yellowstone Airport
 
 PLANNED ALTITUDE
-10,000 ft
+9,000 ft
 
 DISTANCE / TIME
-Route geometry: 134.63 NM
-Estimated en-route time at initial effective 120 KT: 67.3 minutes
+Route geometry: 152.49 NM
+Estimated en-route time at initial effective 120 KT: 76.2 minutes
 
 SEGMENT DISTANCES
-KLLJ -> Mackay Valley Approach: 37.27 NM
-Mackay Valley Approach -> Arco Lava Fields Exit: 24.90 NM
-Arco Lava Fields Exit -> Craters North Viewing Pass: 11.64 NM
-Craters North Viewing Pass -> Big Southern Butte East Pass: 26.62 NM
-Big Southern Butte East Pass -> KPIH: 34.21 NM
+KPIH -> Rexburg South: 60.57 NM
+Rexburg South -> Driggs: 27.39 NM
+Driggs -> Tetonia: 6.02 NM
+Tetonia -> Ashton: 17.48 NM
+Ashton -> Island Park: 21.17 NM
+Island Park -> KWYS: 19.86 NM
 
 NARRATION
-In-flight blocks: 42
-In-flight words: 1885
-Approx. in-flight narration: 13.0 minutes (19.3% of estimated flight time)
-Pre-flight briefing is separate from the route clock.
+In-flight blocks: 43
+In-flight words: 1,812
+Approx. in-flight narration: 12.5 minutes
+Pre-flight briefing: separate from route clock
 
-LEG 53 AUTHORING RULES
+LEG 54 AUTHORING RULES
 
-1. NO ROUTE-CONSTRUCTION LANGUAGE
-Spoken narration does not explain why waypoints exist, why the flight path bends,
-or how points were selected.
+1. DISTANT PLACE STORIES MUST SAY SO
+Do not stretch named-place narration simply to fill quiet time. If a named town or sight is
+still materially ahead, say so naturally (for example, "Ashton is still about eight miles ahead")
+or use broader regional context instead.
 
-2. SITE-SPECIFIC STORIES STAY LOCAL
-Mackay, Arco, Craters of the Moon, Big Southern Butte and Pocatello stories are
-clustered around their actual geographic windows.
+2. VISUAL LANDMARKS GET EARLY ACKNOWLEDGMENT
+Major prominent landmarks should be acknowledged while still ahead, before the pilot starts
+wondering whether they were missed. Detailed stories can follow closer to the best viewing window.
 
-3. LONG-LEG CADENCE
-The two long legs use frequent short and medium nearby/regional callouts rather than
-one early story cluster followed by long silence.
+3. ATTRACTION GEOMETRY BEATS WAYPOINT GEOMETRY
+For prominent off-route sights, narration timing should follow the actual attraction location,
+closest point of approach, and aircraft-relative bearing—not merely distance to a routing waypoint.
 
-4. VISIBILITY IS BASED ON GEOGRAPHY
-Terrain, feature size, relative bearing and likely line of sight drive visual wording.
-Platform or rendering resolution is not used as an authoring assumption.
+4. NO ROUTE-CONSTRUCTION LANGUAGE
+Spoken narration does not explain why waypoints exist or why the path was designed a certain way.
 
-5. AIRCRAFT-RELATIVE DIRECTIONS
-Sightseeing language uses left/right/ahead/behind where useful.
-
-6. TRIP IS PRIMARY
+5. TRIP IS PRIMARY
 Narrator prompts use Trip first. Tour remains accepted as a secondary wake word.
-After the briefing, the primary spoken command is Trip continue.
+After the preflight briefing, say Trip continue.
+
+6. IMPROVED SPEECH DIAGNOSTICS
+The diagnostic log now distinguishes recognized text from no-transcript/no-speech failures.
+Look for:
+HEARD TEXT OPTIONS
+RESULT: NOT A COMMAND
+RESULT: COMMAND NOT MATCHED
+NO TRANSCRIPT
+NO SPEECH
 
 START WORKFLOW
 1. Test microphone if desired.
@@ -59,5 +67,5 @@ START WORKFLOW
 3. Briefing plays and tour remains paused.
 4. Taxi/take off.
 5. Once established, say Trip continue.
-6. Confirm waypoints with Trip waypoint one through four.
-7. At KPIH say Trip destination.
+6. Confirm waypoints with Trip waypoint one through five.
+7. At KWYS say Trip destination.
