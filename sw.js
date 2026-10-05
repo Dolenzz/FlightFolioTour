@@ -1,5 +1,5 @@
-const CACHE='flightfolio-tour-v27';
-const ACTIVE='./leg55.tour.json';
+const CACHE='flightfolio-tour-v28';
+const ACTIVE='./leg56.tour.json';
 const ASSETS=['./index.html','./manifest.webmanifest',ACTIVE,'./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',event=>{
@@ -32,10 +32,10 @@ async function activePage(request){
   ]);
   let tourText=rawTourText.replace(/Trip resume/g,'Trip continue');
   let html=base;
-  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v27 — Leg 55</title>');
-  html=html.replace(/v21 · Leg 50/g,'v27 · Leg 55');
-  html=html.replace(/Reset Leg 50/g,'Reset Leg 55');
-  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 55 player v27 loaded');
+  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v28 — Leg 56</title>');
+  html=html.replace(/v21 · Leg 50/g,'v28 · Leg 56');
+  html=html.replace(/Reset Leg 50/g,'Reset Leg 56');
+  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 56 player v28 loaded');
 
   html=html.replace(/Briefing complete — tour paused\. Take off when ready, then say “Trip resume\.”/g,
     'Briefing complete — tour paused. Take off when ready, then say “Trip continue.”');
@@ -47,9 +47,11 @@ async function activePage(request){
       if(app.boundaryPrompted){ await manualContinue(); return; }
       if(app.paused || !app.running){
         setRunning(true);
+        markVoiceResult('CONTINUE accepted');
         await speak('Trip continuing.');
         return;
       }
+      markVoiceResult('CONTINUE accepted');
       await manualContinue();
       return;
     }`);
@@ -62,8 +64,34 @@ async function activePage(request){
   html=html.replace(/Use <b>Tour<\/b> or <b>Trip<\/b> interchangeably\./g,'Use <b>Trip</b> as the primary wake word; <b>Tour</b> remains fully supported.');
 
   html=html.replace(
+    /<div><b>Last heard:<\/b> <span id="heard">—<\/span><\/div>/,
+    `<div><b>Last heard:</b> <span id="heard">—</span></div>
+     <div style="margin-top:10px"><b>Recent voice attempts</b>
+       <div id="voiceAttempts" class="small" style="white-space:pre-wrap;margin-top:5px">—</div>
+     </div>`
+  );
+
+  html=html.replace(
     /function log\(msg\)\{[\s\S]*?\n  \}\n  function save\(\)/,
 `let flightLogActive=false;
+  let voiceAttempts=[];
+  function renderVoiceAttempts(){
+    const el=document.getElementById('voiceAttempts');
+    if(!el) return;
+    el.textContent=voiceAttempts.length
+      ? voiceAttempts.map(v=>\`Heard: "\${v.raw}"\\nInterpreted: "\${v.norm}"\\nResult: \${v.result}\`).join('\\n\\n')
+      : '—';
+  }
+  function recordVoiceAttempt(raw,norm,result='HEARD'){
+    voiceAttempts.unshift({raw:String(raw||''),norm:String(norm||''),result});
+    voiceAttempts=voiceAttempts.slice(0,8);
+    renderVoiceAttempts();
+  }
+  function markVoiceResult(result){
+    if(!voiceAttempts.length) return;
+    voiceAttempts[0].result=result;
+    renderVoiceAttempts();
+  }
   function log(msg){
     if(!flightLogActive) return;
     const stamp = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
@@ -79,6 +107,8 @@ async function activePage(request){
     if(!flightLogActive){
       flightLogActive=true;
       els.log.textContent='';
+      voiceAttempts=[];
+      renderVoiceAttempts();
       log('FLIGHT LOG STARTED');
     }
     if(!app.briefingPlayed){`
@@ -89,12 +119,15 @@ async function activePage(request){
 `function resetTour(){
     flightLogActive=false;
     els.log.textContent='';
+    voiceAttempts=[];
+    renderVoiceAttempts();
     clearSchedule();`
   );
 
   html=html.replace(
     "log(`Destination confirmed; ${tour.title} complete`);\n      if(announce) speak(`Destination confirmed. ${tour.title} complete.`);",
 `log(\`Destination confirmed; \${tour.title} complete\`);
+      markVoiceResult('DESTINATION accepted');
       stopRecognitionLoop();
       els.mic.textContent='OFF — flight complete';
       els.mic.className='goodtxt';
@@ -104,12 +137,68 @@ async function activePage(request){
   );
 
   html=html.replace(
+    /function speak\(text, opts=\{\}\)\{[\s\S]*?\n  \}\n\n  function dueBlocks\(\)/,
+`let speechChain=Promise.resolve();
+  let queuedSpeechCount=0;
+  function speak(text, opts={}){
+    queuedSpeechCount++;
+    const run=()=>new Promise(resolve=>{
+      speaking=true;
+      lastUtteranceText=text;
+      if(opts.narrationId) lastNarrationId=opts.narrationId;
+      if(recognition){ try{ recognition.abort(); }catch(e){} }
+      const u=new SpeechSynthesisUtterance(text);
+      const v=chosenVoice();
+      if(v){ u.voice=v; u.lang=v.lang; }
+      u.rate=0.96; u.pitch=1.0; u.volume=1.0;
+      if(v) log(\`Speaking with: \${v.name} / \${v.lang} / \${v.voiceURI || 'no URI'}\`);
+      let finished=false;
+      const finish=()=>{
+        if(finished) return;
+        finished=true;
+        queuedSpeechCount=Math.max(0,queuedSpeechCount-1);
+        speaking=queuedSpeechCount>0;
+        if(!speaking) restartRecognitionSoon();
+        resolve();
+      };
+      u.onend=finish;
+      u.onerror=finish;
+      speechSynthesis.speak(u);
+    });
+    const p=speechChain.then(run,run);
+    speechChain=p.catch(()=>{});
+    return p;
+  }
+
+  function dueBlocks()`
+  );
+
+  html=html.replace(
+    "const replacements = [",
+`const replacements = [
+      [/\\bweigh\\s+points?\\b/g, 'waypoint'],
+      [/\\bweight\\s+points?\\b/g, 'waypoint'],
+      [/\\bway\\s+points?\\b/g, 'waypoint'],
+      [/\\btour\\s+sing\\b/g, 'tour sync'],
+      [/\\btour\\s+sinks\\b/g, 'tour sync'],
+      [/\\btour\\s+syncs\\b/g, 'tour sync'],`
+  );
+
+  html=html.replace(
     "log(`Recognition alternatives: ${alternatives.join(' | ')}`);",
     "log(`HEARD TEXT OPTIONS: ${alternatives.join(' | ')}`);"
   );
   html=html.replace(
+    "els.heard.textContent=chosen;\n        handleCommand(chosen);",
+`els.heard.textContent=chosen;
+        recordVoiceAttempt(chosen,normalizeCommandText(chosen),'HEARD');
+        handleCommand(chosen);`
+  );
+
+  html=html.replace(
     "if(!t.includes('tour') && !t.startsWith('waypoint')) return;",
 `if(!t.includes('tour') && !t.startsWith('waypoint')){
+      markVoiceResult('NOT A COMMAND');
       els.message.textContent='Speech heard, but no command matched: “'+raw+'”';
       log('RESULT: NOT A COMMAND — heard: "'+raw+'" | normalized: "'+t+'"');
       return;
@@ -117,8 +206,32 @@ async function activePage(request){
   );
   html=html.replace(
     "log(`Unmatched normalized command: ${t}`);",
-    "log(`RESULT: COMMAND NOT MATCHED — heard: \"${raw}\" | normalized: \"${t}\"`);"
+`markVoiceResult('COMMAND NOT MATCHED');
+      log(\`RESULT: COMMAND NOT MATCHED — heard: "\${raw}" | normalized: "\${t}"\`);`
   );
+
+  html=html.replace(
+    "if(/\\btour\\s+(destination|airport|arrival)\\b/.test(t)){\n      atWaypoint(tour.waypoints.length+1);",
+`if(/\\btour\\s+(destination|airport|arrival)\\b/.test(t)){
+      markVoiceResult('DESTINATION accepted');
+      atWaypoint(tour.waypoints.length+1);`
+  );
+
+  html=html.replace(
+    "if((/\\btour\\s+waypoint\\b/.test(t)||t.startsWith('waypoint')) && wn){\n      atWaypoint(wn);",
+`if((/\\btour\\s+waypoint\\b/.test(t)||t.startsWith('waypoint')) && wn){
+      markVoiceResult('WAYPOINT '+wn+' accepted');
+      atWaypoint(wn);`
+  );
+
+  html=html.replace(
+    "if(Number.isFinite(miles)){\n          const segIdx=wn-1;\n          await setSync(segIdx,miles,true);",
+`if(Number.isFinite(miles)){
+          markVoiceResult('SYNC accepted — '+miles+' miles to waypoint '+wn);
+          const segIdx=wn-1;
+          await setSync(segIdx,miles,true);`
+  );
+
   html=html.replace(
     "recognition.onnomatch=()=>log('Recognition no-match (ignored)');",
     "recognition.onnomatch=()=>log('NO TRANSCRIPT — Chrome returned a no-match event; no recognized text was provided.');"
