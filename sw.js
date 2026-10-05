@@ -1,5 +1,5 @@
-const CACHE='flightfolio-tour-v26';
-const ACTIVE='./leg54.tour.json';
+const CACHE='flightfolio-tour-v27';
+const ACTIVE='./leg55.tour.json';
 const ASSETS=['./index.html','./manifest.webmanifest',ACTIVE,'./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',event=>{
@@ -32,10 +32,10 @@ async function activePage(request){
   ]);
   let tourText=rawTourText.replace(/Trip resume/g,'Trip continue');
   let html=base;
-  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v26 — Leg 54</title>');
-  html=html.replace(/v21 · Leg 50/g,'v26 · Leg 54');
-  html=html.replace(/Reset Leg 50/g,'Reset Leg 54');
-  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 54 player v26 loaded');
+  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v27 — Leg 55</title>');
+  html=html.replace(/v21 · Leg 50/g,'v27 · Leg 55');
+  html=html.replace(/Reset Leg 50/g,'Reset Leg 55');
+  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 55 player v27 loaded');
 
   html=html.replace(/Briefing complete — tour paused\. Take off when ready, then say “Trip resume\.”/g,
     'Briefing complete — tour paused. Take off when ready, then say “Trip continue.”');
@@ -60,6 +60,48 @@ async function activePage(request){
   html=html.replace(/“Tour status” \/ “Trip update”/g,'“Trip update” / “Trip status”');
   html=html.replace(/<li>“Tour continue”<\/li>/g,'<li>“Trip continue” / “Tour continue”</li>');
   html=html.replace(/Use <b>Tour<\/b> or <b>Trip<\/b> interchangeably\./g,'Use <b>Trip</b> as the primary wake word; <b>Tour</b> remains fully supported.');
+
+  html=html.replace(
+    /function log\(msg\)\{[\s\S]*?\n  \}\n  function save\(\)/,
+`let flightLogActive=false;
+  function log(msg){
+    if(!flightLogActive) return;
+    const stamp = new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    const lines = ((\`[\${stamp}] \${msg}\\n\`) + els.log.textContent).split('\\n').slice(0,200);
+    els.log.textContent = lines.join('\\n');
+  }
+  function save()`
+  );
+
+  html=html.replace(
+    "async function startTourExperience(){\n    if(!app.briefingPlayed){",
+`async function startTourExperience(){
+    if(!flightLogActive){
+      flightLogActive=true;
+      els.log.textContent='';
+      log('FLIGHT LOG STARTED');
+    }
+    if(!app.briefingPlayed){`
+  );
+
+  html=html.replace(
+    "function resetTour(){\n    clearSchedule();",
+`function resetTour(){
+    flightLogActive=false;
+    els.log.textContent='';
+    clearSchedule();`
+  );
+
+  html=html.replace(
+    "log(`Destination confirmed; ${tour.title} complete`);\n      if(announce) speak(`Destination confirmed. ${tour.title} complete.`);",
+`log(\`Destination confirmed; \${tour.title} complete\`);
+      stopRecognitionLoop();
+      els.mic.textContent='OFF — flight complete';
+      els.mic.className='goodtxt';
+      log('FLIGHT COMPLETE — microphone stopped; diagnostic log frozen.');
+      flightLogActive=false;
+      if(announce) speak(\`Destination confirmed. \${tour.title} complete. Microphone off.\`);`
+  );
 
   html=html.replace(
     "log(`Recognition alternatives: ${alternatives.join(' | ')}`);",
