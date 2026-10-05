@@ -1,56 +1,61 @@
-FLIGHTFOLIO TOUR PLAYER v27 — LEG 55
+FLIGHTFOLIO TOUR PLAYER v28 — LEG 56
 
 ROUTE
-KWYS Yellowstone Airport
--> Madison Junction Approach
--> Grand Prismatic West Pass
--> Old Faithful West Pass
--> Craig Pass Corridor
--> West Thumb Viewing Pass
--> Yellowstone Lake South Arm
--> South Entrance Valley
--> Jackson Lake East Shore
--> KJAC Jackson Hole Airport
+KJAC Jackson Hole Airport
+-> Hoback Canyon Entry
+-> Hoback River Bend
+-> Bondurant Valley
+-> Wind River West View
+-> Upper Green Basin Entry
+-> [silent manual routing point]
+-> KPNA Ralph Wenz Field
 
 PLANNED ALTITUDE
-11,000 ft
+10,500 ft
 
 DISTANCE / TIME
-Route geometry: 84.79 NM
-Estimated en-route time at initial effective 120 KT: 42.4 minutes
+Route geometry: 75.19 NM
+Estimated en-route time at initial effective 120 KT: 37.6 minutes
 
 NARRATION
-In-flight blocks: 37
-In-flight words: about 1,543
-Approx. in-flight narration: 10.6 minutes
+In-flight blocks: 28
+In-flight words: about 1,091
+Approx. in-flight narration: 7.5 minutes
 
-LEG 55 AUTHORING / PLAYER CHANGES
+LEG 56 AUTHORING / PLAYER CHANGES
 
-1. BROADER STORY MIX
-Geology is mixed with tourism, visitor culture, human history, architecture, odd historical customs,
-and aviation. Yellowstone had 4,762,988 recreation visits in 2025; Grand Teton had 3,800,648.
+1. SILENT MANUAL POINT
+The PLN contains a manual point west of Pinedale. Geometry indicates it is primarily a sightseeing setup that brings the final path closer to Pinedale before continuing to Ralph Wenz Field. It is deliberately invisible to spoken narration and requires no Trip waypoint confirmation.
 
-2. VISUAL LANDMARK TIMING
-Grand Prismatic, Old Faithful, Yellowstone Lake and the Tetons are acknowledged before the aircraft
-reaches the abeam point. Detailed stories are clustered around the useful viewing window.
+2. CONTENT MIX
+Geography and wildlife are mixed with fur-trade history, John Hoback and the Astorians, Bondurant's diamond-funded church and barbecue, pronghorn migration, the Green River Drift cattle drive, Wind River recreation, the Green River Rendezvous, Pinedale tourism, and Ralph Wenz aviation history.
 
-3. DISTANT-PLACE DISCIPLINE
-No named attraction is stretched far up-route simply to eliminate silence. Distance is stated when
-an early setup materially helps orientation.
+3. NO AUTHORING/META LANGUAGE
+Spoken narration contains no explanation of why material was scheduled, why a point exists, why the route bends, or why one story type was chosen over another.
 
-4. FLIGHT-RECORDER DIAGNOSTICS
-The diagnostic log begins when START TOUR / Trip start begins the flight workflow.
-The log is capped at the most recent 200 meaningful entries.
-When Trip destination completes the flight, speech recognition stops and the log freezes.
+4. SPEECH SERIALIZATION
+Waypoint reminders, scheduled narration, confirmations, and other spoken items now queue behind speech already in progress. A newly due story should no longer cancel a waypoint reminder halfway through.
 
-5. TRIP IS PRIMARY
+5. WAYPOINT/SYNC RECOGNITION
+Common Chrome substitutions such as "weigh point", "weight point", and spaced "way point" are normalized to waypoint. Additional sync-like substitutions are also tolerated.
+
+6. RECENT VOICE ATTEMPTS
+The page shows the most recent eight recognized attempts with:
+- what Chrome heard
+- normalized/interpreted text
+- parser result when available
+The microphone still shuts off at Trip destination and the completed-flight diagnostics remain readable.
+
+7. TRIP IS PRIMARY
 After the briefing, say Trip continue. Tour remains accepted as a secondary wake word.
 
 START WORKFLOW
-1. Test microphone if desired.
-2. Press START TOUR or say Trip start.
-3. Briefing plays and tour remains paused.
-4. Taxi/take off.
-5. Once established, say Trip continue.
-6. Confirm waypoints with Trip waypoint one through eight.
-7. At KJAC say Trip destination. The microphone will turn off and the diagnostic log will freeze.
+1. Refresh the hosted page once after this deployment.
+2. Test microphone if desired.
+3. Press START TOUR or say Trip start.
+4. Briefing plays and tour remains paused.
+5. Taxi/take off.
+6. Once established, say Trip continue.
+7. Confirm the five announced waypoints with Trip waypoint one through five.
+8. Do not announce the manual point; simply fly through it.
+9. At KPNA say Trip destination. The microphone will turn off and diagnostics will freeze.
