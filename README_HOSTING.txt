@@ -25,7 +25,7 @@ Approx. in-flight narration: 7.5 minutes
 LEG 56 AUTHORING / PLAYER CHANGES
 
 1. SILENT MANUAL POINT
-The PLN contains a manual point west of Pinedale. Geometry indicates it is primarily a sightseeing setup that brings the final path closer to Pinedale before continuing to Ralph Wenz Field. It is deliberately invisible to spoken narration and requires no Trip waypoint confirmation.
+The PLN contains a manual point west of Pinedale. Its primary purpose is logistical: it softens the otherwise awkward near-90-degree arrival geometry and gives a straighter setup toward Ralph Wenz Field. It also brings the flight closer to Pinedale, so the surrounding town remains useful sightseeing territory. The point itself is deliberately invisible to spoken narration and requires no Trip waypoint confirmation.
 
 2. CONTENT MIX
 Geography and wildlife are mixed with fur-trade history, John Hoback and the Astorians, Bondurant's diamond-funded church and barbecue, pronghorn migration, the Green River Drift cattle drive, Wind River recreation, the Green River Rendezvous, Pinedale tourism, and Ralph Wenz aviation history.
