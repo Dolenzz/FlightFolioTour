@@ -1,61 +1,56 @@
-FLIGHTFOLIO TOUR PLAYER v28 — LEG 56
+FLIGHTFOLIO TOUR PLAYER v29 — LEG 57
 
 ROUTE
-KJAC Jackson Hole Airport
--> Hoback Canyon Entry
--> Hoback River Bend
--> Bondurant Valley
--> Wind River West View
--> Upper Green Basin Entry
--> [silent manual routing point]
--> KPNA Ralph Wenz Field
+KPNA Ralph Wenz Field
+-> Big Sandy Valley Approach
+-> South Pass Viewing Corridor
+-> Oregon Buttes West View
+-> Lander Valley Entry
+-> KLND Hunt Field
 
 PLANNED ALTITUDE
-10,500 ft
+11,000 ft
 
 DISTANCE / TIME
-Route geometry: 75.19 NM
-Estimated en-route time at initial effective 120 KT: 37.6 minutes
+Route geometry: 65.93 NM
+Estimated en-route time at initial effective 120 KT: 33.0 minutes
 
 NARRATION
-In-flight blocks: 28
-In-flight words: about 1,091
-Approx. in-flight narration: 7.5 minutes
+In-flight blocks: 19
+Approx. in-flight narration: about 7 minutes
 
-LEG 56 AUTHORING / PLAYER CHANGES
+LEG 57 AUTHORING / PLAYER CHANGES
 
-1. SILENT MANUAL POINT
-The PLN contains a manual point west of Pinedale. Its primary purpose is logistical: it softens the otherwise awkward near-90-degree arrival geometry and gives a straighter setup toward Ralph Wenz Field. It also brings the flight closer to Pinedale, so the surrounding town remains useful sightseeing territory. The point itself is deliberately invisible to spoken narration and requires no Trip waypoint confirmation.
+1. COMPLETE STORIES BY DEFAULT
+Closely related facts are kept together as one contiguous narration block unless geography genuinely requires separation. Do not split anecdotes merely to create more narration events.
 
-2. CONTENT MIX
-Geography and wildlife are mixed with fur-trade history, John Hoback and the Astorians, Bondurant's diamond-funded church and barbecue, pronghorn migration, the Green River Drift cattle drive, Wind River recreation, the Green River Rendezvous, Pinedale tourism, and Ralph Wenz aviation history.
+2. EVERY FLIGHT-PLAN TURN POINT IS OPERATIONAL
+Every actual route waypoint remains in the announced waypoint sequence. A point does not need a sightseeing story to be operationally acknowledged.
 
-3. NO AUTHORING/META LANGUAGE
-Spoken narration contains no explanation of why material was scheduled, why a point exists, why the route bends, or why one story type was chosen over another.
+3. PLACE DISTANCE VS ROUTE DISTANCE
+Narration about towns and landmarks should use direct geographic distance when a distance is spoken. Waypoint reminders and sync timing continue to use distance along the flight path.
 
-4. SPEECH SERIALIZATION
-Waypoint reminders, scheduled narration, confirmations, and other spoken items now queue behind speech already in progress. A newly due story should no longer cancel a waypoint reminder halfway through.
+4. TRIP NEXT WAYPOINT
+New informational voice command:
+- Trip next waypoint
+- Trip next point
+- Trip which waypoint
+- Trip what waypoint
+The player answers with the next announced waypoint number and place name, or identifies the destination. It does not change timing or advance the tour.
 
-5. WAYPOINT/SYNC RECOGNITION
-Common Chrome substitutions such as "weigh point", "weight point", and spaced "way point" are normalized to waypoint. Additional sync-like substitutions are also tolerated.
+5. SPEECH / RECOGNITION IMPROVEMENTS RETAINED
+Waypoint reminders and narration are serialized so the narrator should not interrupt herself. Common recognition variants such as weigh point, weight point and way point remain normalized to waypoint, along with sync/sink-style variants. Recent voice attempts remain visible after the flight.
 
-6. RECENT VOICE ATTEMPTS
-The page shows the most recent eight recognized attempts with:
-- what Chrome heard
-- normalized/interpreted text
-- parser result when available
-The microphone still shuts off at Trip destination and the completed-flight diagnostics remain readable.
-
-7. TRIP IS PRIMARY
-After the briefing, say Trip continue. Tour remains accepted as a secondary wake word.
+6. NO AUTHORING OR ROUTE-CONSTRUCTION LANGUAGE
+The spoken tour does not explain why a route bends, why a waypoint exists, why a story was scheduled at a certain moment, or why the story mix was chosen.
 
 START WORKFLOW
-1. Refresh the hosted page once after this deployment.
+1. Refresh the hosted page once after deployment.
 2. Test microphone if desired.
 3. Press START TOUR or say Trip start.
 4. Briefing plays and tour remains paused.
 5. Taxi/take off.
 6. Once established, say Trip continue.
-7. Confirm the five announced waypoints with Trip waypoint one through five.
-8. Do not announce the manual point; simply fly through it.
-9. At KPNA say Trip destination. The microphone will turn off and diagnostics will freeze.
+7. Confirm waypoints with Trip waypoint one through four.
+8. Use Trip next waypoint at any time if you want the next tour waypoint number/name repeated.
+9. At KLND say Trip destination. The microphone will turn off and diagnostics will freeze.
