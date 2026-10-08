@@ -1,48 +1,44 @@
-FLIGHTFOLIO TOUR PLAYER v29 — LEG 57
+FLIGHTFOLIO TOUR PLAYER v30 — LEG 58
 
 ROUTE
-KPNA Ralph Wenz Field
--> Big Sandy Valley Approach
--> South Pass Viewing Corridor
--> Oregon Buttes West View
--> Lander Valley Entry
--> KLND Hunt Field
+KLND Hunt Field
+-> Beaver Rim Eastbound
+-> Sweetwater Uplands Pass
+-> Split Rock North Pass
+-> Rawlins North Basin
+-> KRWL Rawlins Municipal Airport
 
 PLANNED ALTITUDE
-11,000 ft
+10,000 ft
 
 DISTANCE / TIME
-Route geometry: 65.93 NM
-Estimated en-route time at initial effective 120 KT: 33.0 minutes
+Route geometry: 114.10 NM
+Estimated en-route time at initial effective 120 KT: 57.1 minutes
 
 NARRATION
-In-flight blocks: 19
-Approx. in-flight narration: about 7 minutes
+In-flight blocks: 25
+In-flight words: about 1,317
+Approx. in-flight narration: about 9 minutes
 
-LEG 57 AUTHORING / PLAYER CHANGES
+LEG 58 AUTHORING / PLAYER NOTES
 
 1. COMPLETE STORIES BY DEFAULT
-Closely related facts are kept together as one contiguous narration block unless geography genuinely requires separation. Do not split anecdotes merely to create more narration events.
+Closely related facts stay together unless geography genuinely requires separation. Jeffrey City's uranium boom-and-bust story and the Split Rock landmark story are each kept cohesive rather than artificially fragmented.
 
 2. EVERY FLIGHT-PLAN TURN POINT IS OPERATIONAL
-Every actual route waypoint remains in the announced waypoint sequence. A point does not need a sightseeing story to be operationally acknowledged.
+All four route waypoints are announced and remain available for Trip waypoint confirmations and Trip next waypoint.
 
 3. PLACE DISTANCE VS ROUTE DISTANCE
-Narration about towns and landmarks should use direct geographic distance when a distance is spoken. Waypoint reminders and sync timing continue to use distance along the flight path.
+Spoken distances to towns or landmarks should describe direct geographic distance, not route mileage. Waypoint reminders and sync timing continue to use distance along the flight path.
 
 4. TRIP NEXT WAYPOINT
-New informational voice command:
-- Trip next waypoint
-- Trip next point
-- Trip which waypoint
-- Trip what waypoint
-The player answers with the next announced waypoint number and place name, or identifies the destination. It does not change timing or advance the tour.
+Trip next waypoint, Trip next point, Trip which waypoint, and Trip what waypoint remain available. The command reports the next waypoint number/name without advancing the tour.
 
 5. SPEECH / RECOGNITION IMPROVEMENTS RETAINED
-Waypoint reminders and narration are serialized so the narrator should not interrupt herself. Common recognition variants such as weigh point, weight point and way point remain normalized to waypoint, along with sync/sink-style variants. Recent voice attempts remain visible after the flight.
+Speech remains serialized so narration should not interrupt itself. Way point / weigh point / weight point and common sync substitutions remain normalized. Recent voice attempts remain visible after the flight.
 
 6. NO AUTHORING OR ROUTE-CONSTRUCTION LANGUAGE
-The spoken tour does not explain why a route bends, why a waypoint exists, why a story was scheduled at a certain moment, or why the story mix was chosen.
+Spoken narration contains no explanation of why a waypoint exists, why a story is scheduled at a particular time, or why one type of story was chosen over another.
 
 START WORKFLOW
 1. Refresh the hosted page once after deployment.
@@ -53,4 +49,4 @@ START WORKFLOW
 6. Once established, say Trip continue.
 7. Confirm waypoints with Trip waypoint one through four.
 8. Use Trip next waypoint at any time if you want the next tour waypoint number/name repeated.
-9. At KLND say Trip destination. The microphone will turn off and diagnostics will freeze.
+9. At KRWL say Trip destination. The microphone will turn off and diagnostics will freeze.
