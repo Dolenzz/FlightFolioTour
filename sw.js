@@ -1,5 +1,5 @@
-const CACHE='flightfolio-tour-v29';
-const ACTIVE='./leg57.tour.json';
+const CACHE='flightfolio-tour-v30';
+const ACTIVE='./leg58.tour.json';
 const ASSETS=['./index.html','./manifest.webmanifest',ACTIVE,'./icon-192.png','./icon-512.png'];
 
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));});
@@ -15,10 +15,10 @@ async function activePage(request){
   let tourText=rawTourText.replace(/Trip resume/g,'Trip continue');
   let html=base;
 
-  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v29 — Leg 57</title>');
-  html=html.replace(/v21 · Leg 50/g,'v29 · Leg 57');
-  html=html.replace(/Reset Leg 50/g,'Reset Leg 57');
-  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 57 player v29 loaded');
+  html=html.replace(/<title>[\s\S]*?<\/title>/i,'<title>FlightFolio Tour Player v30 — Leg 58</title>');
+  html=html.replace(/v21 · Leg 50/g,'v30 · Leg 58');
+  html=html.replace(/Reset Leg 50/g,'Reset Leg 58');
+  html=html.replace(/Leg 50 player v21 loaded/g,'Leg 58 player v30 loaded');
   html=html.replace(/Briefing complete — tour paused\. Take off when ready, then say “Trip resume\.”/g,'Briefing complete — tour paused. Take off when ready, then say “Trip continue.”');
   html=html.replace(/Briefing complete — tour paused and listening\. Take off when ready, then say “Trip resume\.”/g,'Briefing complete — tour paused and listening. Take off when ready, then say “Trip continue.”');
   html=html.replace(/“Tour start” \/ “Trip start”/g,'“Trip start” / “Tour start”');
