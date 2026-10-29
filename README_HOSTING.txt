@@ -1,49 +1,56 @@
-FLIGHTFOLIO TOUR PLAYER v32 — LEG 60
+FLIGHTFOLIO TOUR PLAYER v33 — LEG 61
 
 ROUTE
-KCYS Cheyenne Regional Airport
--> Coors Field East Viewing Pass
--> Red Rocks Northern Viewing Pass
--> Boulder Flatirons East Pass
--> Longs Peak Eastern Viewing Pass
--> KFNL Northern Colorado Regional Airport
+KFNL Northern Colorado Regional Airport
+-> Cheyenne Plains Approach
+-> Cheyenne Frontier Days Pass
+-> Lodgepole Creek Exit
+-> KIBM Kimball Municipal Airport
 
 PLANNED ALTITUDE
 8,500 ft
 
 DISTANCE / TIME
-Route geometry: 142.39 NM
-Estimated en-route time at initial tour speed 120 KT: 71.2 minutes
+Route geometry: 94.56 NM
+Estimated en-route time at initial tour speed 120 KT: 47.3 minutes
 
 NARRATION
-In-flight blocks: 30
-Approx. in-flight narration: about 11 minutes
+In-flight blocks: 21
+In-flight words: about 1,169
+Approx. in-flight narration: about 8 minutes
 
-LEG 60 AUTHORING / PLAYER NOTES
+LEG 61 AUTHORING / PLAYER NOTES
 
-1. VISUAL LANDMARK GEOMETRY
-For named visual targets, narration is based on the feature itself rather than simply the associated route waypoint. Callouts identify the side of the aircraft and avoid implying a close pass when the feature is distant.
-- Coors Field: about 0.75 NM west of the route, on the right side of the southbound pass.
-- Red Rocks Amphitheatre: about 4 NM south of the viewing waypoint, off the left side.
-- Flatirons: about 4 NM west of the northbound route, off the left side.
-- Longs Peak: about 17 NM west of its viewing waypoint; this is deliberately described as a broad mountain view, not a close pass.
+1. MICRO-ORDER WITHIN A SIGHTSEEING CLUSTER
+The Leg 60 Boulder/Flatirons feedback is now a permanent authoring rule. Nearby sights are narrated in the order the aircraft actually encounters them, not merely grouped into the same general neighborhood.
 
-2. SMALL VS PROMINENT LANDMARKS
-The Leg 59 Ames Monument lesson is retained. Historical importance does not imply visual prominence. Narration should say when a target is small, distant, or potentially difficult to identify from the aircraft.
+2. POST-WAYPOINT SIGHT CHECK
+The Leg 60 Mile High Stadium omission is now a permanent check. After each waypoint, inspect the next several miles on the new heading for noteworthy sports venues, buildings, campuses, industrial landmarks, cultural sites, and other recognizable human-made features.
 
-3. LONG FIRST SEGMENT
-The 84-NM Cheyenne-to-Denver segment uses regional material appropriate to the country under the aircraft: northern Front Range settlement, Fort Collins/CSU, Greeley and irrigation, the urban corridor, and the Rocky Mountain Arsenal. Denver-specific material begins only as the aircraft actually approaches Denver.
+3. CHEYENNE CLUSTER ORDER
+After waypoint two turns the aircraft east, the Cheyenne stories follow the actual viewing sequence off the left side:
+- F. E. Warren Air Force Base
+- Cheyenne Frontier Days / Frontier Park
+- central Cheyenne / Capitol and Depot district
+- Union Pacific Big Boy / steam-shop story
+Frontier Park is several miles from the route and is explicitly described as a potentially difficult visual target rather than an obvious landmark.
 
-4. TIGHT STORY CLUSTERS
-Coors Field, Red Rocks, Boulder/Flatirons, and Longs Peak each receive geographically compact story clusters. Do not spread one attraction's material across unrelated stretches merely to avoid silence.
+4. SMALL VS PROMINENT LANDMARKS
+Historical importance does not imply visual prominence. Narration distinguishes between a worthwhile story and something the pilot should realistically expect to identify from altitude.
 
-5. EVERY FLIGHT-PLAN TURN POINT IS OPERATIONAL
-All four route waypoints are announced and remain available for Trip waypoint confirmations and Trip next waypoint.
+5. DESTINATION-TOWN TIMING
+Kimball-specific material is kept near the end of the leg. Because Kimball Municipal Airport lies south of the town center, narration explicitly notes that the airport arrives before the airplane reaches the town itself. This retains the lesson from the Rawlins arrival on Leg 58.
 
-6. SPEED LOGIC UNCHANGED
-No pacing code changes were made. Continue using TAS as the practical cockpit reference and continue the user's TAS +5/+7 comparison if desired.
+6. REGIONAL FILLER FOR OPEN COUNTRY
+The open stretches use material that belongs to the terrain currently below the airplane: missile fields, the Lodgepole Creek corridor, the Union Pacific, the Lincoln Highway, and western Nebraska settlement patterns. Future-town stories are not pulled forward simply to avoid silence.
 
-7. VOICE FEATURES RETAINED
+7. EVERY FLIGHT-PLAN TURN POINT IS OPERATIONAL
+All three route waypoints are announced and remain available for Trip waypoint confirmations and Trip next waypoint.
+
+8. SPEED LOGIC UNCHANGED
+No pacing-code change was made. Continue using TAS as the practical cockpit reference and continue any TAS-plus-offset testing as desired.
+
+9. VOICE FEATURES RETAINED
 Trip next waypoint / next point / which waypoint / what waypoint remain available. Speech serialization, waypoint and Sync aliases, voice-attempt diagnostics, and destination microphone shutdown remain unchanged.
 
 START WORKFLOW
@@ -53,6 +60,6 @@ START WORKFLOW
 4. Briefing plays and the tour remains paused.
 5. Taxi and take off.
 6. Once established, say Trip continue.
-7. Confirm waypoints with Trip waypoint one through four.
+7. Confirm waypoints with Trip waypoint one through three.
 8. Use Trip next waypoint whenever you want the next tour waypoint number/name repeated.
-9. At KFNL say Trip destination.
+9. At KIBM say Trip destination.
