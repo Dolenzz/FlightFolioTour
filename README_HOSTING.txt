@@ -1,56 +1,55 @@
-FLIGHTFOLIO TOUR PLAYER v33 — LEG 61
+FLIGHTFOLIO TOUR PLAYER v34 — LEG 62
 
 ROUTE
-KFNL Northern Colorado Regional Airport
--> Cheyenne Plains Approach
--> Cheyenne Frontier Days Pass
--> Lodgepole Creek Exit
--> KIBM Kimball Municipal Airport
+KIBM Kimball Municipal Airport
+-> Chimney Rock South View
+-> North Platte Valley Turn
+-> Scotts Bluff East View
+-> Wildcat Hills East Flank
+-> KAIA Alliance Municipal Airport
 
 PLANNED ALTITUDE
-8,500 ft
+6,500 ft
 
 DISTANCE / TIME
-Route geometry: 94.56 NM
-Estimated en-route time at initial tour speed 120 KT: 47.3 minutes
+Route geometry: 89.65 NM
+Estimated en-route time at initial tour speed 120 KT: 44.8 minutes
 
 NARRATION
-In-flight blocks: 21
-In-flight words: about 1,169
+In-flight blocks: 24
+In-flight words: about 1,122
 Approx. in-flight narration: about 8 minutes
 
-LEG 61 AUTHORING / PLAYER NOTES
+LEG 62 AUTHORING / PLAYER NOTES
 
-1. MICRO-ORDER WITHIN A SIGHTSEEING CLUSTER
-The Leg 60 Boulder/Flatirons feedback is now a permanent authoring rule. Nearby sights are narrated in the order the aircraft actually encounters them, not merely grouped into the same general neighborhood.
+1. STRICT FEATURE ORDER
+Named places are tied to their real position along the flight path. A place-specific story does not move ahead of a waypoint that physically precedes the place unless the feature is genuinely visible from long range and the narration explicitly treats it as a distant visual.
 
-2. POST-WAYPOINT SIGHT CHECK
-The Leg 60 Mile High Stadium omission is now a permanent check. After each waypoint, inspect the next several miles on the new heading for noteworthy sports venues, buildings, campuses, industrial landmarks, cultural sites, and other recognizable human-made features.
+2. NO AUTHORING OR SEQUENCING EXPLANATIONS IN SPOKEN NARRATION
+This is absolute. The passenger-facing narrator never explains why a waypoint exists, why a story is being told, how the route was designed, why the material is sequenced in a certain order, or what the authoring process is doing. Testing status is not an exception.
 
-3. CHEYENNE CLUSTER ORDER
-After waypoint two turns the aircraft east, the Cheyenne stories follow the actual viewing sequence off the left side:
-- F. E. Warren Air Force Base
-- Cheyenne Frontier Days / Frontier Park
-- central Cheyenne / Capitol and Depot district
-- Union Pacific Big Boy / steam-shop story
-Frontier Park is several miles from the route and is explicitly described as a potentially difficult visual target rather than an obvious landmark.
+3. CHIMNEY ROCK TIMING
+Chimney Rock narration begins after waypoint one, when the route turns northwest and the formation is ahead-right roughly four nautical miles away. The story remains together through the closest viewing period.
 
-4. SMALL VS PROMINENT LANDMARKS
-Historical importance does not imply visual prominence. Narration distinguishes between a worthwhile story and something the pilot should realistically expect to identify from altitude.
+4. SCOTTS BLUFF TIMING
+Scotts Bluff material remains in the WP2-to-WP3 segment, with the bluff off the left side and closest near waypoint three. Gering/Scottsbluff local context is kept at the end of that same segment rather than being pulled earlier.
 
-5. DESTINATION-TOWN TIMING
-Kimball-specific material is kept near the end of the leg. Because Kimball Municipal Airport lies south of the town center, narration explicitly notes that the airport arrives before the airplane reaches the town itself. This retains the lesson from the Rawlins arrival on Leg 58.
+5. WILDCAT HILLS
+After waypoint three, the Wildcat Hills are explicitly described as behind-left while the aircraft turns northeast. The narration does not imply a close overflight.
 
-6. REGIONAL FILLER FOR OPEN COUNTRY
-The open stretches use material that belongs to the terrain currently below the airplane: missile fields, the Lodgepole Creek corridor, the Union Pacific, the Lincoln Highway, and western Nebraska settlement patterns. Future-town stories are not pulled forward simply to avoid silence.
+6. ALLIANCE ARRIVAL
+Alliance-specific stories are held for the final segment. Alliance lies off the left near arrival. Carhenge is treated as a small, potentially difficult target rather than an obvious aerial landmark. The former Alliance Army Air Base story is saved for the airport approach.
 
-7. EVERY FLIGHT-PLAN TURN POINT IS OPERATIONAL
-All three route waypoints are announced and remain available for Trip waypoint confirmations and Trip next waypoint.
+7. HUMAN-INTEREST MIX
+The leg combines Oregon Trail history, geology, irrigation and sugar-beet agriculture, the Hiram Scott legend, Wildcat Hills wildlife, the courthouse-move story, Carhenge, and World War Two aviation history.
 
-8. SPEED LOGIC UNCHANGED
-No pacing-code change was made. Continue using TAS as the practical cockpit reference and continue any TAS-plus-offset testing as desired.
+8. EVERY FLIGHT-PLAN TURN POINT IS OPERATIONAL
+All four route waypoints are announced and remain available for Trip waypoint confirmations and Trip next waypoint.
 
-9. VOICE FEATURES RETAINED
+9. SPEED LOGIC UNCHANGED
+No pacing-code change was made. TAS remains the practical cockpit reference.
+
+10. VOICE FEATURES RETAINED
 Trip next waypoint / next point / which waypoint / what waypoint remain available. Speech serialization, waypoint and Sync aliases, voice-attempt diagnostics, and destination microphone shutdown remain unchanged.
 
 START WORKFLOW
@@ -60,6 +59,6 @@ START WORKFLOW
 4. Briefing plays and the tour remains paused.
 5. Taxi and take off.
 6. Once established, say Trip continue.
-7. Confirm waypoints with Trip waypoint one through three.
+7. Confirm waypoints with Trip waypoint one through four.
 8. Use Trip next waypoint whenever you want the next tour waypoint number/name repeated.
-9. At KIBM say Trip destination.
+9. At KAIA say Trip destination.
